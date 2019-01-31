@@ -116,8 +116,8 @@
             }
         },
         {
-            "question": "What kind of instrument most pleases your ear?",
-            "answers": ["The violin", "The trumpet", "The piano", "The drum"],
+            "question": "کدام یک از این ساز ها به گوش شما لذت بخش می آید ؟",
+            "answers": ["ویولن", "ترومپت", "پیانو", "درام"],
             "percentage": {
                 "gryffindor": {"0": 17, "1": 18, "2": 21, "3": 44},
                 "ravenclaw": {"0": 20, "1": 17, "2": 46, "3": 17},
@@ -128,8 +128,8 @@
     ],
     [
         {
-            "question": "Which of the following do you find most difficult to deal with?",
-            "answers": ["Hunger", "Cold", "Loneliness", "Boredom", "Being ignored"],
+            "question": "کنار اومدن باکدام یک از شرایط زیر برای شما سخت تر است؟",
+            "answers": ["گرسنگی", "سرما", "تنهایی", "خستگی و ملالت", "نادیده گرفته شدن"],
             "percentage": {
                 "gryffindor": {"0": 10, "1": 14, "2": 32, "3": 32, "4": 11},
                 "ravenclaw": {"0": 29, "1": 14, "2": 13, "3": 13, "4": 32},
@@ -138,8 +138,8 @@
             }
         },
         {
-            "question": "A troll has gone berserk in the Headmaster’s study at Hogwarts. It is about to smash, crush and tear several irreplaceable items and treasures. In which order would you rescue these objects from the troll’s club, if you could?",
-            "answers": ["First, a nearly perfected cure for dragon pox. Then student records going back 1000 years. Finally, a mysterious handwritten book full of strange runes.", "First, student records going back 1000 years. Then a mysterious handwritten book full of strange runes. Finally, a nearly perfected cure for dragon pox.", "First, a mysterious handwritten book full of strange runes. Then a nearly perfected cure for dragon pox. Finally, student records going back 1000 years.", "First, a nearly perfected cure for dragon pox. Then a mysterious handwritten book full of strange runes. Finally, student records going back 1000 years.", "First student records going back 1000 years. Then, a nearly perfected cure for dragon pox. Finally, a mysterious handwritten book full of strange runes.", "First, a mysterious handwritten book full of strange runes. Then student records going back 1000 years. Finally, a nearly perfected cure for dragon pox."],
+            "question": "یک ترول به دفتر مدیریت هاگوارتز حمله کرده است. به نظر شورش کرده و می خواهد لوازم غیرقابل تعویض و باارزشی را نابود کند. اگه بتونید، کدام یک از موارد زیر را به ترتیب از دست ترول حفظ می کنید؟",
+            "answers": ["ابتدا یک معجون تقریبا کامل درمان آبله اژدها، سپس سوابق دانش آموزان ک به 1000 سال پیش باز می گردد و درنهایت، یک کتاب دست نویس رمز آلود پر از طلسم های عجیب", " ابتدا سوابق دانش آموزان که به 1000 سال پیش باز می گردد، سپس یک کتاب دست نویس رمز آلود پراز طلسم های عجیب و در نهایت معجون نسبتا کامل درمان آبله ی اژدها", "ابتدا یک کتاب دست نویس رمز آلود پراز طلسم های عجیب، سپس معجون نسبتا کامل درمان آبله ی اژدها و در نهایت سوابق دانش آموزان که به 1000 سال پیش باز می گردد.", "ابتدا معجون نسبتا کامل درمان آبله ی اژدها سپس یک کتاب دست نویس رمز آلود پراز طلسم های عجیب و در نهایت سوابق دانش آموزان که به 1000 سال پیش باز می گردد", " ابتدا سوابق دانش آموزان که به 1000 سال پیش باز می گردد سپس یک کتاب دست نویس رمز آلود پراز طلسم های عجیب ودرنهایت  معجون نسبتا کامل درمان آبله ی اژدها"],
             "percentage": {
                 "gryffindor": {"0": 23, "1": 14, "2": 12, "3": 29, "4": 13, "5": 9},
                 "ravenclaw": {"0": 10, "1": 11, "2": 30, "3": 12, "4": 10, "5": 27},
