@@ -77,7 +77,7 @@
     [
         {
             "question": "چهار جعبه مقابل شماست ، سعی میکنید کدام یک را باز کنید?",
-            "answers": ["The small tortoiseshell box, embellished with gold, inside which some small creature seems to be squeaking.", "The gleaming jet black box with a silver lock and key, marked with a mysterious rune that you know to be the mark of Merlin.", "The ornate golden casket, standing on clawed feet, whose inscription warns that both secret knowledge and unbearable temptation lie within.", "The small pewter box, unassuming and plain, with a scratched message upon it that reads ‘I open only for the worthy.’"],
+            "answers": ["جعبه کوچک لاک پشتی، تزئین شده با طلا، که  به نظر می رسد موجود کوچکی داخل جعبه در حال ورجه وورجه است", "جعبه پر زرق و برق مشکی رنگ با قفل و کلید نقره ای ، که نشان مرمورزی که می دانید علامت مرلین است روی آن حک شده است", "جعبه طلایی کوچک و مزین، که روی پاهای چنگال مانند قرار دارد، و کتیبه ای که با بیانی نرم می گوید : هم دانش مخفی و هم وسوسه غیر قابل تحملی در داخل آن است","جعبه کوچک سربی، ساده وغیر پیچیده، همراه با یک پیام دست نویس روی آن که می گوید `من فقط برای آن که شایسته ست، باز می شوم"],
             "percentage": {
                 "gryffindor": {"0": 14, "1": 18, "2": 19, "3": 49},
                 "ravenclaw": {"0": 18, "1": 20, "2": 44, "3": 19},
@@ -86,8 +86,8 @@
             }
         },
         {
-            "question": "Once every century, the Flutterby bush produces flowers that adapt their scent to attract the unwary. If it lured you, it would smell of:",
-            "answers": ["A crackling log fire", "The sea", "Fresh parchment", "Home"],
+            "question": "یک بار در هر قرن، گیاه خیارک غده دار گل هایی را به وجود می اورد که رایحه آن را برای جذب کردن افراد به طور ناآگاهانه سازگار می کند. (چون در اصل این یک گیاه نفرت انگیز و چرک آلود و زشت است و این رایحه خوش ناشی از گل های آن که هر صد سال خودشان را نشان می دهند، به نوعی باعث گول زدن جادوگرانی می شوند که از این گیاه نفرت دارند و بدون اینکه در نگاه اول گیاه را بشناسند و ببینند، جذب بوی آن می شوند). اگر بوی این گیاه شما را جذب کند، برای شما چه بویی می دهد؟",
+            "answers": ["سوختن یک کُنده در آتش", "دریا", "کاغذ پوستی تازه", "خانه"],
             "percentage": {
                 "gryffindor": {"0": 44, "1": 21, "2": 16, "3": 19},
                 "ravenclaw": {"0": 17, "1": 22, "2": 45, "3": 15},
