@@ -106,8 +106,8 @@
             }
         },
         {
-            "question": "Four goblets are placed before you. Which would you choose to drink?",
-            "answers": ["The foaming, frothing, silvery liquid that sparkles as though containing ground diamonds.", "The smooth, thick, richly purple drink that gives off a delicious smell of chocolate and plums.", "The golden liquid so bright that it hurts the eye, and which makes sunspots dance all around the room.", "The mysterious black liquid that gleams like ink, and gives off fumes that make you see strange visions."],
+            "question": "چهار جام مقابل شما قرار دارد، کدام یک را خواهید نوشید ؟",
+            "answers": ["جامی که حاوی مایع نقره ای جوشانی است و همانند اینکه حاوی الماس زمینی باشد، می درخشد.", "جامی که حاوی مایع طلایی رنگ است که موجب تلالو نقاط طلایی رنگش در سراسر اتاق می شود", " جامی که حاوی مایع طلایی رنگ است که موجب تلالو نقاط طلایی رنگش در سراسر اتاق می شود.", "جامی که حاوی مایع مرموز سیاه رنگ است که به فردی که آن را می نوشد، تصورات عجیب و غریبی می دهد"],
             "percentage": {
                 "gryffindor": {"0": 21, "1": 19, "2": 41, "3": 18},
                 "ravenclaw": {"0": 44, "1": 19, "2": 18, "3": 19},
