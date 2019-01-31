@@ -96,8 +96,8 @@
             }
         },
         {
-            "question": "You enter an enchanted garden. What would you be most curious to examine first?",
-            "answers": ["The silver leafed tree bearing golden apples", "The fat red toadstools that appear to be talking to each other", "The bubbling pool, in the depths of which something luminous is swirling", "The statue of an old wizard with a strangely twinkling eye"],
+            "question": "شما وارد یک باغ سحرآمیز می شوید.دوست دارید اول با کدوم مورد روبرو شوید ؟",
+            "answers": ["درختی ک برگ های نقره ای و سیب های طلایی دارد", "قارچ های سمّی ِ گرد و قرمز رنگی که به نظر می آید مشغول صحبت با یکدیگر هستند.", "برکه ای با آب خروشان{پر از حباب} که در عمیق ترین قسمتش، چیزی درخشان می چرخد.", "مجسمه ی جادوگری پیر که باچشمان عجیبش به شما چشمک می زند."],
             "percentage": {
                 "gryffindor": {"0": 17, "1": 18, "2": 16, "3": 49},
                 "ravenclaw": {"0": 45, "1": 15, "2": 22, "3": 18},
