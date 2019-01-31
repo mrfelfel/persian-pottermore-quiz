@@ -148,8 +148,8 @@
             }
         },
         {
-            "question": "Which would you rather be:",
-            "answers": ["Envied?", "Imitated?", "Trusted?", "Praised?", "Liked?", "Feared?"],
+            "question": "ترجیح می دید کدوم باشید؟",
+            "answers": ["مورد حسادت واقع شده", "مورد تقلید واقع شده", "مورد اعتماد واقع شده(معتمد)", "ستایش شده", "مورد علاقه، دوست داشته شده", "باعث ایجاد ترس شده(عامل ترس)"],
             "percentage": {
                 "gryffindor": {"0": 10, "1": 16, "2": 23, "3": 24, "4": 15, "5": 12},
                 "ravenclaw": {"0": 24, "1": 31, "2": 8, "3": 11, "4": 12, "5": 15},
@@ -160,8 +160,8 @@
     ],
     [
         {
-            "question": "If you could have any power, which would you choose?",
-            "answers": ["The power to read minds", "The power of invisibility", "The power of superhuman strength", "The power to speak to animals", "The power to change the past", "The power to change your appearance at will"],
+            "question": "مایل هستید چه قدرتی داشته باشید ؟",
+            "answers": ["قدرت ذهن خوانی", "نامرئی شدن", "یک قدرت ابر انسانی", "قدرت صحبت کردن با حیوانات", "قدرت تغییر دادن گذشته", "قدرت تغییر چهره و ظاهر به شکل دلخواه"],
             "percentage": {
                 "gryffindor": {"0": 10, "1": 33, "2": 13, "3": 11, "4": 18, "5": 15},
                 "ravenclaw": {"0": 22, "1": 10, "2": 9, "3": 19, "4": 13, "5": 28},
