@@ -254,8 +254,8 @@
     ],
     [
         {
-            "question": "If you were attending Hogwarts, which pet would you choose to take with you?",
-            "answers": ["Tabby cat", "Siamese cat", "Ginger cat", "Black cat", "White cat", "Tawny owl", "Screech owl", "Brown owl", "Snowy owl", "Barn owl", "Common toad", "Natterjack toad", "Dragon toad", "Harlequin toad", "Three toed tree toad"],
+            "question": "اگر قرار باشد به هاگوارتز بروید، کدام یک از این حیوانات خانگی را انتخاب می کنید تا باخودتان ببرید؟",
+            "answers": ["گربه ماده", "گربه تایلندی", "گربه جینجر ", "گربه سیاه", "گربه سفید", "جغد سبزه", "جغدجارزن", "جغد قهوه ای", "جغد برفی", "جغد سینه خال", "وزغ عادی", "وزغ راستین", "وزغ اژدها", "وزغ جنگجو", "وزغ درختی"],
             "percentage": {
                 "gryffindor": {"0": 7, "1": 9, "2": 8, "3": 6, "4": 6, "5": 6, "6": 7, "7": 7, "8": 5, "9": 6, "10": 7, "11": 6, "12": 9, "13": 6, "14": 6},
                 "ravenclaw": {"0": 5, "1": 5, "2": 5, "3": 5, "4": 5, "5": 11, "6": 9, "7": 11, "8": 7, "9": 11, "10": 4, "11": 5, "12": 5, "13": 4, "14": 7},
@@ -266,8 +266,8 @@
     ],
     [
         {
-            "question": "Black or White?",
-            "answers": ["Black", "White"],
+            "question": "سیاه یا سفید?",
+            "answers": ["سیاه", "سفید"],
             "percentage": {
                 "gryffindor": {"0": 73, "1": 27},
                 "ravenclaw": {"0": 29, "1": 71},
@@ -276,8 +276,8 @@
             }
         },
         {
-            "question": "Heads or Tails?",
-            "answers": ["Heads", "Tails"],
+            "question": "سر یا ته?",
+            "answers": ["سر", "ته"],
             "percentage": {
                 "gryffindor": {"0": 27, "1": 73},
                 "ravenclaw": {"0": 69, "1": 31},
@@ -286,8 +286,8 @@
             }
         },
         {
-            "question": "Left or Right?",
-            "answers": ["Left", "Right"],
+            "question": "چپ  یا راست?",
+            "answers": ["چپ", "راست"],
             "percentage": {
                 "gryffindor": {"0": 29, "1": 71},
                 "ravenclaw": {"0": 70, "1": 30},
