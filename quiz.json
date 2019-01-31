@@ -54,8 +54,8 @@
             }
         },
         {
-            "question": "How would you like to be known to history?",
-            "answers": ["The Wise", "The Good", "The Great", "The Bold"],
+            "question": "دوست دارید تاریخ از شما به چه عنوانی یاد کند ؟",
+            "answers": ["خردمند", "مهربانن", "بزرگ", "برجسته"],
             "percentage": {
                 "gryffindor": {"0": 19, "1": 17, "2": 20, "3": 44},
                 "ravenclaw": {"0": 46, "1": 16, "2": 22, "3": 17},
@@ -64,8 +64,8 @@
             }
         },
         {
-            "question": "Given the choice, would you rather invent a potion that would guarantee you:",
-            "answers": ["Love?", "Glory?", "Wisdom?", "Power?"],
+            "question": "شما مایلید معجونی اختراع کنید که چه چیزی به شما بدهد ؟",
+            "answers": ["عشق", "موفقیت", "خرد و دانش", "قدرت"],
             "percentage": {
                 "gryffindor": {"0": 19, "1": 47, "2": 18, "3": 16},
                 "ravenclaw": {"0": 18, "1": 19, "2": 43, "3": 20},
@@ -76,7 +76,7 @@
     ],
     [
         {
-            "question": "Four boxes are placed before you. Which would you try and open?",
+            "question": "چهار جعبه مقابل شماست ، سعی میکنید کدام یک را باز کنید?",
             "answers": ["The small tortoiseshell box, embellished with gold, inside which some small creature seems to be squeaking.", "The gleaming jet black box with a silver lock and key, marked with a mysterious rune that you know to be the mark of Merlin.", "The ornate golden casket, standing on clawed feet, whose inscription warns that both secret knowledge and unbearable temptation lie within.", "The small pewter box, unassuming and plain, with a scratched message upon it that reads ‘I open only for the worthy.’"],
             "percentage": {
                 "gryffindor": {"0": 14, "1": 18, "2": 19, "3": 49},
