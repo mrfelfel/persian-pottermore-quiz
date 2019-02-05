@@ -1,0 +1,79 @@
+@import url('https://fonts.googleapis.com/css?family=El+Messiri&subset=arabic');
+.imgs {
+    background-image: url("./pics/sti25_new.png");
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.purplize {
+}
+.col {
+    height: 100% !important;
+    width: 100% !important;
+}
+
+.row {
+    height: 100% !important;
+    width: 100% !important;
+
+}
+
+.section h1 {
+    color: #fff;
+    margin-top: 50%;
+    font-size: 18px;
+    text-align: center;
+  }
+  .section .mbutton {
+    position: absolute;
+    bottom: 10%;
+    left: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    text-align: center;
+    color: #fff;
+    font : bold 300 16px/1 'El Messiri',sans-serif;
+    z-index: 2;
+    white-space: nowrap;
+
+  }
+
+  form {
+      padding-top: 40px;
+  }
+  label span {
+    line-height: 1.5em;
+    font-size: 20px !important;
+    color: #fff;
+  }
+  label {
+      margin-bottom: 15px;
+  }
+  input , label{
+    direction: rtl;
+    text-align: right;
+  }
+html,body {
+    direction: rtl;
+    text-align: right;
+    height: 100% !important;
+    width: 100% !important;
+
+
+}
+.answers {
+    padding-top: 15px;
+}
+ * {
+    font-family: 'El Messiri';
+ }
+
+ ::-moz-selection { /* Code for Firefox */
+    color: transparent;
+    background: transparent;
+  }
+  
+  ::selection {
+    color: transparent;
+    background: transparent;
+  }

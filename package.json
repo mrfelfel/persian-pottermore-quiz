@@ -1,0 +1,27 @@
+{
+  "name": "persian-pottermore-quiz",
+  "version": "1.0.0",
+  "description": "hi",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mrfelfel/persian-pottermore-quiz.git"
+  },
+  "keywords": [
+    "hello"
+  ],
+  "author": "mj",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/mrfelfel/persian-pottermore-quiz/issues"
+  },
+  "homepage": "https://github.com/mrfelfel/persian-pottermore-quiz#readme",
+  "dependencies": {
+    "express": "^4.16.4",
+    "jsonwebtoken": "^8.4.0"
+  }
+}
