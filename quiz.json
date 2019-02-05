@@ -1,7 +1,7 @@
 [
     [
         {
-            "question": "طلوع یا غروب؟"
+            "question": "طلوع یا غروب؟",
              "pics" : "sti13_new.png",
             "answers": ["طلوع", "غروب"],
             "percentage": {
@@ -13,7 +13,7 @@
         },
         {
 
-            "question": "جنگل یا رودخانه"
+            "question": "جنگل یا رودخانه",
         "pics" : "sti6_new.png",
             "answers": ["جنگل", "رودخانه"],
             "percentage": {
