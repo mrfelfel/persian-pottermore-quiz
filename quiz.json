@@ -55,7 +55,7 @@
         },
         {
             "question": "دوست دارید تاریخ از شما به چه عنوانی یاد کند ؟",
-            "answers": ["خردمند", "مهربانن", "بزرگ", "برجسته"],
+            "answers": ["خردمند", "مهربان", "بزرگ", "برجسته"],
             "percentage": {
                 "gryffindor": {"0": 19, "1": 17, "2": 20, "3": 44},
                 "ravenclaw": {"0": 46, "1": 16, "2": 22, "3": 17},
@@ -107,7 +107,7 @@
         },
         {
             "question": "چهار جام مقابل شما قرار دارد، کدام یک را خواهید نوشید ؟",
-            "answers": ["جامی که حاوی مایع نقره ای جوشانی است و همانند اینکه حاوی الماس زمینی باشد، می درخشد.", "جامی که حاوی مایع طلایی رنگ است که موجب تلالو نقاط طلایی رنگش در سراسر اتاق می شود", " جامی که حاوی مایع طلایی رنگ است که موجب تلالو نقاط طلایی رنگش در سراسر اتاق می شود.", "جامی که حاوی مایع مرموز سیاه رنگ است که به فردی که آن را می نوشد، تصورات عجیب و غریبی می دهد"],
+            "answers": ["جامی که حاوی مایع نقره ای جوشانی است و همانند اینکه حاوی الماس زمینی باشد، می درخشد.", "جامی که حاوی مایع نوشیدنی ارغوانی رنگ صاف غلیظ است که بوی شکلات و الو می دهد.", " جامی که حاوی مایع طلایی رنگ است که موجب تلالو نقاط طلایی رنگش در سراسر اتاق می شود", "جامی که حاوی مایع مرموز سیاه رنگ است که به فردی که آن را می نوشد، تصورات عجیب و غریبی می دهد"],
             "percentage": {
                 "gryffindor": {"0": 21, "1": 19, "2": 41, "3": 18},
                 "ravenclaw": {"0": 44, "1": 19, "2": 18, "3": 19},
@@ -170,8 +170,8 @@
             }
         },
         {
-            "question": "What are you most looking forward to learning at Hogwarts?",
-            "answers": ["Apparition and Disapparition (being able to materialize and dematerialize at will)", "Transfiguration (turning one object into another object)", "Flying on a broomstick", "Hexes and jinxes", "All about magical creatures, and how to befriend/care for them", "Secrets about the castle", "Every area of magic I can"],
+            "question": "بیشتر به دنبال یاد گرفتن چه چیزی در هاگوارتز هستید؟",
+            "answers": ["غیب و ظاهر شدن(اپارات)", "تغییر شکل(تبدیل کردن چیزی به چیز دیگر)", "پرواز با جارو", "افسون ها و طلسم ها", "همه چیز درباره ی موجودات جادویی و نحوه ی صحیح رفتار کردن و مراقبت از ان ها", "اسرار های قلعه", "هر زمینه ای از جادو که بتوانم یاد بگیرم"],
             "percentage": {
                 "gryffindor": {"0": 19, "1": 9, "2": 19, "3": 10, "4": 9, "5": 24, "6": 11},
                 "ravenclaw": {"0": 6, "1": 27, "2": 7, "3": 11, "4": 9, "5": 13, "6": 27},
@@ -180,8 +180,8 @@
             }
         },
         {
-            "question": "Which of the following would you most like to study?",
-            "answers": ["Centaurs", "Goblins", "Merpeople", "Ghosts", "Vampires", "Werewolves", "Trolls"],
+            "question": "در مورد کدام یک از وارد زیر بیشتر دوست دارید مطالعه کنید",
+            "answers": ["سانتور ها", "گابلین ها", "مردمان دریا (موجودات ساکن در دریا)", "ارواح", "خون اشام ها", "گرگینه ها", "ترول ها"],
             "percentage": {
                 "gryffindor": {"0": 20, "1": 10, "2": 9, "3": 24, "4": 9, "5": 22, "6": 6},
                 "ravenclaw": {"0": 19, "1": 23, "2": 8, "3": 23, "4": 12, "5": 8, "6": 8},
@@ -192,8 +192,8 @@
     ],
     [
         {
-            "question": "You and two friends need to cross a bridge guarded by a river troll who insists on fighting one of you before he will let all of you pass. Do you:",
-            "answers": ["Attempt to confuse the troll into letting all three of you pass without fighting?", "Suggest drawing lots to decide which of you will fight?", "Suggest that all three of you should fight (without telling the troll)?", "Volunteer to fight?"],
+            "question": " شما و دو نفر از دوستانتان می خواهید از پل روی رودخانه ای رد شوید که توسط یک ترول محافظت می شود اصرار دارد قبل از اینکه اجازه بدهد رد شوید، باید با یکی از شما بجنگئ.چه کار میکنید؟ ",
+            "answers": ["سعی می کنید حواس غول را پرت کنید تابدون برخورد با ترول هر ۳ رد شوید؟", " قرعه کشی می کنید تا ببینید کدام یک از شما باید به نبرد ترول برود؟", "پیشنهاد می دهید که هر ۳ شما با ترول بجنگید (بدون اینکه به ترول بگویید", " برای جنگیدن با ترول داوطلب می شوید."],
             "percentage": {
                 "gryffindor": {"0": 20, "1": 16, "2": 18, "3": 46},
                 "ravenclaw": {"0": 44, "1": 17, "2": 19, "3": 19},
@@ -202,8 +202,8 @@
             }
         },
         {
-            "question": "One of your house mates has cheated in a Hogwarts exam by using a Self-Spelling Quill. Now he has come top of the class in Charms, beating you into second place. Professor Flitwick is suspicious of what happened. He draws you to one side after his lesson and asks you whether or not your classmate used a forbidden quill. What do you do?",
-            "answers": ["Lie and say you don’t know (but hope that somebody else tells Professor Flitwick the truth).", "Tell Professor Flitwick that he ought to ask your classmate (and resolve to tell your classmate that if he doesn’t tell the truth, you will).", "Tell Professor Flitwick the truth. If your classmate is prepared to win by cheating, he deserves to be found out. Also, as you are both in the same house, any points he loses will be regained by you, for coming first in his place", "You would not wait to be asked to tell Professor Flitwick the truth. If you knew that somebody was using a forbidden quill, you would tell the teacher before the exam started"],
+            "question": "یکی از هم گروهی های شما در هاگوارتز،در یک امتحان به وسیله ی پرِ خودنویس {نوعی پر که استفاده از آن در امتحانات هاگوارتز ممنوع می باشد}تقلب کرده و حالا نمره ی اول کلاس را در درس افسون ها به دست آورده است و باعث شده شما نمره ی دوم را بگیرید. پروفسور فلیت ویک به این قضیه مشکوک شده و بعد درس شما راکنار می کشد و می پرسد که دوستت از پر ممنوعه استفاده کرده است یانه.در این موقعیت چیکار می کنید؟",
+            "answers": [". به دروغ می گویید چیزی نمی دانید (ولی امیدوارید یک نفر دیگر حقیقت را به پروفسور فلیت ویک بگوید)", "به پروفسور فلیت ویک می گویید بایستی از همکلاسیتان بپرسد. و تصمیم می گیرید به همکلاسیتان بگویید اگر حقیقت را نگوید، شما حقیقت را خواهی گفت  !", "حقیقت را به پروفسور فلیت ویک می گویید. اگر همکلاسیتان آماده شده که باتقلب اول بشود، لایق این هست که دستش رو شود. همچنین چون شما هم گروه هستید، امتیازی را که او از دست می دهد شما با قرار گرفتن در جایگاه اول دوباره به دست می آورید.", "منتظر پرسیدن پروفسور فلیت ویک نمی مانید و خودتان حقیقت را به پروفسور می گویید. اگر بدانید کسی از پر استفاده می کند، قبل از شروع آزمون به پروفسور می گویید."],
             "percentage": {
                 "gryffindor": {"0": 17, "1": 43, "2": 22, "3": 18},
                 "ravenclaw": {"0": 14, "1": 16, "2": 45, "3": 25},
@@ -212,8 +212,9 @@
             }
         },
         {
-            "question": "A Muggle confronts you and says that they are sure you are a witch or wizard. Do you:",
-            "answers": ["Ask what makes them think so?", "Agree, and ask whether they’d like a free sample of a jinx?", "Agree, and walk away, leaving them to wonder whether you are bluffing?", "Tell them that you are worried about their mental health, and offer to call a doctor."],
+            "question": ":یک ماگل با شما مواجه می شود و می گوید که آنها مطمئن هستند شما یک جادوگر هستید. شما",
+            "answers": ["می پرسید چه چیزی باعث شده این چنین فکر کنند ؟", "قبول می کنید و از آنها می خواهید که آیا می توانند یک نمونه ساده از نفرین و افسون انجام دهند ؟", "بول می کنید و از آنها دور می شوید و آنها را با این خیال و فکر پر تعجب که شما دارید بلوف می زنید، ترکشان می کنید؟", "به آنها توضیح میدهید که برای سلامتی عقلی شان نگران هستید و آنها را به خبر کردن یک دکتر پیشنهاد می کنید.
+"],
             "percentage": {
                 "gryffindor": {"0": 17, "1": 21, "2": 47, "3": 16},
                 "ravenclaw": {"0": 45, "1": 17, "2": 21, "3": 17},
@@ -222,8 +223,8 @@
             }
         },
         {
-            "question": "Which nightmare would frighten you most?",
-            "answers": ["Standing on top of something very high and realizing suddenly that there are no hand- or footholds, nor any barrier to stop you falling.", "An eye at the keyhole of the dark, windowless room in which you are locked.", "Waking up to find that neither your friends nor your family have any idea who you are.", "Being forced to speak in such a silly voice that hardly anyone can understand you, and everyone laughs at you."],
+            "question": "کدام یک از این کابوس ها شمارا بیشتر از همه می ترساند؟",
+            "answers": ["بالای یک بلندی ایستاده اید و ناگهان متوجه می شوید هیچ جای دست یا پایی نیست که جلوی افتادن شمارا بگیرد", "در یه اتاق تاریک و بدون پنجره هستید و در قفل می باشد و یک چشم از جای کلید می بینید.", "ز خواب بیدار شوید و ببینید هیچ کدام از اعضای خانواده یا دوستانتان شمارا نمی شناسند.", "محبور باشید با یک صدای احمقانه که به سختی کسی متوجه می شود چه می گویید صحبت کنید و همه به شما بخندند."],
             "percentage": {
                 "gryffindor": {"0": 20, "1": 45, "2": 17, "3": 18},
                 "ravenclaw": {"0": 46, "1": 18, "2": 15, "3": 21},
@@ -232,8 +233,8 @@
             }
         },
         {
-            "question": "Which road tempts you most?",
-            "answers": ["The wide, sunny, grassy lane", "The narrow, dark, lantern-lit alley", "The twisting, leaf-strewn path through woods", "The cobbled street lined with ancient buildings"],
+            "question": "کدام یک از مسیر های زیر شما را بیشتر جذب می کند؟",
+            "answers": ["آفتابی، مسیر چمن زار", "کوچه تنگ و باریکی که با نور کم فانوس روشن است", "مسیر پرپیچ و خم در جنگلی با درختان پهن برگ :", "خیابان سنگفرش شده، پر از ساختمان های قدیمی "],
             "percentage": {
                 "gryffindor": {"0": 18, "1": 19, "2": 44, "3": 19},
                 "ravenclaw": {"0": 14, "1": 20, "2": 22, "3": 43},
@@ -242,8 +243,8 @@
             }
         },
         {
-            "question": "Late at night, walking alone down the street, you hear a peculiar cry that you believe to have a magical source. Do you:",
-            "answers": ["Proceed with caution, keeping one hand on your concealed wand and an eye out for any disturbance?", "Draw your wand and try to discover the source of the noise?", "Draw your wand and stand your ground?", "Withdraw into the shadows to await developments, while mentally reviewing the most appropriate defensive and offensive spells, should trouble occur?"],
+            "question": "شب دیر وقت هست و به تنهایی دارید در خیابان راه می روید،صدای  گریه ای عجیب می شنوید ک مطمئنید منشاء جادویی دارد.. واکنش شما چیست؟",
+            "answers": ["به آرامی شروع به حرکت می کنید درحالیکه یک دستتان روی چوبدستی پنهان شدتونه و حواستان به هرنوع مزاحمتی هست", " چوبدستی تونو بیرون می آورید و سعی میکنید منبع صدای آزاردهنده  رو پیدا کنید.", "چوبدستی تونو بیرون می آورید و سرجای خودتون وایمیستید.", "به سمت سایه ها عقب نشینی می کنید و منتظر می مانید تا دشمنتان پیشروی کند  و در ذهنتان اکثر وردهای مناسب دفاع و حمله رو مرور می کنید."],
             "percentage": {
                 "gryffindor": {"0": 19, "1": 45, "2": 17, "3": 19},
                 "ravenclaw": {"0": 17, "1": 21, "2": 19, "3": 44},
