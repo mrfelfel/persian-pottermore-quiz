@@ -140,7 +140,7 @@ function TelegramLoginWidgetInline() {
   return (
     <div className="flex justify-center">
       <iframe
-        src="https://oauth.telegram.org/auth?bot_id=HogwartsQuizBot&origin=https://persian-pottermore-quiz.vercel.app&embed=1&request_access=write"
+        src="https://oauth.telegram.org/auth?bot_id=VezaratJadooQuizBot&origin=https://persian-pottermore-quiz.vercel.app&embed=1&request_access=write"
         width="300"
         height="400"
         frameBorder="0"
