@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { Vazirmatn } from "next/font/google";
 import "./globals.css";
-import { AuthProvider } from "@/components/AuthProvider";
+import { TelegramProvider } from "@/components/TelegramProvider";
 
 const vazir = Vazirmatn({
   subsets: ["arabic"],
@@ -10,14 +10,17 @@ const vazir = Vazirmatn({
 
 export const metadata: Metadata = {
   title: "گروه‌بندی هاگوارتز",
-  description: "کوییز گروه‌بندی هاگوارتز - کدوم گروه هاگوارتزی تویی؟",
+  description: "کدوم گروه هاگوارتزی تو هستی؟",
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="fa" dir="rtl" className={`${vazir.variable}`}>
+      <head>
+        <script src="https://telegram.org/js/telegram-web-app.js" />
+      </head>
       <body className="bg-gray-950 text-white min-h-screen font-[family-name:var(--font-vazir)]">
-        <AuthProvider>{children}</AuthProvider>
+        <TelegramProvider>{children}</TelegramProvider>
       </body>
     </html>
   );

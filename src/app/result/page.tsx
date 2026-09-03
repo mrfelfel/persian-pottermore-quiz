@@ -2,13 +2,13 @@
 
 import { useState, useEffect } from 'react';
 import { useRouter } from 'next/navigation';
-import { useAuth } from '@/components/AuthProvider';
+import { useTWA } from '@/components/TelegramProvider';
 import { getHouse, HOUSES } from '@/lib/houses';
 import { HouseResult } from '@/lib/quiz';
 import Link from 'next/link';
 
 export default function ResultPage() {
-  const { user } = useAuth();
+  const { user } = useTWA();
   const router = useRouter();
   const [results, setResults] = useState<HouseResult[] | null>(null);
   const [showDetails, setShowDetails] = useState(false);
@@ -30,6 +30,8 @@ export default function ResultPage() {
 
   if (!results || !user) return null;
 
+  const displayName = user.first_name;
+
   const topHouse = getHouse(results[0].house);
 
   return (
@@ -49,6 +51,7 @@ export default function ResultPage() {
             {topHouse.name}
           </h1>
           <p className="text-lg text-gray-300">{topHouse.trait}</p>
+          <p className="text-sm text-gray-500 mt-2">{displayName} عزیز</p>
         </div>
 
         {/* Score circle */}

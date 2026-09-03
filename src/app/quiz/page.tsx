@@ -2,11 +2,11 @@
 
 import { useState, useEffect, useCallback } from 'react';
 import { useRouter } from 'next/navigation';
-import { useAuth } from '@/components/AuthProvider';
+import { useTWA } from '@/components/TelegramProvider';
 import { QuizQuestion, generateQuiz, calculateResult } from '@/lib/quiz';
 
 export default function QuizPage() {
-  const { user } = useAuth();
+  const { user } = useTWA();
   const router = useRouter();
 
   const [allQuestions, setAllQuestions] = useState<QuizQuestion[][]>([]);
