@@ -5,11 +5,11 @@ import { usePathname } from 'next/navigation';
 import { hapticFeedback } from '@/lib/twa';
 
 const TABS = [
-  { href: '/', icon: 'school', label: 'خانه' },
-  { href: '/quiz', icon: 'quiz', label: 'کوییز' },
-  { href: '/profile', icon: 'badge', label: 'شناسنامه' },
-  { href: '/blog', icon: 'newspaper', label: 'آرشیو' },
-  { href: '/leaderboard', icon: 'leaderboard', label: 'رتبه' },
+  { href: '/', iconClass: 'icon-home', label: 'خانه' },
+  { href: '/quiz', iconClass: 'icon-quiz', label: 'کوییز' },
+  { href: '/profile', iconClass: 'icon-badge', label: 'شناسنامه' },
+  { href: '/blog', iconClass: 'icon-newspaper', label: 'آرشیو' },
+  { href: '/leaderboard', iconClass: 'icon-leaderboard', label: 'رتبه' },
 ];
 
 export default function NavBar() {
@@ -33,10 +33,8 @@ export default function NavBar() {
               onClick={() => hapticFeedback('light')}
               className="flex flex-col items-center gap-0.5 px-3 py-1"
             >
-              <span className={`material-symbols-outlined text-[22px] ${active ? 'fill' : ''}`}
-                style={{ color: active ? 'var(--tg-button)' : 'var(--tg-hint)' }}>
-                {tab.icon}
-              </span>
+              <span className={`${tab.iconClass} text-lg ${active ? 'opacity-100' : 'opacity-40'}`}
+                style={{ filter: active ? 'none' : 'grayscale(1)' }} />
               <span className={`text-[10px] ${active ? 'font-medium' : ''}`}
                 style={{ color: active ? 'var(--tg-button)' : 'var(--tg-hint)' }}>
                 {tab.label}

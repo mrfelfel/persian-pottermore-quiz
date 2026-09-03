@@ -1,71 +1,40 @@
 @import "tailwindcss";
 
-:root {
-  --tg-bg: #17212b;
-  --tg-bg-secondary: #1e2c3a;
-  --tg-text: #f5f5f5;
-  --tg-hint: #6d7f8f;
-  --tg-button: #5288c1;
-  --tg-button-text: #ffffff;
-  --tg-link: #6ab2f2;
-  --tg-destructive: #e53935;
-  --safe-top: env(safe-area-inset-top, 0px);
-  --safe-bottom: env(safe-area-inset-bottom, 0px);
+/* Icon system using CSS pseudo-elements with unicode */
+.icon::before {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  font-size: 18px;
+  line-height: 1;
 }
 
-* {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-  -webkit-tap-highlight-color: transparent;
-}
-
-html, body {
-  background: var(--tg-bg);
-  color: var(--tg-text);
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
-    Ubuntu, Cantarell, "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
-  overflow-x: hidden;
-  overflow-y: auto;
-  overscroll-behavior: none;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
-
-/* Hide scrollbar */
-::-webkit-scrollbar { display: none; }
-html { scrollbar-width: none; }
-
-/* Selection */
-::selection {
-  background: rgba(82, 136, 193, 0.3);
-  color: #fff;
-}
-
-/* Animations */
-@keyframes slideUp {
-  from { opacity: 0; transform: translateY(16px); }
-  to { opacity: 1; transform: translateY(0); }
-}
-
-@keyframes fadeIn {
-  from { opacity: 0; }
-  to { opacity: 1; }
-}
-
-@keyframes scaleIn {
-  from { opacity: 0; transform: scale(0.85); }
-  to { opacity: 1; transform: scale(1); }
-}
-
-.animate-slide-up {
-  animation: slideUp 0.3s ease-out both;
-}
-
-.animate-fade-in {
-  animation: fadeIn 0.35s ease-out both;
-}
-
-.animate-scale-in {
-  animation: scaleIn 0.3s ease-out both;
-}
+.icon-home::before { content: "🏠"; }
+.icon-quiz::before { content: "📝"; }
+.icon-badge::before { content: "🪪"; }
+.icon-newspaper::before { content: "📰"; }
+.icon-leaderboard::before { content: "🏆"; }
+.icon-wand::before { content: "🪄"; }
+.icon-key::before { content: "🔑"; }
+.icon-lock::before { content: "🔒"; }
+.icon-person::before { content: "👤"; }
+.icon-sparkle::before { content: "✨"; }
+.icon-shield::before { content: "🛡️"; }
+.icon-book::before { content: "📖"; }
+.icon-star::before { content: "⭐"; }
+.icon-trophy::before { content: "🏆"; }
+.icon-calendar::before { content: "📅"; }
+.icon-link::before { content: "🔗"; }
+.icon-expand::before { content: "▾"; }
+.icon-school::before { content: "🏫"; }
+.icon-code::before { content: "💻"; }
+.icon-science::before { content: "⚗️"; }
+.icon-flask::before { content: "🧪"; }
+.icon-search::before { content: "🔍"; }
+.icon-wizard::before { content: "🧙"; }
+.icon-castle::before { content: "🏰"; }
+.icon-crystal::before { content: "💎"; }
+.icon-cat::before { content: "🐱"; }
+.icon-fire::before { content: "🔥"; }
+.icon-sword::before { content: "⚔️"; }
+.icon-medal::before { content: "🏅"; }
+.icon-crown::before { content: "👑"; }
+.icon-close::before { content: "✕"; }

@@ -21,7 +21,6 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     <html lang="fa" dir="rtl">
       <head>
         <script src="https://telegram.org/js/telegram-web-app.js" />
-        <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,1,0" rel="stylesheet" />
       </head>
       <body>
         <TelegramProvider>{children}</TelegramProvider>

@@ -17,8 +17,7 @@ export default function BlogPage() {
     <div className="min-h-[100dvh] pb-20" style={{ background: 'var(--tg-bg)' }}>
       <main className="px-5 pt-6 max-w-lg mx-auto">
         <h1 className="text-lg font-bold mb-1" style={{ color: 'var(--tg-text)' }}>
-          <span className="material-symbols-outlined align-middle text-xl">newspaper</span>
-          {' '}آرشیو تاریخی
+          <span className="icon-newspaper" /> آرشیو تاریخی
         </h1>
         <p className="text-xs mb-4" style={{ color: 'var(--tg-hint)' }}>
           {BLOG_POSTS.length} پست از تاریخچه جامعه جادوگری فارسی
@@ -42,12 +41,11 @@ export default function BlogPage() {
             return (
               <button key={key}
                 onClick={() => setActiveEra(activeEra === key ? null : key)}
-                className="shrink-0 px-3 py-1.5 rounded-full text-[11px] font-medium flex items-center gap-1"
+                className="shrink-0 px-3 py-1.5 rounded-full text-[11px] font-medium"
                 style={{
                   background: activeEra === key ? 'var(--tg-button)' : 'var(--tg-bg-secondary)',
                   color: activeEra === key ? 'var(--tg-button-text)' : 'var(--tg-hint)',
                 }}>
-                <span className="material-symbols-outlined text-[14px]">{era.icon}</span>
                 {era.label} ({count})
               </button>
             );
@@ -64,9 +62,9 @@ export default function BlogPage() {
                 onClick={() => { hapticFeedback('light'); setExpanded(expanded === post.id ? null : post.id); }}
                 className="w-full text-right p-4">
                 <div className="flex items-start gap-3">
-                  <span className="material-symbols-outlined text-xl shrink-0 mt-0.5"
+                  <span className={`text-base shrink-0 mt-0.5`}
                     style={{ color: 'var(--tg-button)' }}>
-                    {ERAS[post.era]?.icon || 'article'}
+                    📰
                   </span>
                   <div className="flex-1 min-w-0">
                     <h2 className="text-sm font-medium mb-1" style={{ color: 'var(--tg-text)' }}>
@@ -74,21 +72,19 @@ export default function BlogPage() {
                     </h2>
                     <div className="flex items-center gap-2 text-[11px]"
                       style={{ color: 'var(--tg-hint)' }}>
-                      <span className="material-symbols-outlined text-[14px]">calendar_today</span>
-                      {post.dateJalali}
+                      📅 {post.dateJalali}
                     </div>
                     <div className="text-[11px] mt-0.5" style={{ color: 'var(--tg-hint)' }}>
-                      <span className="material-symbols-outlined text-[14px] align-middle">person</span>
-                      {' '}{post.author}
+                      👤 {post.author}
                     </div>
                   </div>
-                  <span className="material-symbols-outlined text-lg shrink-0"
+                  <span className="text-lg shrink-0"
                     style={{
                       color: 'var(--tg-hint)',
                       transform: expanded === post.id ? 'rotate(180deg)' : 'rotate(0deg)',
                       transition: 'transform 0.2s',
                     }}>
-                    expand_more
+                    ▾
                   </span>
                 </div>
               </button>
@@ -105,8 +101,7 @@ export default function BlogPage() {
 
                   <div className="flex items-center gap-1.5 text-[10px]"
                     style={{ color: 'var(--tg-hint)' }}>
-                    <span className="material-symbols-outlined text-[12px]">link</span>
-                    منبع: {post.source}
+                    🔗 منبع: {post.source}
                   </div>
 
                   <div className="flex flex-wrap gap-1.5 mt-2">
@@ -125,7 +120,7 @@ export default function BlogPage() {
 
         {filtered.length === 0 && (
           <div className="text-center py-12" style={{ color: 'var(--tg-hint)' }}>
-            <span className="material-symbols-outlined text-4xl block mb-2">search_off</span>
+            <div className="text-3xl mb-2">🔍</div>
             پستی در این دوره یافت نشد
           </div>
         )}
