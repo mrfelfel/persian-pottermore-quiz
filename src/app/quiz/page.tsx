@@ -120,7 +120,7 @@ export default function QuizPage() {
 
       {/* Scrollable content */}
       <div className="flex-1 overflow-y-auto">
-        <div className="px-4 sm:px-5 pt-5 pb-4">
+        <div className="px-4 sm:px-5 pt-6 pb-6">
 
           {/* Background image */}
           {pic && (
@@ -129,7 +129,7 @@ export default function QuizPage() {
           )}
 
           {/* Question card */}
-          <div className={`rounded-2xl p-4 sm:p-5 mb-5 relative z-10 ${animating ? '' : 'animate-slide-up'}`}
+          <div className={`rounded-2xl p-5 sm:p-6 mb-7 relative z-10 ${animating ? '' : 'animate-slide-up'}`}
             style={{ background: 'var(--tg-bg-secondary)' }}>
             <p className="text-sm sm:text-base leading-[1.8] text-center"
               style={{ color: 'var(--tg-text)' }}>
@@ -138,12 +138,12 @@ export default function QuizPage() {
           </div>
 
           {/* Answer options */}
-          <div className="space-y-2.5 relative z-10">
+          <div className="space-y-3 relative z-10">
             {question.answers.map((answer, i) => (
               <button
                 key={i}
                 onClick={() => { hapticFeedback('light'); setSelectedAnswer(i); }}
-                className="w-full text-right rounded-xl px-4 py-3.5 sm:py-4 text-[13px] sm:text-sm leading-[1.7] transition-all duration-150 active:scale-[0.98]"
+                className="w-full text-right rounded-xl px-4 sm:px-5 py-4 text-[13px] sm:text-sm leading-[1.7] transition-all duration-150 active:scale-[0.98]"
                 style={{
                   background: selectedAnswer === i ? 'var(--tg-button)' : 'var(--tg-bg-secondary)',
                   color: selectedAnswer === i ? 'var(--tg-button-text)' : 'var(--tg-text)',
@@ -158,8 +158,8 @@ export default function QuizPage() {
 
       {/* Bottom — browser only */}
       {!isInTelegram && (
-        <footer className="shrink-0 px-4 sm:px-5 pb-5 sm:pb-6 pt-2"
-          style={{ paddingBottom: 'max(20px, var(--safe-bottom))' }}>
+        <footer className="shrink-0 px-4 sm:px-5 pb-6 pt-3"
+          style={{ paddingBottom: 'max(24px, var(--safe-bottom))' }}>
           <TGButton onClick={handleAnswer} disabled={selectedAnswer === null}>
             {current + 1 >= selected.length
               ? `${TG_EMOJI.trophy} مشاهده نتیجه`

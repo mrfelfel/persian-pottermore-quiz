@@ -60,7 +60,7 @@ export default function ResultPage() {
           </div>
 
           {/* Score ring */}
-          <div className={`flex justify-center my-6 sm:my-8 ${show ? 'animate-scale-in' : 'opacity-0'}`}
+          <div className={`flex justify-center my-8 sm:my-10 ${show ? 'animate-scale-in' : 'opacity-0'}`}
             style={{ animationDelay: '0.2s' }}>
             <div className="relative w-32 h-32 sm:w-[140px] sm:h-[140px]">
               <svg className="w-full h-full -rotate-90" viewBox="0 0 120 120">
@@ -81,7 +81,7 @@ export default function ResultPage() {
           </div>
 
           {/* Description card */}
-          <div className={`rounded-2xl p-4 sm:p-5 mb-5 ${show ? 'animate-slide-up' : 'opacity-0'}`}
+          <div className={`rounded-2xl p-5 sm:p-6 mb-6 ${show ? 'animate-slide-up' : 'opacity-0'}`}
             style={{ background: 'var(--tg-bg-secondary)', animationDelay: '0.3s' }}>
             <p className="text-[13px] sm:text-sm leading-[1.8]" style={{ color: 'var(--tg-text)' }}>
               {top.description}
@@ -89,16 +89,16 @@ export default function ResultPage() {
           </div>
 
           {/* All houses breakdown */}
-          <div className={`space-y-2.5 ${show ? 'animate-slide-up' : 'opacity-0'}`}
+          <div className={`space-y-3 ${show ? 'animate-slide-up' : 'opacity-0'}`}
             style={{ animationDelay: '0.4s' }}>
-            <div className="text-xs sm:text-[13px] font-medium px-1 mb-1"
+            <div className="text-xs sm:text-[13px] font-medium px-1 mb-1.5"
               style={{ color: 'var(--tg-hint)' }}>
               {TG_EMOJI.bar_chart} نتیجه کامل
             </div>
             {results.map((r, i) => {
               const house = getHouse(r.house);
               return (
-                <div key={r.house} className="rounded-xl p-3"
+                <div key={r.house} className="rounded-xl p-3.5 sm:p-4"
                   style={{ background: 'var(--tg-bg-secondary)' }}>
                   <div className="flex items-center justify-between mb-2">
                     <div className="flex items-center gap-2">
@@ -130,8 +130,8 @@ export default function ResultPage() {
       </main>
 
       {/* Bottom buttons */}
-      <footer className={`shrink-0 px-4 sm:px-5 pb-5 sm:pb-6 pt-2 space-y-2.5 ${show ? 'animate-slide-up' : 'opacity-0'}`}
-        style={{ animationDelay: '0.6s', paddingBottom: 'max(20px, var(--safe-bottom))' }}>
+      <footer className={`shrink-0 px-4 sm:px-5 pb-6 pt-3 space-y-3 ${show ? 'animate-slide-up' : 'opacity-0'}`}
+        style={{ animationDelay: '0.6s', paddingBottom: 'max(24px, var(--safe-bottom))' }}>
 
         <Link href="/quiz" onClick={() => hapticFeedback('medium')}>
           <TGButton>{TG_EMOJI.party} دوباره بازی کن</TGButton>
