@@ -12,7 +12,6 @@ import {
   TG_EMOJI,
 } from '@/lib/twa';
 import { QuizQuestion, generateQuiz, calculateResult } from '@/lib/quiz';
-import { getHouse } from '@/lib/houses';
 import TGButton from '@/components/TGButton';
 
 export default function QuizPage() {
@@ -30,7 +29,6 @@ export default function QuizPage() {
 
   useEffect(() => {
     if (!user) { router.push('/'); return; }
-
     fetch('/quiz.json')
       .then((r) => r.json())
       .then((data: QuizQuestion[][]) => {
@@ -42,7 +40,6 @@ export default function QuizPage() {
       });
   }, [user, router]);
 
-  // Telegram BackButton
   useEffect(() => {
     if (isInTelegram && !loading) {
       showBackButton(() => router.push('/'));
@@ -50,12 +47,12 @@ export default function QuizPage() {
     }
   }, [isInTelegram, loading, router]);
 
-  // Telegram MainButton
   useEffect(() => {
     if (isInTelegram && !loading) {
       const isLast = current + 1 >= selected.length;
-      const label = isLast ? `${TG_EMOJI.trophy} مشاهده نتیجه` : `${TG_EMOJI.sparkle} سوال بعدی`;
-
+      const label = isLast
+        ? `${TG_EMOJI.trophy} مشاهده نتیجه`
+        : `${TG_EMOJI.sparkle} سوال بعدی`;
       if (selectedAnswer !== null) {
         showMainButton(label, () => handleAnswer());
       } else {
@@ -67,10 +64,8 @@ export default function QuizPage() {
 
   const handleAnswer = useCallback(() => {
     if (selectedAnswer === null || animating) return;
-
     hapticFeedback('light');
     setAnimating(true);
-
     const newAnswers = [...answers, selectedAnswer];
     setAnswers(newAnswers);
 
@@ -91,8 +86,9 @@ export default function QuizPage() {
 
   if (loading || !user) {
     return (
-      <div className="min-h-screen flex items-center justify-center" style={{ background: 'var(--tg-bg)' }}>
-        <div className="text-[18px] animate-fade-in" style={{ color: 'var(--tg-hint)' }}>
+      <div className="min-h-[100dvh] flex items-center justify-center"
+        style={{ background: 'var(--tg-bg)' }}>
+        <div className="text-base animate-fade-in" style={{ color: 'var(--tg-hint)' }}>
           {TG_EMOJI.wand} در حال بارگذاری...
         </div>
       </div>
@@ -100,83 +96,76 @@ export default function QuizPage() {
   }
 
   const question = selected[current];
-  const progress = ((current) / selected.length) * 100;
+  const progress = (current / selected.length) * 100;
 
   return (
-    <div className="min-h-screen flex flex-col" style={{ background: 'var(--tg-bg)' }}>
+    <div className="min-h-[100dvh] flex flex-col" style={{ background: 'var(--tg-bg)' }}>
 
-      {/* Progress header */}
-      <div className="sticky top-0 z-10" style={{ background: 'var(--tg-bg)' }}>
-        <div className="flex items-center justify-between px-5 pt-2 pb-1">
-          <span className="text-[13px] font-medium" style={{ color: 'var(--tg-hint)' }}>
+      {/* Progress bar — sticky top */}
+      <header className="sticky top-0 z-10 shrink-0" style={{ background: 'var(--tg-bg)' }}>
+        <div className="flex items-center justify-between px-4 sm:px-5 pt-2.5 pb-2">
+          <span className="text-xs sm:text-[13px] font-medium" style={{ color: 'var(--tg-hint)' }}>
             {TG_EMOJI.book} سوال {current + 1} از {selected.length}
           </span>
-          <span className="text-[13px] font-bold" style={{ color: 'var(--tg-button)' }}>
+          <span className="text-xs sm:text-[13px] font-bold" style={{ color: 'var(--tg-button)' }}>
             %{Math.round(progress)}
           </span>
         </div>
-        <div className="h-[3px] mx-5 rounded-full overflow-hidden" style={{ background: 'var(--tg-bg-secondary)' }}>
-          <div
-            className="h-full rounded-full transition-all duration-500 ease-out"
-            style={{ width: `${progress}%`, background: 'var(--tg-button)' }}
-          />
+        <div className="h-[3px] mx-4 sm:mx-5 rounded-full overflow-hidden"
+          style={{ background: 'var(--tg-bg-secondary)' }}>
+          <div className="h-full rounded-full transition-all duration-500 ease-out"
+            style={{ width: `${progress}%`, background: 'var(--tg-button)' }} />
+        </div>
+      </header>
+
+      {/* Scrollable content */}
+      <div className="flex-1 overflow-y-auto">
+        <div className="px-4 sm:px-5 pt-5 pb-4">
+
+          {/* Background image */}
+          {pic && (
+            <div className="absolute inset-0 bg-cover bg-center opacity-10 pointer-events-none"
+              style={{ backgroundImage: `url(${pic})` }} />
+          )}
+
+          {/* Question card */}
+          <div className={`rounded-2xl p-4 sm:p-5 mb-5 relative z-10 ${animating ? '' : 'animate-slide-up'}`}
+            style={{ background: 'var(--tg-bg-secondary)' }}>
+            <p className="text-sm sm:text-base leading-[1.8] text-center"
+              style={{ color: 'var(--tg-text)' }}>
+              {question.question}
+            </p>
+          </div>
+
+          {/* Answer options */}
+          <div className="space-y-2.5 relative z-10">
+            {question.answers.map((answer, i) => (
+              <button
+                key={i}
+                onClick={() => { hapticFeedback('light'); setSelectedAnswer(i); }}
+                className="w-full text-right rounded-xl px-4 py-3.5 sm:py-4 text-[13px] sm:text-sm leading-[1.7] transition-all duration-150 active:scale-[0.98]"
+                style={{
+                  background: selectedAnswer === i ? 'var(--tg-button)' : 'var(--tg-bg-secondary)',
+                  color: selectedAnswer === i ? 'var(--tg-button-text)' : 'var(--tg-text)',
+                  border: `1.5px solid ${selectedAnswer === i ? 'var(--tg-button)' : 'transparent'}`,
+                }}>
+                {answer}
+              </button>
+            ))}
+          </div>
         </div>
       </div>
 
-      {/* Question */}
-      <div className="flex-1 flex flex-col px-5 pt-6 pb-4">
-
-        {/* Background image */}
-        {pic && (
-          <div
-            className="absolute inset-0 bg-cover bg-center opacity-10 pointer-events-none"
-            style={{ backgroundImage: `url(${pic})` }}
-          />
-        )}
-
-        {/* Question card */}
-        <div
-          className={`rounded-[16px] p-5 mb-6 relative z-10 ${animating ? '' : 'animate-slide-up'}`}
-          style={{ background: 'var(--tg-bg-secondary)' }}
-        >
-          <p className="text-[16px] leading-[1.7] text-center" style={{ color: 'var(--tg-text)' }}>
-            {question.question}
-          </p>
-        </div>
-
-        {/* Answer options */}
-        <div className="space-y-2.5 relative z-10">
-          {question.answers.map((answer, i) => (
-            <button
-              key={i}
-              onClick={() => { hapticFeedback('light'); setSelectedAnswer(i); }}
-              className={`ripple w-full text-right px-4 py-[14px] rounded-[12px] text-[14px] leading-[1.6] transition-all active:scale-[0.98] ${
-                selectedAnswer === i ? 'border-2' : 'border'
-              }`}
-              style={{
-                background: selectedAnswer === i ? 'var(--tg-button)' : 'var(--tg-bg-secondary)',
-                color: selectedAnswer === i ? 'var(--tg-button-text)' : 'var(--tg-text)',
-                borderColor: selectedAnswer === i ? 'var(--tg-button)' : 'transparent',
-              }}
-            >
-              {answer}
-            </button>
-          ))}
-        </div>
-      </div>
-
-      {/* Bottom button (browser only — TWA uses MainButton) */}
+      {/* Bottom — browser only */}
       {!isInTelegram && (
-        <div className="px-5 pb-6 pt-2">
-          <TGButton
-            onClick={handleAnswer}
-            disabled={selectedAnswer === null}
-          >
+        <footer className="shrink-0 px-4 sm:px-5 pb-5 sm:pb-6 pt-2"
+          style={{ paddingBottom: 'max(20px, var(--safe-bottom))' }}>
+          <TGButton onClick={handleAnswer} disabled={selectedAnswer === null}>
             {current + 1 >= selected.length
               ? `${TG_EMOJI.trophy} مشاهده نتیجه`
               : `${TG_EMOJI.sparkle} سوال بعدی`}
           </TGButton>
-        </div>
+        </footer>
       )}
     </div>
   );
