@@ -3,152 +3,158 @@
 import { useState, useEffect } from 'react';
 import { useRouter } from 'next/navigation';
 import { useTWA } from '@/components/TelegramProvider';
-import { getHouse, HOUSES } from '@/lib/houses';
+import { hapticFeedback, showBackButton, hideBackButton, TG_EMOJI } from '@/lib/twa';
+import { getHouse } from '@/lib/houses';
 import { HouseResult } from '@/lib/quiz';
+import TGButton from '@/components/TGButton';
 import Link from 'next/link';
 
 export default function ResultPage() {
-  const { user } = useTWA();
+  const { user, isInTelegram } = useTWA();
   const router = useRouter();
   const [results, setResults] = useState<HouseResult[] | null>(null);
-  const [showDetails, setShowDetails] = useState(false);
+  const [show, setShow] = useState(false);
 
   useEffect(() => {
-    if (!user) {
-      router.push('/');
-      return;
-    }
+    if (!user) { router.push('/'); return; }
     const saved = localStorage.getItem('hp_results');
     if (saved) {
-      setResults(JSON.parse(saved));
-      // Animate details after a delay
-      setTimeout(() => setShowDetails(true), 1500);
+      const r = JSON.parse(saved) as HouseResult[];
+      setResults(r);
+      hapticFeedback('success');
+      setTimeout(() => setShow(true), 300);
     } else {
       router.push('/quiz');
     }
   }, [user, router]);
 
+  useEffect(() => {
+    if (isInTelegram) {
+      showBackButton(() => router.push('/'));
+      return () => hideBackButton();
+    }
+  }, [isInTelegram, router]);
+
   if (!results || !user) return null;
 
-  const displayName = user.first_name;
-
-  const topHouse = getHouse(results[0].house);
+  const top = getHouse(results[0].house);
 
   return (
-    <div className="min-h-screen flex flex-col items-center px-4 py-8">
-      {/* Main result */}
-      <div className="text-center max-w-lg w-full">
-        {/* House reveal */}
+    <div className="min-h-screen flex flex-col" style={{ background: 'var(--tg-bg)' }}>
+
+      {/* House reveal */}
+      <div className="flex-1 flex flex-col items-center justify-center px-5 pb-8">
+
+        {/* Emoji */}
         <div
-          className="mb-8 animate-fade-in"
-          style={{ animation: 'fadeInUp 1s ease-out' }}
+          className={`text-[72px] leading-none mb-4 select-none ${show ? 'animate-scale-in' : 'opacity-0'}`}
         >
-          <div className="text-6xl mb-4">{topHouse.emoji}</div>
-          <h1
-            className="text-3xl md:text-4xl font-bold mb-2"
-            style={{ color: topHouse.colorBg }}
-          >
-            {topHouse.name}
-          </h1>
-          <p className="text-lg text-gray-300">{topHouse.trait}</p>
-          <p className="text-sm text-gray-500 mt-2">{displayName} عزیز</p>
+          {top.emoji}
         </div>
 
-        {/* Score circle */}
-        <div className="relative w-40 h-40 mx-auto mb-8">
+        {/* House name */}
+        <div className={`${show ? 'animate-slide-up' : 'opacity-0'}`}>
+          <div className="text-[26px] font-bold text-center" style={{ color: top.colorBg }}>
+            {top.name}
+          </div>
+          <div className="text-[14px] text-center mt-1" style={{ color: 'var(--tg-hint)' }}>
+            {top.trait}
+          </div>
+          <div className="text-[13px] text-center mt-1" style={{ color: 'var(--tg-hint)' }}>
+            {TG_EMOJI.sparkle} {user.first_name} عزیز
+          </div>
+        </div>
+
+        {/* Score ring */}
+        <div
+          className={`relative w-[140px] h-[140px] my-8 ${show ? 'animate-scale-in' : 'opacity-0'}`}
+          style={{ animationDelay: '0.2s' }}
+        >
           <svg className="w-full h-full -rotate-90" viewBox="0 0 120 120">
-            <circle
-              cx="60" cy="60" r="50"
-              fill="none" stroke="#1f2937" strokeWidth="10"
-            />
-            <circle
-              cx="60" cy="60" r="50"
-              fill="none"
-              stroke={topHouse.colorBg}
-              strokeWidth="10"
+            <circle cx="60" cy="60" r="50" fill="none"
+              stroke="var(--tg-bg-secondary)" strokeWidth="10" />
+            <circle cx="60" cy="60" r="50" fill="none"
+              stroke={top.colorBg} strokeWidth="10"
               strokeDasharray={`${results[0].percentage * 3.14} 314`}
               strokeLinecap="round"
-              className="transition-all duration-1000"
+              className="transition-all duration-[1.2s] ease-out"
+              style={{ strokeDasharray: show ? `${results[0].percentage * 3.14} 314` : '0 314' }}
             />
           </svg>
           <div className="absolute inset-0 flex flex-col items-center justify-center">
-            <span className="text-3xl font-bold" style={{ color: topHouse.colorBg }}>
+            <span className="text-[28px] font-bold" style={{ color: top.colorBg }}>
               %{results[0].percentage}
             </span>
           </div>
         </div>
 
-        {/* Description */}
+        {/* Description card */}
         <div
-          className={`bg-white/5 backdrop-blur-sm rounded-2xl p-6 mb-8 border border-white/10 transition-all duration-700 ${
-            showDetails ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
-          }`}
+          className={`w-full max-w-[340px] rounded-[16px] p-5 mb-6 ${show ? 'animate-slide-up' : 'opacity-0'}`}
+          style={{ background: 'var(--tg-bg-secondary)', animationDelay: '0.3s' }}
         >
-          <p className="text-white/80 leading-relaxed">{topHouse.description}</p>
+          <p className="text-[14px] leading-[1.7]" style={{ color: 'var(--tg-text)' }}>
+            {top.description}
+          </p>
         </div>
 
-        {/* All houses bar chart */}
-        <div
-          className={`space-y-4 mb-8 transition-all duration-700 delay-300 ${
-            showDetails ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
-          }`}
-        >
-          <h3 className="text-lg font-bold text-white/60 mb-4">نتیجه کامل</h3>
+        {/* All houses breakdown */}
+        <div className={`w-full max-w-[340px] space-y-3 ${show ? 'animate-slide-up' : 'opacity-0'}`}
+          style={{ animationDelay: '0.4s' }}>
+          <div className="text-[13px] font-medium px-1 mb-2" style={{ color: 'var(--tg-hint)' }}>
+            {TG_EMOJI.bar_chart} نتیجه کامل
+          </div>
           {results.map((r, i) => {
             const house = getHouse(r.house);
             return (
-              <div key={r.house} className="flex items-center gap-3">
-                <span className="text-xl w-8">{house.emoji}</span>
-                <div className="flex-1">
-                  <div className="flex justify-between mb-1">
-                    <span className="text-sm text-white/80">{house.name}</span>
-                    <span className="text-sm font-bold" style={{ color: house.colorBg }}>
-                      %{r.percentage}
+              <div
+                key={r.house}
+                className="rounded-[12px] p-3"
+                style={{ background: 'var(--tg-bg-secondary)' }}
+              >
+                <div className="flex items-center justify-between mb-2">
+                  <div className="flex items-center gap-2">
+                    <span className="text-[18px]">{house.emoji}</span>
+                    <span className="text-[13px] font-medium" style={{ color: 'var(--tg-text)' }}>
+                      {house.name}
                     </span>
                   </div>
-                  <div className="h-3 bg-gray-800 rounded-full overflow-hidden">
-                    <div
-                      className="h-full rounded-full transition-all duration-1000 ease-out"
-                      style={{
-                        width: showDetails ? `${r.percentage}%` : '0%',
-                        backgroundColor: house.colorBg,
-                        transitionDelay: `${i * 150}ms`,
-                      }}
-                    />
-                  </div>
+                  <span className="text-[13px] font-bold" style={{ color: house.colorBg }}>
+                    %{r.percentage}
+                  </span>
+                </div>
+                <div className="h-[6px] rounded-full overflow-hidden" style={{ background: 'var(--tg-bg)' }}>
+                  <div
+                    className="h-full rounded-full"
+                    style={{
+                      width: show ? `${r.percentage}%` : '0%',
+                      backgroundColor: house.colorBg,
+                      transition: `width 0.8s ease-out ${0.5 + i * 0.15}s`,
+                    }}
+                  />
                 </div>
               </div>
             );
           })}
         </div>
-
-        {/* Actions */}
-        <div
-          className={`space-y-4 transition-all duration-700 delay-500 ${
-            showDetails ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
-          }`}
-        >
-          <Link
-            href="/quiz"
-            className="inline-block px-8 py-3 bg-gradient-to-l from-amber-600 to-red-700 hover:from-amber-500 hover:to-red-600 rounded-full font-bold transition-all hover:scale-105"
-          >
-            دوباره امتحان کن 🔄
-          </Link>
-          <Link
-            href="/"
-            className="block text-sm text-gray-500 hover:text-gray-300 transition-colors"
-          >
-            بازگشت به صفحه اصلی
-          </Link>
-        </div>
       </div>
 
-      <style jsx>{`
-        @keyframes fadeInUp {
-          from { opacity: 0; transform: translateY(20px); }
-          to { opacity: 1; transform: translateY(0); }
-        }
-      `}</style>
+      {/* Bottom buttons */}
+      <div className={`px-5 pb-8 space-y-3 ${show ? 'animate-slide-up' : 'opacity-0'}`}
+        style={{ animationDelay: '0.6s' }}>
+
+        <Link href="/quiz" onClick={() => hapticFeedback('medium')}>
+          <TGButton variant="primary">
+            {TG_EMOJI.party} دوباره بازی کن
+          </TGButton>
+        </Link>
+
+        <Link href="/" onClick={() => hapticFeedback('light')}>
+          <TGButton variant="secondary">
+            {TG_EMOJI.castle} بازگشت به صفحه اصلی
+          </TGButton>
+        </Link>
+      </div>
     </div>
   );
 }

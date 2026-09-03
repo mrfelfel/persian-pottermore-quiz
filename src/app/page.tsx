@@ -1,76 +1,152 @@
 'use client';
 
 import { useTWA } from '@/components/TelegramProvider';
-import TelegramLogin from '@/components/TelegramLogin';
+import { hapticFeedback, TG_EMOJI } from '@/lib/twa';
+import TGButton from '@/components/TGButton';
 import Link from 'next/link';
 
 export default function Home() {
   const { user, isInTelegram, logout } = useTWA();
 
   return (
-    <div className="min-h-screen flex flex-col items-center justify-center px-4">
-      <div className="text-center max-w-lg w-full">
-        <div className="text-6xl mb-6">⚡</div>
-        <h1 className="text-4xl md:text-5xl font-bold mb-4 bg-gradient-to-l from-amber-400 via-red-500 to-purple-600 bg-clip-text text-transparent">
+    <div className="min-h-screen flex flex-col" style={{ background: 'var(--tg-bg)' }}>
+      <div className="flex-1 flex flex-col items-center justify-center px-5 pb-24">
+
+        {/* Hero icon */}
+        <div className="animate-scale-in mb-6 text-[64px] leading-none select-none">
+          {TG_EMOJI.wizard}
+        </div>
+
+        {/* Title */}
+        <h1 className="animate-slide-up text-[22px] font-bold text-center mb-2" style={{ color: 'var(--tg-text)' }}>
           گروه‌بندی هاگوارتز
         </h1>
-        <p className="text-gray-400 text-lg mb-10 leading-relaxed">
-          کدوم گروه هاگوارتزی تو هستی؟<br />
-          ۸ سوال جادویی منتظرته...
+
+        <p className="animate-slide-up text-[15px] text-center leading-relaxed mb-10" style={{ color: 'var(--tg-hint)', animationDelay: '0.05s' }}>
+          کدوم گروه هاگوارتزی تو هستی؟
         </p>
 
         {user ? (
-          <div className="space-y-6">
-            <p className="text-white text-lg">
-              سلام <span className="text-amber-400 font-bold">{user.first_name}</span> 👋
-            </p>
-            <Link
-              href="/quiz"
-              className="inline-block px-10 py-4 bg-gradient-to-l from-amber-600 to-red-700 hover:from-amber-500 hover:to-red-600 rounded-full text-lg font-bold transition-all hover:scale-105 shadow-lg shadow-amber-900/30"
+          /* Logged in — show greeting */
+          <div className="w-full max-w-[340px] animate-slide-up" style={{ animationDelay: '0.1s' }}>
+            {/* User card */}
+            <div
+              className="flex items-center gap-3 p-4 rounded-[16px] mb-8"
+              style={{ background: 'var(--tg-bg-secondary)' }}
             >
-              شروع کوییز ⚡
-            </Link>
-            {!isInTelegram && (
-              <div>
-                <button
-                  onClick={logout}
-                  className="text-sm text-gray-600 hover:text-gray-400 transition-colors"
-                >
-                  خروج
-                </button>
+              <div className="w-11 h-11 rounded-full flex items-center justify-center text-[22px] shrink-0"
+                style={{ background: 'var(--tg-button)' }}>
+                {TG_EMOJI.sparkle}
               </div>
+              <div className="flex-1 min-w-0">
+                <div className="text-[15px] font-medium truncate" style={{ color: 'var(--tg-text)' }}>
+                  {user.first_name}
+                </div>
+                <div className="text-[13px]" style={{ color: 'var(--tg-hint)' }}>
+                  آماده‌ای؟
+                </div>
+              </div>
+            </div>
+
+            {/* Start button */}
+            <Link href="/quiz" onClick={() => hapticFeedback('light')}>
+              <TGButton onClick={() => hapticFeedback('medium')}>
+                {TG_EMOJI.wand} شروع کوییز
+              </TGButton>
+            </Link>
+
+            {!isInTelegram && (
+              <button
+                onClick={() => { hapticFeedback('light'); logout(); }}
+                className="w-full mt-4 py-3 text-[13px] text-center"
+                style={{ color: 'var(--tg-hint)' }}
+              >
+                خروج
+              </button>
             )}
           </div>
         ) : (
-          <div className="space-y-6">
-            <TelegramLogin onAuth={(u) => {
-              localStorage.setItem('hp_tg_user', JSON.stringify(u));
-              window.location.reload();
-            }} />
-            <p className="text-gray-600 text-xs">
-              با اکانت تلگرامت وارد شو
-            </p>
+          /* Not logged in — Login button */
+          <div className="w-full max-w-[340px] animate-slide-up" style={{ animationDelay: '0.1s' }}>
+            {/* Browser login */}
+            <div className="p-5 rounded-[16px] mb-6" style={{ background: 'var(--tg-bg-secondary)' }}>
+              <div className="text-[15px] font-medium mb-1" style={{ color: 'var(--tg-text)' }}>
+                {TG_EMOJI.lock} ورود با تلگرام
+              </div>
+              <div className="text-[13px] mb-4" style={{ color: 'var(--tg-hint)' }}>
+                با اکانت تلگرامت وارد شو تا نتیجهت ذخیره بشه
+              </div>
+              <TGButton onClick={() => {
+                // For browser — use Telegram Login Widget
+                hapticFeedback('medium');
+                const container = document.getElementById('tg-login');
+                if (container) {
+                  container.style.display = 'block';
+                }
+              }}>
+                {TG_EMOJI.key} ورود
+              </TGButton>
+            </div>
+
+            {/* Telegram Login Widget container (hidden by default) */}
+            <div id="tg-login" style={{ display: 'none' }} className="mb-4">
+              <TGLoginWidget />
+            </div>
           </div>
         )}
       </div>
 
-      {/* Houses preview */}
-      <div className="grid grid-cols-4 gap-3 max-w-md w-full mt-12">
-        {[
-          { name: 'گریفیندور', emoji: '🦁', color: 'from-red-800 to-red-900' },
-          { name: 'ریونکلاو', emoji: '🦅', color: 'from-blue-800 to-blue-900' },
-          { name: 'هاگلپاف', emoji: '🦡', color: 'from-yellow-700 to-yellow-800' },
-          { name: 'اسلیترین', emoji: '🐍', color: 'from-green-800 to-green-900' },
-        ].map((h) => (
-          <div
-            key={h.name}
-            className={`bg-gradient-to-b ${h.color} rounded-xl p-4 text-center opacity-50 hover:opacity-100 transition-opacity`}
-          >
-            <div className="text-3xl mb-2">{h.emoji}</div>
-            <div className="text-xs text-white/70">{h.name}</div>
-          </div>
-        ))}
+      {/* Houses preview — bottom */}
+      <div className="px-5 pb-8 animate-fade-in" style={{ animationDelay: '0.3s' }}>
+        <div className="grid grid-cols-2 gap-3 max-w-[340px] mx-auto">
+          {[
+            { emoji: TG_EMOJI.lion, name: 'گریفیندور', color: '#ae0001' },
+            { emoji: TG_EMOJI.eagle, name: 'ریونکلاو', color: '#222f5b' },
+            { emoji: TG_EMOJI.badger, name: 'هاگلپاف', color: '#ecb939' },
+            { emoji: TG_EMOJI.snake, name: 'اسلیترین', color: '#2a623d' },
+          ].map((h) => (
+            <div
+              key={h.name}
+              className="flex items-center gap-3 p-3 rounded-[12px]"
+              style={{ background: 'var(--tg-bg-secondary)' }}
+            >
+              <span className="text-[24px]">{h.emoji}</span>
+              <span className="text-[14px] font-medium" style={{ color: h.color }}>
+                {h.name}
+              </span>
+            </div>
+          ))}
+        </div>
       </div>
+    </div>
+  );
+}
+
+/* Inline Telegram Login Widget for browser */
+function TGLoginWidget() {
+  return (
+    <div className="flex justify-center">
+      <TelegramLoginWidgetInline />
+    </div>
+  );
+}
+
+function TelegramLoginWidgetInline() {
+  const containerRef = { current: null } as any;
+  const { user } = useTWA();
+
+  if (user) return null;
+
+  return (
+    <div className="flex justify-center">
+      <iframe
+        src="https://oauth.telegram.org/auth?bot_id=HogwartsQuizBot&origin=https://persian-pottermore-quiz.vercel.app&embed=1&request_access=write"
+        width="300"
+        height="400"
+        frameBorder="0"
+        className="rounded-[12px]"
+        style={{ background: 'var(--tg-bg-secondary)' }}
+      />
     </div>
   );
 }

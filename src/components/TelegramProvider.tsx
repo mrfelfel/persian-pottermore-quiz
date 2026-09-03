@@ -1,23 +1,23 @@
 'use client';
 
 import { createContext, useContext, useState, useEffect, ReactNode } from 'react';
-
-interface TWAUser {
-  id: number;
-  first_name: string;
-  last_name?: string;
-  username?: string;
-  photo_url?: string;
-}
+import { TWAUser, getTWA, getTWAUser, getTheme, TWATheme } from '@/lib/twa';
 
 interface TWAContextType {
   user: TWAUser | null;
+  theme: TWATheme;
   isInTelegram: boolean;
   logout: () => void;
 }
 
 const TWAContext = createContext<TWAContextType>({
   user: null,
+  theme: {
+    bgColor: '#17212b', textColor: '#f5f5f5', hintColor: '#6d7f8f',
+    buttonColor: '#5288c1', buttonTextColor: '#ffffff',
+    secondaryBgColor: '#1e2c3a', linkColor: '#6ab2f2',
+    destructiveTextColor: '#e53935', colorScheme: 'dark',
+  },
   isInTelegram: false,
   logout: () => {},
 });
@@ -28,27 +28,31 @@ export function useTWA() {
 
 export function TelegramProvider({ children }: { children: ReactNode }) {
   const [user, setUser] = useState<TWAUser | null>(null);
+  const [theme, setTheme] = useState<TWATheme>(getTheme());
   const [isInTelegram, setIsInTelegram] = useState(false);
 
   useEffect(() => {
-    const tg = (window as any).Telegram?.WebApp;
+    const tg = getTWA();
     if (tg) {
       setIsInTelegram(true);
       tg.ready();
       tg.expand();
 
-      const u = tg.initDataUnsafe?.user;
-      if (u) {
-        setUser({
-          id: u.id,
-          first_name: u.first_name,
-          last_name: u.last_name,
-          username: u.username,
-          photo_url: u.photo_url,
-        });
-      }
+      // Apply theme from Telegram
+      const t = getTheme();
+      setTheme(t);
+      document.documentElement.style.setProperty('--tg-bg', t.bgColor);
+      document.documentElement.style.setProperty('--tg-text', t.textColor);
+      document.documentElement.style.setProperty('--tg-hint', t.hintColor);
+      document.documentElement.style.setProperty('--tg-button', t.buttonColor);
+      document.documentElement.style.setProperty('--tg-button-text', t.buttonTextColor);
+      document.documentElement.style.setProperty('--tg-bg-secondary', t.secondaryBgColor);
+
+      // Get user
+      const u = getTWAUser();
+      if (u) setUser(u);
     } else {
-      // Not in Telegram — use localStorage fallback
+      // Outside Telegram — check localStorage
       const saved = localStorage.getItem('hp_tg_user');
       if (saved) {
         try { setUser(JSON.parse(saved)); } catch {}
@@ -63,7 +67,7 @@ export function TelegramProvider({ children }: { children: ReactNode }) {
   };
 
   return (
-    <TWAContext.Provider value={{ user, isInTelegram, logout }}>
+    <TWAContext.Provider value={{ user, theme, isInTelegram, logout }}>
       {children}
     </TWAContext.Provider>
   );
