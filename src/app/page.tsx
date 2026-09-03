@@ -3,8 +3,10 @@
 import { useState, useEffect } from 'react';
 import { useTWA } from '@/components/TelegramProvider';
 import { hapticFeedback, TG_EMOJI } from '@/lib/twa';
+import { getProfile, createProfile } from '@/lib/ministry/store';
 import TGButton from '@/components/TGButton';
 import Link from 'next/link';
+import NavBar from '@/components/NavBar';
 
 const HOUSES = [
   { emoji: TG_EMOJI.lion, name: 'گریفیندور', color: '#ae0001' },
@@ -19,7 +21,11 @@ export default function Home() {
 
   useEffect(() => {
     setOrigin(window.location.origin);
-  }, []);
+    // Create profile if user exists and no profile yet
+    if (user && !getProfile()) {
+      createProfile(user.first_name, user.username, user.photo_url);
+    }
+  }, [user]);
 
   return (
     <div className="min-h-[100dvh] flex flex-col" style={{ background: 'var(--tg-bg)' }}>
@@ -117,7 +123,7 @@ export default function Home() {
       </main>
 
       {/* Houses grid */}
-      <footer className="px-6 sm:px-8 pb-8 pt-6 animate-fade-in"
+      <footer className="px-6 sm:px-8 pb-20 pt-6 animate-fade-in"
         style={{ animationDelay: '0.3s' }}>
         <div className="grid grid-cols-2 gap-3 max-w-sm mx-auto">
           {HOUSES.map((h) => (
@@ -132,6 +138,7 @@ export default function Home() {
           ))}
         </div>
       </footer>
+      <NavBar />
     </div>
   );
 }

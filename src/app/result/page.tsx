@@ -6,6 +6,8 @@ import { useTWA } from '@/components/TelegramProvider';
 import { hapticFeedback, showBackButton, hideBackButton, TG_EMOJI } from '@/lib/twa';
 import { getHouse } from '@/lib/houses';
 import { HouseResult } from '@/lib/quiz';
+import { setHouse, addXp, addBadge, getProfile, createProfile } from '@/lib/ministry/store';
+import { HouseId } from '@/lib/ministry/types';
 import TGButton from '@/components/TGButton';
 import Link from 'next/link';
 
@@ -19,7 +21,18 @@ export default function ResultPage() {
     if (!user) { router.push('/'); return; }
     const saved = localStorage.getItem('hp_results');
     if (saved) {
-      setResults(JSON.parse(saved));
+      const r: HouseResult[] = JSON.parse(saved);
+      setResults(r);
+      // Save house to profile
+      let profile = getProfile();
+      if (!profile) {
+        profile = createProfile(user.first_name, user.username, user.photo_url);
+      }
+      if (!profile.house && r[0]) {
+        setHouse(r[0].house as HouseId);
+        addXp(50); // quiz completion bonus
+        addBadge('گروه‌بندی شده');
+      }
       hapticFeedback('success');
       setTimeout(() => setShow(true), 300);
     } else {
