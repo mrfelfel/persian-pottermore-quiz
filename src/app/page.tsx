@@ -9,10 +9,10 @@ import Link from 'next/link';
 import NavBar from '@/components/NavBar';
 
 const HOUSES = [
-  { iconClass: 'icon-shield', name: 'گریفیندور', color: '#ae0001' },
-  { iconClass: 'icon-sparkle', name: 'ریونکلاو', color: '#222f5b' },
-  { iconClass: 'icon-badge', name: 'هاگلپاف', color: '#ecb939' },
-  { iconClass: 'icon-sword', name: 'اسلیترین', color: '#2a623d' },
+  { icon: 'shield', name: 'گریفیندور', color: '#ae0001' },
+  { icon: 'air', name: 'ریونکلاو', color: '#222f5b' },
+  { icon: 'fitness_center', name: 'هاگلپاف', color: '#ecb939' },
+  { icon: 'set_meal', name: 'اسلیترین', color: '#2a623d' },
 ];
 
 export default function Home() {
@@ -32,8 +32,10 @@ export default function Home() {
       <main className="flex-1 flex flex-col items-center justify-center px-6 sm:px-8">
 
         {/* Hero icon */}
-        <div className="animate-scale-in text-5xl sm:text-6xl mb-6 select-none">
-          <span className="icon-wizard" />
+        <div className="animate-scale-in mb-6">
+          <span className="material-symbols-outlined" style={{ fontSize: '56px', color: 'var(--tg-button)' }}>
+            magic_button
+          </span>
         </div>
 
         {/* Title */}
@@ -53,9 +55,11 @@ export default function Home() {
             {/* User greeting card */}
             <div className="flex items-center gap-3.5 p-4 rounded-2xl mb-7"
               style={{ background: 'var(--tg-bg-secondary)' }}>
-              <div className="w-11 h-11 rounded-full flex items-center justify-center text-xl shrink-0"
+              <div className="w-11 h-11 rounded-full flex items-center justify-center shrink-0"
                 style={{ background: 'var(--tg-button)' }}>
-                <span className="icon-person" />
+                <span className="material-symbols-outlined text-white" style={{ fontSize: '22px' }}>
+                  person
+                </span>
               </div>
               <div className="flex-1 min-w-0">
                 <div className="text-[15px] font-medium truncate" style={{ color: 'var(--tg-text)' }}>
@@ -70,23 +74,27 @@ export default function Home() {
             {/* Start button */}
             <Link href="/quiz" onClick={() => hapticFeedback('medium')}>
               <TGButton>
-                <span className="icon-wand" /> گروه‌بندی هاگوارتز
+                <span className="material-symbols-outlined text-lg">wand_stars</span>
+                گروه‌بندی هاگوارتز
               </TGButton>
             </Link>
 
             {/* Quick links */}
             <div className="grid grid-cols-2 gap-2.5 mt-4">
               {[
-                { href: '/bank', iconClass: 'icon-key', label: 'گرینگوتس' },
-                { href: '/classes', iconClass: 'icon-flask', label: 'کلاس‌ها' },
-                { href: '/departments', iconClass: 'icon-shield', label: 'ادارات' },
-                { href: '/blog', iconClass: 'icon-newspaper', label: 'آرشیو' },
+                { href: '/bank', icon: 'account_balance', label: 'گرینگوتس' },
+                { href: '/classes', icon: 'science', label: 'کلاس‌ها' },
+                { href: '/departments', icon: 'corporate_fare', label: 'ادارات' },
+                { href: '/blog', icon: 'newspaper', label: 'آرشیو' },
               ].map((link) => (
                 <Link key={link.href} href={link.href}
                   onClick={() => hapticFeedback('light')}
                   className="flex items-center gap-2.5 p-3 rounded-xl text-right"
                   style={{ background: 'var(--tg-bg-secondary)' }}>
-                  <span className={`${link.iconClass} text-base`} />
+                  <span className="material-symbols-outlined text-lg"
+                    style={{ color: 'var(--tg-button)' }}>
+                    {link.icon}
+                  </span>
                   <span className="text-[13px]" style={{ color: 'var(--tg-text)' }}>
                     {link.label}
                   </span>
@@ -109,7 +117,8 @@ export default function Home() {
               style={{ background: 'var(--tg-bg-secondary)' }}>
               <div className="flex items-center gap-2 text-[15px] font-medium mb-1.5"
                 style={{ color: 'var(--tg-text)' }}>
-                <span className="icon-lock" /> ورود با تلگرام
+                <span className="material-symbols-outlined text-lg">lock</span>
+                ورود با تلگرام
               </div>
               <div className="text-[13px] leading-relaxed"
                 style={{ color: 'var(--tg-hint)' }}>
@@ -121,7 +130,8 @@ export default function Home() {
               hapticFeedback('medium');
               document.getElementById('tg-login')?.style.setProperty('display', 'block');
             }}>
-              <span className="icon-key" /> ورود با تلگرام
+              <span className="material-symbols-outlined text-lg">login</span>
+              ورود با تلگرام
             </TGButton>
 
             <div id="tg-login" style={{ display: 'none' }} className="flex justify-center pt-2">
@@ -145,7 +155,9 @@ export default function Home() {
             <div key={h.name}
               className="flex items-center gap-3 p-3.5 rounded-xl"
               style={{ background: 'var(--tg-bg-secondary)' }}>
-              <span className={`${h.iconClass} text-xl`} />
+              <span className="material-symbols-outlined text-xl" style={{ color: h.color }}>
+                {h.icon}
+              </span>
               <span className="text-xs sm:text-sm font-medium" style={{ color: h.color }}>
                 {h.name}
               </span>

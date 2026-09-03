@@ -1,40 +1,109 @@
 @import "tailwindcss";
 
-/* Icon system using CSS pseudo-elements with unicode */
-.icon::before {
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-  font-size: 18px;
-  line-height: 1;
+/* ── Vazirmatn (local) ── */
+@font-face {
+  font-family: 'Vazirmatn';
+  font-style: normal;
+  font-weight: 400;
+  src: url('/fonts/Vazirmatn-Regular.ttf') format('truetype');
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Vazirmatn';
+  font-style: normal;
+  font-weight: 700;
+  src: url('/fonts/Vazirmatn-Bold.ttf') format('truetype');
+  font-display: swap;
 }
 
-.icon-home::before { content: "🏠"; }
-.icon-quiz::before { content: "📝"; }
-.icon-badge::before { content: "🪪"; }
-.icon-newspaper::before { content: "📰"; }
-.icon-leaderboard::before { content: "🏆"; }
-.icon-wand::before { content: "🪄"; }
-.icon-key::before { content: "🔑"; }
-.icon-lock::before { content: "🔒"; }
-.icon-person::before { content: "👤"; }
-.icon-sparkle::before { content: "✨"; }
-.icon-shield::before { content: "🛡️"; }
-.icon-book::before { content: "📖"; }
-.icon-star::before { content: "⭐"; }
-.icon-trophy::before { content: "🏆"; }
-.icon-calendar::before { content: "📅"; }
-.icon-link::before { content: "🔗"; }
-.icon-expand::before { content: "▾"; }
-.icon-school::before { content: "🏫"; }
-.icon-code::before { content: "💻"; }
-.icon-science::before { content: "⚗️"; }
-.icon-flask::before { content: "🧪"; }
-.icon-search::before { content: "🔍"; }
-.icon-wizard::before { content: "🧙"; }
-.icon-castle::before { content: "🏰"; }
-.icon-crystal::before { content: "💎"; }
-.icon-cat::before { content: "🐱"; }
-.icon-fire::before { content: "🔥"; }
-.icon-sword::before { content: "⚔️"; }
-.icon-medal::before { content: "🏅"; }
-.icon-crown::before { content: "👑"; }
-.icon-close::before { content: "✕"; }
+/* ── Material Symbols (local) ── */
+@font-face {
+  font-family: 'Material Symbols Outlined';
+  font-style: normal;
+  font-weight: 400;
+  src: url('/fonts/MaterialSymbolsOutlined.ttf') format('truetype');
+  font-display: swap;
+}
+.material-symbols-outlined {
+  font-family: 'Material Symbols Outlined';
+  font-weight: normal;
+  font-style: normal;
+  font-size: 24px;
+  line-height: 1;
+  letter-spacing: normal;
+  text-transform: none;
+  display: inline-block;
+  white-space: nowrap;
+  word-wrap: normal;
+  direction: ltr;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ── Telegram theme vars ── */
+:root {
+  --tg-bg: #17212b;
+  --tg-bg-secondary: #1e2c3a;
+  --tg-text: #f5f5f5;
+  --tg-hint: #6d7f8f;
+  --tg-button: #5288c1;
+  --tg-button-text: #ffffff;
+  --tg-link: #6ab2f2;
+  --tg-destructive: #e53935;
+  --safe-top: env(safe-area-inset-top, 0px);
+  --safe-bottom: env(safe-area-inset-bottom, 0px);
+}
+
+/* ── Base ── */
+html, body {
+  font-family: 'Vazirmatn', -apple-system, BlinkMacSystemFont, sans-serif;
+  background: var(--tg-bg);
+  color: var(--tg-text);
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+  -webkit-overflow-scrolling: touch;
+  overscroll-behavior: none;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Fix Telegram WebApp scroll */
+.TeleagramWebApp,
+.TelegramWebApp--nb {
+  overflow-y: auto !important;
+  overscroll-behavior: none !important;
+  -webkit-overflow-scrolling: touch !important;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* Hide scrollbar */
+::-webkit-scrollbar { display: none; }
+html { scrollbar-width: none; }
+
+::selection {
+  background: rgba(82, 136, 193, 0.3);
+  color: #fff;
+}
+
+/* ── Animations ── */
+@keyframes slideUp {
+  from { opacity: 0; transform: translateY(16px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+@keyframes scaleIn {
+  from { opacity: 0; transform: scale(0.85); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+.animate-slide-up { animation: slideUp 0.3s ease-out both; }
+.animate-fade-in { animation: fadeIn 0.35s ease-out both; }
+.animate-scale-in { animation: scaleIn 0.3s ease-out both; }
