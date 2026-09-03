@@ -2,14 +2,14 @@
 
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import { TG_EMOJI, hapticFeedback } from '@/lib/twa';
+import { hapticFeedback } from '@/lib/twa';
 
 const TABS = [
-  { href: '/', icon: TG_EMOJI.wizard, label: 'خانه' },
-  { href: '/quiz', icon: TG_EMOJI.wand, label: 'کوییز' },
-  { href: '/profile', icon: TG_EMOJI.crown, label: 'شناسنامه' },
-  { href: '/bank', icon: TG_EMOJI.key, label: 'گرینگوتس' },
-  { href: '/leaderboard', icon: TG_EMOJI.trophy, label: 'رتبه‌بندی' },
+  { href: '/', icon: 'school', label: 'خانه' },
+  { href: '/quiz', icon: 'quiz', label: 'کوییز' },
+  { href: '/profile', icon: 'badge', label: 'شناسنامه' },
+  { href: '/blog', icon: 'newspaper', label: 'آرشیو' },
+  { href: '/leaderboard', icon: 'leaderboard', label: 'رتبه' },
 ];
 
 export default function NavBar() {
@@ -33,7 +33,8 @@ export default function NavBar() {
               onClick={() => hapticFeedback('light')}
               className="flex flex-col items-center gap-0.5 px-3 py-1"
             >
-              <span className={`text-lg ${active ? 'opacity-100' : 'opacity-40'}`}>
+              <span className={`material-symbols-outlined text-[22px] ${active ? 'fill' : ''}`}
+                style={{ color: active ? 'var(--tg-button)' : 'var(--tg-hint)' }}>
                 {tab.icon}
               </span>
               <span className={`text-[10px] ${active ? 'font-medium' : ''}`}
