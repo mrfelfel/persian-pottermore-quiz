@@ -1,4 +1,4 @@
-import { pgTable, text, integer, bigint, timestamp, varchar, uniqueIndex } from 'drizzle-orm/pg-core';
+import { pgTable, text, integer, bigint, timestamp, varchar } from 'drizzle-orm/pg-core';
 
 export const users = pgTable('users', {
   id: integer('id').primaryKey().generatedAlwaysAsIdentity(),
@@ -17,24 +17,24 @@ export const wikiPages = pgTable('wiki_pages', {
   title: text('title').notNull(),
   content: text('content').default('').notNull(),
   volume: text('volume'),
-  createdBy: bigint('created_by', { mode: 'number' }).references(() => users.id),
+  createdBy: bigint('created_by', { mode: 'number' }),
   createdAt: timestamp('created_at').defaultNow().notNull(),
-  updatedBy: bigint('updated_by', { mode: 'number' }).references(() => users.id),
+  updatedBy: bigint('updated_by', { mode: 'number' }),
   updatedAt: timestamp('updated_at').defaultNow().notNull(),
 });
 
 export const editHistory = pgTable('edit_history', {
   id: integer('id').primaryKey().generatedAlwaysAsIdentity(),
-  pageSlug: text('page_slug').notNull().references(() => wikiPages.slug),
-  userId: bigint('user_id', { mode: 'number' }).references(() => users.id),
+  pageSlug: text('page_slug').notNull(),
+  userId: bigint('user_id', { mode: 'number' }),
   content: text('content').notNull(),
   summary: text('summary').default('').notNull(),
   createdAt: timestamp('created_at').defaultNow().notNull(),
 });
 
 export const editLocks = pgTable('edit_locks', {
-  pageSlug: text('page_slug').primaryKey().references(() => wikiPages.slug),
-  userId: bigint('user_id', { mode: 'number' }).references(() => users.id),
+  pageSlug: text('page_slug').primaryKey(),
+  userId: bigint('user_id', { mode: 'number' }),
   lockedAt: timestamp('locked_at').defaultNow().notNull(),
   expiresAt: timestamp('expires_at').notNull(),
 });

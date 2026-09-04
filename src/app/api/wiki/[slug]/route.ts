@@ -1,6 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { db } from '@/lib/db';
-import { wikiPages, users, editHistory, editLocks } from '@/lib/db/schema';
+import { wikiPages, editHistory, editLocks } from '@/lib/db/schema';
 import { eq, and, gt } from 'drizzle-orm';
 
 // GET - Fetch a wiki page
@@ -30,7 +30,6 @@ export async function GET(req: NextRequest, context: { params: Promise<{ slug: s
   const [lock] = await db
     .select()
     .from(editLocks)
-    .innerJoin(users, eq(editLocks.userId, users.id))
     .where(and(eq(editLocks.pageSlug, slug), gt(editLocks.expiresAt, new Date())));
 
   return NextResponse.json({ page, lock: lock || null });
