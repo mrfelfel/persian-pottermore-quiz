@@ -1,19 +1,13 @@
-// This file is intentionally empty — client-side data fetching uses API routes.
-
-// Note: better-sqlite3 is server-only.
-// For client-side, we use the API routes instead.
-// This file exports functions that call the API.
-
 const API_BASE = '/api';
 
 export async function fetchWikiPage(slug: string) {
-  const res = await fetch(`${API_BASE}/wiki/${slug}`);
+  const res = await fetch(`${API_BASE}/wiki/${encodeURIComponent(slug)}`);
   if (!res.ok) return null;
   return res.json();
 }
 
 export async function saveWikiPage(slug: string, content: string, userId: number, summary: string) {
-  const res = await fetch(`${API_BASE}/wiki/${slug}`, {
+  const res = await fetch(`${API_BASE}/wiki/${encodeURIComponent(slug)}`, {
     method: 'PUT',
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify({ content, userId, summary }),
@@ -40,7 +34,7 @@ export async function releaseLock(slug: string, userId: number) {
 }
 
 export async function getEditHistory(slug: string) {
-  const res = await fetch(`${API_BASE}/wiki/history/${slug}`);
+  const res = await fetch(`${API_BASE}/wiki/history/${encodeURIComponent(slug)}`);
   if (!res.ok) return [];
   return res.json();
 }
