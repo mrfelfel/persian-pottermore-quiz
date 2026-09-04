@@ -152,14 +152,14 @@
         "title": "فصل ۱۹ — کرولاین مایکلسون",
         "epigraph": "",
         "file": "03-volume-3-magia/ch19-caroline.md",
-        "size": 8204
+        "size": 8336
       },
       {
         "slug": "vol-03-magia---ch20-hiva",
         "title": "فصل ۲۰ — هیوا",
         "epigraph": "",
         "file": "03-volume-3-magia/ch20-hiva.md",
-        "size": 7620
+        "size": 7875
       },
       {
         "slug": "vol-03-magia---ch21-sayeh-punk",
@@ -400,7 +400,7 @@
         "title": "پایگاه داده شخصیت‌ها — جامعه جادوگری فارسی",
         "epigraph": "این فایل یک مرجع جامع از تمام شخصیت‌های شناخته‌شده جامعه جادوگری فارسی در اینترنت است.\nهر پرونده شامل اطلاعات ساختاریافته و روایت شخصی است.\nنوشته شده توسط کسی که آنجا بود.",
         "file": "06-volume-6-characters/WIKI-DATABASE.md",
-        "size": 34731
+        "size": 35827
       },
       {
         "slug": "vol-06-characters---ashkan",
@@ -418,10 +418,10 @@
       },
       {
         "slug": "vol-06-characters---hiva",
-        "title": "هیوا / Caroline Michaelson",
-        "epigraph": "هیوا یکی از پنهان‌ترین ولی تأثیرگذارترین چهره‌های جامعه جادوگری فارسی بود.\nپشت یک اسم انگلیسی، یک دختر ایرانی بود که یکی از بزرگ‌ترین مجموعه‌های این فضا را ساخت.",
+        "title": "هیوا / ازبورن / ارتمیس",
+        "epigraph": "هیوا یکی از پنهان‌ترین ولی تأثیرگذارترین چهره‌های جامعه جادوگری فارسی بود.\nپشت یک اسم فانتزی، یک دختر ایرانی بود که یکی از بزرگ‌ترین مجموعه‌های این فضا را ساخت و آن را از نو بنا کرد.",
         "file": "06-volume-6-characters/hiva.md",
-        "size": 6424
+        "size": 7413
       },
       {
         "slug": "vol-06-characters---hossein",
@@ -435,14 +435,14 @@
         "title": "کیمیا روانگر / Mia Plays",
         "epigraph": "",
         "file": "06-volume-6-characters/kimia.md",
-        "size": 9166
+        "size": 9164
       },
       {
         "slug": "vol-06-characters---kourosh",
         "title": "کوروش زراندوز",
         "epigraph": "",
         "file": "06-volume-6-characters/kourosh.md",
-        "size": 9123
+        "size": 9121
       },
       {
         "slug": "vol-06-characters---marzieh",
@@ -520,7 +520,7 @@
         "title": "کرولاین مایکلسون",
         "epigraph": "",
         "file": "07-volume-7-identities/caroline-michaelson.md",
-        "size": 4783
+        "size": 4951
       },
       {
         "slug": "vol-07-identities---felfel",
