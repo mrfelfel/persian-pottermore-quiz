@@ -1,5 +1,4 @@
 import { NextRequest, NextResponse } from 'next/server';
-import { getChapterContent } from '@/lib/archive/db';
 
 export const dynamic = 'force-dynamic';
 
@@ -10,12 +9,22 @@ export async function GET(req: NextRequest) {
   }
 
   try {
+    const { getChapterContent } = await import('@/lib/archive/db');
     const chapter = getChapterContent(slug);
     if (!chapter) {
       return NextResponse.json({ error: 'Chapter not found' }, { status: 404 });
     }
     return NextResponse.json(chapter);
-  } catch (e) {
-    return NextResponse.json({ error: 'Failed to load chapter' }, { status: 500 });
+  } catch {
+    try {
+      const { getChapterContentFromFiles } = await import('@/lib/archive/files');
+      const chapter = getChapterContentFromFiles(slug);
+      if (!chapter) {
+        return NextResponse.json({ error: 'Chapter not found' }, { status: 404 });
+      }
+      return NextResponse.json(chapter);
+    } catch (e) {
+      return NextResponse.json({ error: 'Failed to load chapter' }, { status: 500 });
+    }
   }
 }
