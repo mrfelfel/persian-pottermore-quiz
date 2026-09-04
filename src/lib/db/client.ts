@@ -1,4 +1,4 @@
-import { getDb } from './schema';
+// This file is intentionally empty — client-side data fetching uses API routes.
 
 // Note: better-sqlite3 is server-only.
 // For client-side, we use the API routes instead.

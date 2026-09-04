@@ -1,5 +1,7 @@
 import { NextRequest, NextResponse } from 'next/server';
-import { getDb } from '@/lib/db/schema';
+import { db } from '@/lib/db';
+import { users } from '@/lib/db/schema';
+import { eq } from 'drizzle-orm';
 
 export async function POST(req: NextRequest) {
   const { telegramId, firstName, lastName, username, photoUrl } = await req.json();
@@ -8,24 +10,17 @@ export async function POST(req: NextRequest) {
     return NextResponse.json({ error: 'Missing required fields' }, { status: 400 });
   }
 
-  const db = getDb();
-
   // Upsert user
-  const existing = db.prepare('SELECT id FROM users WHERE telegram_id = ?').get(telegramId);
+  const [existing] = await db.select().from(users).where(eq(users.telegramId, telegramId));
 
   if (existing) {
-    db.prepare(`
-      UPDATE users SET first_name = ?, last_name = ?, username = ?, photo_url = ?, last_active = CURRENT_TIMESTAMP
-      WHERE telegram_id = ?
-    `).run(firstName, lastName || null, username || null, photoUrl || null, telegramId);
+    await db.update(users)
+      .set({ firstName, lastName: lastName || null, username: username || null, photoUrl: photoUrl || null, lastActive: new Date() })
+      .where(eq(users.telegramId, telegramId));
   } else {
-    db.prepare(`
-      INSERT INTO users (telegram_id, first_name, last_name, username, photo_url)
-      VALUES (?, ?, ?, ?, ?)
-    `).run(telegramId, firstName, lastName || null, username || null, photoUrl || null);
+    await db.insert(users).values({ telegramId, firstName, lastName: lastName || null, username: username || null, photoUrl: photoUrl || null });
   }
 
-  const user = db.prepare('SELECT * FROM users WHERE telegram_id = ?').get(telegramId);
-
+  const [user] = await db.select().from(users).where(eq(users.telegramId, telegramId));
   return NextResponse.json({ user });
 }

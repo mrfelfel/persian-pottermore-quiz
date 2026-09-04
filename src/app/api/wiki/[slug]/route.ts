@@ -1,31 +1,37 @@
 import { NextRequest, NextResponse } from 'next/server';
-import { getDb } from '@/lib/db/schema';
+import { db } from '@/lib/db';
+import { wikiPages, users, editHistory, editLocks } from '@/lib/db/schema';
+import { eq, and, gt } from 'drizzle-orm';
 
 // GET - Fetch a wiki page
 export async function GET(req: NextRequest, context: { params: Promise<{ slug: string }> }) {
   const { slug } = await context.params;
-  const db = getDb();
 
-  const page = db.prepare(`
-    SELECT wp.*,
-      u1.first_name as created_by_name,
-      u2.first_name as updated_by_name
-    FROM wiki_pages wp
-    LEFT JOIN users u1 ON wp.created_by = u1.id
-    LEFT JOIN users u2 ON wp.updated_by = u2.id
-    WHERE wp.slug = ?
-  `).get(slug);
+  const [page] = await db
+    .select({
+      slug: wikiPages.slug,
+      title: wikiPages.title,
+      content: wikiPages.content,
+      volume: wikiPages.volume,
+      createdBy: wikiPages.createdBy,
+      createdAt: wikiPages.createdAt,
+      updatedBy: wikiPages.updatedBy,
+      updatedAt: wikiPages.updatedAt,
+      createdByName: users.firstName,
+    })
+    .from(wikiPages)
+    .leftJoin(users, eq(wikiPages.createdBy, users.id))
+    .where(eq(wikiPages.slug, slug));
 
   if (!page) {
     return NextResponse.json({ error: 'Page not found' }, { status: 404 });
   }
 
-  const lock = db.prepare(`
-    SELECT el.*, u.first_name as locked_by_name
-    FROM edit_locks el
-    JOIN users u ON el.user_id = u.id
-    WHERE el.page_slug = ? AND el.expires_at > CURRENT_TIMESTAMP
-  `).get(slug);
+  const [lock] = await db
+    .select()
+    .from(editLocks)
+    .innerJoin(users, eq(editLocks.userId, users.id))
+    .where(and(eq(editLocks.pageSlug, slug), gt(editLocks.expiresAt, new Date())));
 
   return NextResponse.json({ page, lock: lock || null });
 }
@@ -39,40 +45,49 @@ export async function PUT(req: NextRequest, context: { params: Promise<{ slug: s
     return NextResponse.json({ error: 'Missing required fields' }, { status: 400 });
   }
 
-  const db = getDb();
+  // Check lock
+  const [lock] = await db
+    .select()
+    .from(editLocks)
+    .where(and(eq(editLocks.pageSlug, slug), eq(editLocks.userId, userId), gt(editLocks.expiresAt, new Date())));
 
-  const lock = db.prepare(`
-    SELECT * FROM edit_locks WHERE page_slug = ? AND user_id != ? AND expires_at > CURRENT_TIMESTAMP
-  `).get(slug, userId);
+  const [otherLock] = await db
+    .select()
+    .from(editLocks)
+    .where(and(eq(editLocks.pageSlug, slug), eq(editLocks.userId, userId), gt(editLocks.expiresAt, new Date())));
 
-  if (lock) {
+  if (otherLock && otherLock.userId !== userId) {
     return NextResponse.json({ error: 'Page is locked by another user' }, { status: 409 });
   }
 
-  const currentPage = db.prepare('SELECT content FROM wiki_pages WHERE slug = ?').get(slug) as any;
-
+  // Save current content to history
+  const [currentPage] = await db.select().from(wikiPages).where(eq(wikiPages.slug, slug));
   if (currentPage?.content) {
-    db.prepare(`
-      INSERT INTO edit_history (page_slug, user_id, content, summary)
-      VALUES (?, ?, ?, ?)
-    `).run(slug, userId, currentPage.content, summary || '');
+    await db.insert(editHistory).values({
+      pageSlug: slug,
+      userId,
+      content: currentPage.content,
+      summary: summary || '',
+    });
   }
 
-  const existing = db.prepare('SELECT slug FROM wiki_pages WHERE slug = ?').get(slug);
-
-  if (existing) {
-    db.prepare(`
-      UPDATE wiki_pages SET content = ?, updated_by = ?, updated_at = CURRENT_TIMESTAMP
-      WHERE slug = ?
-    `).run(content, userId, slug);
+  // Update or insert page
+  if (currentPage) {
+    await db.update(wikiPages)
+      .set({ content, updatedBy: userId, updatedAt: new Date() })
+      .where(eq(wikiPages.slug, slug));
   } else {
-    db.prepare(`
-      INSERT INTO wiki_pages (slug, title, content, created_by, updated_by)
-      VALUES (?, ?, ?, ?, ?)
-    `).run(slug, slug, content, userId, userId);
+    await db.insert(wikiPages).values({
+      slug,
+      title: slug,
+      content,
+      createdBy: userId,
+      updatedBy: userId,
+    });
   }
 
-  db.prepare('DELETE FROM edit_locks WHERE page_slug = ? AND user_id = ?').run(slug, userId);
+  // Remove lock
+  await db.delete(editLocks).where(and(eq(editLocks.pageSlug, slug), eq(editLocks.userId, userId)));
 
   return NextResponse.json({ success: true });
 }

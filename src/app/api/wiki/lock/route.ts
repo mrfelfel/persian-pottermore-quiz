@@ -1,46 +1,38 @@
 import { NextRequest, NextResponse } from 'next/server';
-import { getDb } from '@/lib/db/schema';
+import { db } from '@/lib/db';
+import { editLocks, users } from '@/lib/db/schema';
+import { eq, and, gt } from 'drizzle-orm';
 
-const LOCK_DURATION = 30 * 60; // 30 minutes in seconds
-
-// POST - Acquire lock
+// POST - Lock a page
 export async function POST(req: NextRequest) {
   const { slug, userId } = await req.json();
-
   if (!slug || !userId) {
-    return NextResponse.json({ error: 'Missing required fields' }, { status: 400 });
+    return NextResponse.json({ error: 'Missing fields' }, { status: 400 });
   }
-
-  const db = getDb();
 
   // Check existing lock
-  const existing = db.prepare(`
-    SELECT * FROM edit_locks WHERE page_slug = ? AND expires_at > CURRENT_TIMESTAMP
-  `).get(slug) as any;
+  const [existing] = await db.select().from(editLocks)
+    .where(and(eq(editLocks.pageSlug, slug), gt(editLocks.expiresAt, new Date())));
 
-  if (existing && existing.user_id !== userId) {
-    return NextResponse.json({
-      error: 'Page is locked',
-      lockedBy: existing.user_id,
-      expiresAt: existing.expires_at
-    }, { status: 409 });
+  if (existing && existing.userId !== userId) {
+    return NextResponse.json({ error: 'Page is locked' }, { status: 409 });
   }
 
-  // Acquire or extend lock
-  db.prepare(`
-    INSERT OR REPLACE INTO edit_locks (page_slug, user_id, locked_at, expires_at)
-    VALUES (?, ?, CURRENT_TIMESTAMP, datetime(CURRENT_TIMESTAMP, '+${LOCK_DURATION} seconds'))
-  `).run(slug, userId);
+  // Upsert lock
+  const expiresAt = new Date(Date.now() + 30 * 60 * 1000); // 30 minutes
+  await db.delete(editLocks).where(eq(editLocks.pageSlug, slug));
+  await db.insert(editLocks).values({ pageSlug: slug, userId, expiresAt });
 
   return NextResponse.json({ success: true });
 }
 
-// DELETE - Release lock
+// DELETE - Release a lock
 export async function DELETE(req: NextRequest) {
   const { slug, userId } = await req.json();
+  if (!slug || !userId) {
+    return NextResponse.json({ error: 'Missing fields' }, { status: 400 });
+  }
 
-  const db = getDb();
-  db.prepare('DELETE FROM edit_locks WHERE page_slug = ? AND user_id = ?').run(slug, userId);
-
+  await db.delete(editLocks).where(and(eq(editLocks.pageSlug, slug), eq(editLocks.userId, userId)));
   return NextResponse.json({ success: true });
 }

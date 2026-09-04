@@ -1,61 +1,47 @@
-import Database from 'better-sqlite3';
-import path from 'path';
+import { pgTable, text, integer, timestamp, varchar, uniqueIndex } from 'drizzle-orm/pg-core';
 
-const DB_PATH = path.join(process.cwd(), 'data', 'wiki.db');
+export const users = pgTable('users', {
+  id: integer('id').primaryKey().generatedAlwaysAsIdentity(),
+  telegramId: integer('telegram_id').unique().notNull(),
+  firstName: text('first_name').notNull(),
+  lastName: text('last_name'),
+  username: text('username'),
+  photoUrl: text('photo_url'),
+  role: text('role').default('viewer').notNull(),
+  createdAt: timestamp('created_at').defaultNow().notNull(),
+  lastActive: timestamp('last_active').defaultNow().notNull(),
+});
 
-let _db: Database.Database | null = null;
+export const wikiPages = pgTable('wiki_pages', {
+  slug: text('slug').primaryKey(),
+  title: text('title').notNull(),
+  content: text('content').default('').notNull(),
+  volume: text('volume'),
+  createdBy: integer('created_by').references(() => users.id),
+  createdAt: timestamp('created_at').defaultNow().notNull(),
+  updatedBy: integer('updated_by').references(() => users.id),
+  updatedAt: timestamp('updated_at').defaultNow().notNull(),
+});
 
-export function getDb(): Database.Database {
-  if (_db) return _db;
-  _db = new Database(DB_PATH);
-  _db.pragma('journal_mode = WAL');
-  _db.pragma('foreign_keys = ON');
-  initTables(_db);
-  return _db;
-}
+export const editHistory = pgTable('edit_history', {
+  id: integer('id').primaryKey().generatedAlwaysAsIdentity(),
+  pageSlug: text('page_slug').notNull().references(() => wikiPages.slug),
+  userId: integer('user_id').references(() => users.id),
+  content: text('content').notNull(),
+  summary: text('summary').default('').notNull(),
+  createdAt: timestamp('created_at').defaultNow().notNull(),
+});
 
-function initTables(db: Database.Database) {
-  db.exec(`
-    CREATE TABLE IF NOT EXISTS users (
-      id INTEGER PRIMARY KEY,
-      telegram_id INTEGER UNIQUE NOT NULL,
-      first_name TEXT NOT NULL,
-      last_name TEXT,
-      username TEXT,
-      photo_url TEXT,
-      role TEXT DEFAULT 'viewer',
-      created_at DATETIME DEFAULT CURRENT_TIMESTAMP,
-      last_active DATETIME DEFAULT CURRENT_TIMESTAMP
-    );
+export const editLocks = pgTable('edit_locks', {
+  pageSlug: text('page_slug').primaryKey().references(() => wikiPages.slug),
+  userId: integer('user_id').references(() => users.id),
+  lockedAt: timestamp('locked_at').defaultNow().notNull(),
+  expiresAt: timestamp('expires_at').notNull(),
+});
 
-    CREATE TABLE IF NOT EXISTS wiki_pages (
-      slug TEXT PRIMARY KEY,
-      title TEXT NOT NULL,
-      content TEXT NOT NULL DEFAULT '',
-      volume TEXT,
-      created_by INTEGER REFERENCES users(id),
-      created_at DATETIME DEFAULT CURRENT_TIMESTAMP,
-      updated_by INTEGER REFERENCES users(id),
-      updated_at DATETIME DEFAULT CURRENT_TIMESTAMP
-    );
-
-    CREATE TABLE IF NOT EXISTS edit_history (
-      id INTEGER PRIMARY KEY AUTOINCREMENT,
-      page_slug TEXT NOT NULL REFERENCES wiki_pages(slug),
-      user_id INTEGER REFERENCES users(id),
-      content TEXT NOT NULL,
-      summary TEXT DEFAULT '',
-      created_at DATETIME DEFAULT CURRENT_TIMESTAMP
-    );
-
-    CREATE TABLE IF NOT EXISTS edit_locks (
-      page_slug TEXT PRIMARY KEY REFERENCES wiki_pages(slug),
-      user_id INTEGER REFERENCES users(id),
-      locked_at DATETIME DEFAULT CURRENT_TIMESTAMP,
-      expires_at DATETIME NOT NULL
-    );
-
-    CREATE INDEX IF NOT EXISTS idx_edit_history_slug ON edit_history(page_slug);
-    CREATE INDEX IF NOT EXISTS idx_wiki_pages_volume ON wiki_pages(volume);
-  `);
-}
+export const adminUsers = pgTable('admin_users', {
+  id: integer('id').primaryKey().generatedAlwaysAsIdentity(),
+  username: varchar('username', { length: 100 }).notNull().unique(),
+  passwordHash: text('password_hash').notNull(),
+  createdAt: timestamp('created_at').defaultNow().notNull(),
+});

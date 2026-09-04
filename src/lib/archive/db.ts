@@ -2,7 +2,7 @@
  * Archive data layer — reads directly from SQLite.
  * Replaces the old JSON-based catalog.ts.
  */
-import { getDb } from '@/lib/db/schema';
+import { getDb } from '@/lib/db/sqlite';
 
 // ── Volume definitions ────────────────────────────────────────────────────────
 
