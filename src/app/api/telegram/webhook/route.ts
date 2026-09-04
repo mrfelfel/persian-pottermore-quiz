@@ -1,7 +1,7 @@
 import { NextRequest, NextResponse } from 'next/server';
 
 const BOT_TOKEN = process.env.TELEGRAM_BOT_TOKEN || '8848984430:AAHKOIyORxHiCL_irFEhSnnvQvYz6hXrcRo';
-const APP_URL = process.env.NEXT_PUBLIC_APP_URL || 'https://persian-pottermore-quiz.vercel.app';
+const APP_URL = process.env.NEXT_PUBLIC_APP_URL || 'https://vezaratjadoo.vercel.app';
 
 async function sendMessage(chatId: number, text: string, replyMarkup?: object) {
   const url = `https://api.telegram.org/bot${BOT_TOKEN}/sendMessage`;
