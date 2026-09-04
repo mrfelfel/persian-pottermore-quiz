@@ -1,6 +1,6 @@
 import { NextResponse } from 'next/server';
 
-const BOT_TOKEN = process.env.TELEGRAM_BOT_TOKEN || '8848984430:AAHKOIyORxHiCL_irFEhSnnvQvYz6hXrcRo';
+const BOT_TOKEN = process.env.TELEGRAM_BOT_TOKEN!;
 
 export async function GET() {
   const webhookUrl = `https://vezaratjadoo.vercel.app/api/telegram/webhook`;

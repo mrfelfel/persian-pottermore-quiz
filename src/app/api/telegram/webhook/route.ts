@@ -1,6 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server';
 
-const BOT_TOKEN = process.env.TELEGRAM_BOT_TOKEN || '8848984430:AAHKOIyORxHiCL_irFEhSnnvQvYz6hXrcRo';
+const BOT_TOKEN = process.env.TELEGRAM_BOT_TOKEN!;
 const APP_URL = process.env.NEXT_PUBLIC_APP_URL || 'https://vezaratjadoo.vercel.app';
 
 async function sendMessage(chatId: number, text: string, replyMarkup?: object) {
