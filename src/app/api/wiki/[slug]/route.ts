@@ -1,6 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { db } from '@/lib/db';
-import { wikiPages, editHistory, editLocks } from '@/lib/db/schema';
+import { wikiPages, editHistory, editLocks, users } from '@/lib/db/schema';
 import { eq, and, gt } from 'drizzle-orm';
 
 // GET - Fetch a wiki page
@@ -31,6 +31,12 @@ export async function PUT(req: NextRequest, context: { params: Promise<{ slug: s
 
   if (!content || !userId) {
     return NextResponse.json({ error: 'Missing required fields' }, { status: 400 });
+  }
+
+  // Auto-register user if not exists
+  const [existingUser] = await db.select().from(users).where(eq(users.telegramId, userId));
+  if (!existingUser) {
+    await db.insert(users).values({ telegramId: userId, firstName: 'کاربر', role: 'editor' });
   }
 
   // Check lock — allow save only if no lock or lock belongs to this user

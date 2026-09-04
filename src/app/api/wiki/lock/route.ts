@@ -1,6 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { db } from '@/lib/db';
-import { editLocks } from '@/lib/db/schema';
+import { editLocks, users } from '@/lib/db/schema';
 import { eq, and, gt } from 'drizzle-orm';
 
 // POST - Lock a page
@@ -8,6 +8,16 @@ export async function POST(req: NextRequest) {
   const { slug, userId } = await req.json();
   if (!slug || !userId) {
     return NextResponse.json({ error: 'Missing fields' }, { status: 400 });
+  }
+
+  // Auto-register user if not exists (userId is Telegram chat ID)
+  const [existingUser] = await db.select().from(users).where(eq(users.telegramId, userId));
+  if (!existingUser) {
+    await db.insert(users).values({
+      telegramId: userId,
+      firstName: 'کاربر',
+      role: 'editor',
+    });
   }
 
   // Check existing lock
