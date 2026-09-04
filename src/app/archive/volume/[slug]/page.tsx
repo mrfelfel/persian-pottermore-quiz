@@ -40,7 +40,7 @@ export default function VolumePage() {
           <div className="text-3xl mb-2">📖</div>
           <p style={{ color: 'var(--tg-hint)' }}>جلد یافت نشد</p>
           <Link
-            href="/archive"
+            href="/library"
             className="inline-block mt-4 text-sm"
             style={{ color: 'var(--tg-button)' }}
           >
@@ -57,7 +57,7 @@ export default function VolumePage() {
       <main className="px-6 pt-8 max-w-lg mx-auto">
         {/* Back button */}
         <Link
-          href="/archive"
+          href="/library"
           onClick={() => hapticFeedback('light')}
           className="inline-flex items-center gap-1 text-sm mb-5"
           style={{ color: 'var(--tg-button)' }}

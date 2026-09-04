@@ -42,7 +42,7 @@ export default function CharactersPage() {
       <main className="px-6 pt-8 max-w-lg mx-auto">
         {/* Back button */}
         <Link
-          href="/archive"
+          href="/library"
           onClick={() => hapticFeedback('light')}
           className="inline-flex items-center gap-1 text-sm mb-5"
           style={{ color: 'var(--tg-button)' }}

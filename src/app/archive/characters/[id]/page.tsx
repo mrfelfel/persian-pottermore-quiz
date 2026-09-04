@@ -28,7 +28,7 @@ export default function CharacterPage() {
     });
     showBackButton(() => {
       hapticFeedback('light');
-      window.location.href = '/archive/characters';
+      window.location.href = '/library';
     });
     return () => hideBackButton();
   }, [id]);
@@ -59,11 +59,11 @@ export default function CharacterPage() {
           <div className="text-3xl mb-2">👤</div>
           <p style={{ color: 'var(--tg-hint)' }}>شخصیت یافت نشد</p>
           <Link
-            href="/archive/characters"
+            href="/library"
             className="inline-block mt-4 text-sm"
             style={{ color: 'var(--tg-button)' }}
           >
-            بازگشت به فهرست شخصیت‌ها
+            بازگشت به کتابخانه
           </Link>
         </main>
         <NavBar />

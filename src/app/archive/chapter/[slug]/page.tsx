@@ -108,11 +108,11 @@ export default function ChapterPage() {
           <div className="text-3xl mb-2">📄</div>
           <p style={{ color: 'var(--tg-hint)' }}>فصل یافت نشد</p>
           <Link
-            href="/archive"
+            href="/library"
             className="inline-block mt-4 text-sm"
             style={{ color: 'var(--tg-button)' }}
           >
-            بازگشت به آرشیو
+            بازگشت به کتابخانه
           </Link>
         </main>
         <NavBar />

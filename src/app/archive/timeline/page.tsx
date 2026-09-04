@@ -13,7 +13,7 @@ export default function TimelinePage() {
     ready().then(() => setLoaded(true));
     showBackButton(() => {
       hapticFeedback('light');
-      window.location.href = '/archive';
+      window.location.href = '/library';
     });
     return () => hideBackButton();
   }, []);
@@ -48,7 +48,7 @@ export default function TimelinePage() {
       <main className="px-6 pt-8 max-w-lg mx-auto">
         {/* Back button */}
         <Link
-          href="/archive"
+          href="/library"
           onClick={() => hapticFeedback('light')}
           className="inline-flex items-center gap-1 text-sm mb-5"
           style={{ color: 'var(--tg-button)' }}
