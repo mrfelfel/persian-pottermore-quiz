@@ -1,6 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { db } from '@/lib/db';
-import { editLocks, users } from '@/lib/db/schema';
+import { editLocks } from '@/lib/db/schema';
 import { eq, and, gt } from 'drizzle-orm';
 
 // POST - Lock a page
@@ -19,7 +19,7 @@ export async function POST(req: NextRequest) {
   }
 
   // Upsert lock
-  const expiresAt = new Date(Date.now() + 30 * 60 * 1000); // 30 minutes
+  const expiresAt = new Date(Date.now() + 30 * 60 * 1000);
   await db.delete(editLocks).where(eq(editLocks.pageSlug, slug));
   await db.insert(editLocks).values({ pageSlug: slug, userId, expiresAt });
 

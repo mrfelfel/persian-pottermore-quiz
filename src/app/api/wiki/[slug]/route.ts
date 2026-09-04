@@ -8,19 +8,8 @@ export async function GET(req: NextRequest, context: { params: Promise<{ slug: s
   const { slug } = await context.params;
 
   const [page] = await db
-    .select({
-      slug: wikiPages.slug,
-      title: wikiPages.title,
-      content: wikiPages.content,
-      volume: wikiPages.volume,
-      createdBy: wikiPages.createdBy,
-      createdAt: wikiPages.createdAt,
-      updatedBy: wikiPages.updatedBy,
-      updatedAt: wikiPages.updatedAt,
-      createdByName: users.firstName,
-    })
+    .select()
     .from(wikiPages)
-    .leftJoin(users, eq(wikiPages.createdBy, users.id))
     .where(eq(wikiPages.slug, slug));
 
   if (!page) {
