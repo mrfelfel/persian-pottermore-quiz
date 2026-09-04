@@ -3,40 +3,40 @@
 
 @custom-variant dark (&:is(.dark *));
 
-/* ── Tailwind v4 theme — maps shadcn tokens to Tailwind utilities ── */
+/* ── Tailwind v4 theme — Magical Harry Potter design tokens ── */
 @theme {
-  --color-background: var(--tg-bg);
-  --color-foreground: var(--tg-text);
-  --color-card: var(--tg-bg-secondary);
-  --color-card-foreground: var(--tg-text);
-  --color-popover: var(--tg-bg-secondary);
-  --color-popover-foreground: var(--tg-text);
-  --color-primary: var(--tg-button);
-  --color-primary-foreground: var(--tg-button-text);
-  --color-secondary: var(--tg-bg-secondary);
-  --color-secondary-foreground: var(--tg-hint);
-  --color-muted: var(--tg-bg-secondary);
-  --color-muted-foreground: var(--tg-hint);
-  --color-accent: var(--tg-bg-secondary);
-  --color-accent-foreground: var(--tg-text);
-  --color-destructive: var(--tg-destructive);
+  --color-background: #0a0a0f;
+  --color-foreground: #e8dcc8;
+  --color-card: #14121e;
+  --color-card-foreground: #e8dcc8;
+  --color-popover: #14121e;
+  --color-popover-foreground: #e8dcc8;
+  --color-primary: #c9a84c;
+  --color-primary-foreground: #0a0a0f;
+  --color-secondary: #1a1528;
+  --color-secondary-foreground: #a09880;
+  --color-muted: #1a1528;
+  --color-muted-foreground: #6b6252;
+  --color-accent: #2a1f3d;
+  --color-accent-foreground: #c9a84c;
+  --color-destructive: #8b2252;
   --color-destructive-foreground: #ffffff;
-  --color-border: rgba(255, 255, 255, 0.08);
-  --color-input: rgba(255, 255, 255, 0.08);
-  --color-ring: var(--tg-button);
-  --color-chart-1: var(--tg-button);
+  --color-border: rgba(201, 168, 76, 0.15);
+  --color-input: rgba(201, 168, 76, 0.1);
+  --color-ring: #c9a84c;
+  --color-chart-1: #c9a84c;
   --color-chart-2: #2a623d;
   --color-chart-3: #ecb939;
   --color-chart-4: #ae0001;
   --color-chart-5: #222f5b;
-  --color-sidebar: var(--tg-bg);
-  --color-sidebar-foreground: var(--tg-text);
-  --color-sidebar-primary: var(--tg-button);
-  --color-sidebar-primary-foreground: var(--tg-button-text);
-  --color-sidebar-accent: var(--tg-bg-secondary);
-  --color-sidebar-accent-foreground: var(--tg-text);
-  --color-sidebar-border: rgba(255, 255, 255, 0.08);
-  --color-sidebar-ring: var(--tg-button);
+  --color-sidebar: #0a0a0f;
+  --color-sidebar-foreground: #e8dcc8;
+  --color-sidebar-primary: #c9a84c;
+  --color-sidebar-primary-foreground: #0a0a0f;
+  --color-sidebar-accent: #1a1528;
+  --color-sidebar-accent-foreground: #c9a84c;
+  --color-sidebar-border: rgba(201, 168, 76, 0.15);
+  --color-sidebar-ring: #c9a84c;
   --radius: 0.75rem;
 }
 
@@ -79,19 +79,21 @@
   -webkit-font-smoothing: antialiased;
 }
 
-/* ── Telegram theme vars ── */
+/* ── Theme CSS variables ── */
 :root {
-  --tg-bg: #17212b;
-  --tg-bg-secondary: #1e2c3a;
-  --tg-text: #f5f5f5;
-  --tg-hint: #6d7f8f;
-  --tg-button: #5288c1;
-  --tg-button-text: #ffffff;
-  --tg-link: #6ab2f2;
-  --tg-destructive: #e53935;
+  --tg-bg: #0a0a0f;
+  --tg-bg-secondary: #14121e;
+  --tg-text: #e8dcc8;
+  --tg-hint: #6b6252;
+  --tg-button: #c9a84c;
+  --tg-button-text: #0a0a0f;
+  --tg-link: #d4b45c;
+  --tg-destructive: #8b2252;
+  --tg-gold: #c9a84c;
+  --tg-gold-light: #f0d78c;
+  --tg-gold-dark: #a8893a;
   --safe-top: env(safe-area-inset-top, 0px);
   --safe-bottom: env(safe-area-inset-bottom, 0px);
-
 }
 
 /* ── Base ── */
@@ -123,6 +125,7 @@
     overflow-y: auto;
     -webkit-overflow-scrolling: touch;
     font-feature-settings: "rlig" 1, "calt" 1;
+    background: var(--tg-bg);
   }
 
   /* Fix Telegram WebApp scroll */
@@ -145,7 +148,7 @@
 html { scrollbar-width: none; }
 
 ::selection {
-  background: rgba(82, 136, 193, 0.3);
+  background: rgba(201, 168, 76, 0.3);
   color: #fff;
 }
 
@@ -162,10 +165,145 @@ html { scrollbar-width: none; }
   from { opacity: 0; transform: scale(0.85); }
   to { opacity: 1; transform: scale(1); }
 }
+@keyframes shimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+@keyframes goldPulse {
+  0%, 100% { box-shadow: 0 0 20px rgba(201, 168, 76, 0.1); }
+  50% { box-shadow: 0 0 40px rgba(201, 168, 76, 0.25); }
+}
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-6px); }
+}
 
 .animate-slide-up { animation: slideUp 0.3s ease-out both; }
 .animate-fade-in { animation: fadeIn 0.35s ease-out both; }
 .animate-scale-in { animation: scaleIn 0.3s ease-out both; }
+.animate-shimmer { animation: shimmer 3s linear infinite; }
+.animate-gold-pulse { animation: goldPulse 3s ease-in-out infinite; }
+.animate-float { animation: float 4s ease-in-out infinite; }
+
+/* ── Magical Utility Classes ── */
+
+/* Backgrounds */
+.bg-magical {
+  background: linear-gradient(135deg, #0a0a0f 0%, #1a0a2e 50%, #0d1b2a 100%);
+}
+.bg-magical-card {
+  background: linear-gradient(145deg, #14121e 0%, #1a1528 100%);
+}
+.bg-magical-deep {
+  background: linear-gradient(180deg, #0a0a0f 0%, #1a0a2e 100%);
+}
+
+/* Gold text gradient */
+.text-gold-gradient {
+  background: linear-gradient(135deg, #c9a84c, #f0d78c, #c9a84c);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Glow effects */
+.glow-gold {
+  box-shadow: 0 0 20px rgba(201, 168, 76, 0.15), 0 0 60px rgba(201, 168, 76, 0.05);
+}
+.glow-gold-strong {
+  box-shadow: 0 0 30px rgba(201, 168, 76, 0.25), 0 0 80px rgba(201, 168, 76, 0.1);
+}
+.glow-gold-subtle {
+  box-shadow: 0 0 10px rgba(201, 168, 76, 0.08), 0 0 30px rgba(201, 168, 76, 0.03);
+}
+
+/* Border styles */
+.border-ornate {
+  border: 1px solid rgba(201, 168, 76, 0.2);
+  box-shadow: inset 0 0 30px rgba(0, 0, 0, 0.3);
+}
+.border-ornate-strong {
+  border: 1px solid rgba(201, 168, 76, 0.35);
+  box-shadow: inset 0 0 20px rgba(0, 0, 0, 0.3);
+}
+
+/* Card styles */
+.card-magical {
+  background: linear-gradient(145deg, #14121e 0%, #1a1528 100%);
+  border: 1px solid rgba(201, 168, 76, 0.1);
+  transition: all 0.3s ease;
+}
+.card-magical:hover {
+  border-color: rgba(201, 168, 76, 0.3);
+  box-shadow: 0 4px 30px rgba(201, 168, 76, 0.1);
+  transform: translateY(-2px);
+}
+
+/* Sparkle decoration */
+.sparkle::before {
+  content: '\2726';
+  color: #c9a84c;
+  margin: 0 0.5em;
+  font-size: 0.7em;
+}
+.sparkle::after {
+  content: '\2726';
+  color: #c9a84c;
+  margin: 0 0.5em;
+  font-size: 0.7em;
+}
+
+/* Divider line with diamond */
+.divider-magical {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  color: rgba(201, 168, 76, 0.4);
+}
+.divider-magical::before,
+.divider-magical::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(201, 168, 76, 0.3), transparent);
+}
+
+/* Shimmer overlay for gold elements */
+.shimmer-gold {
+  position: relative;
+  overflow: hidden;
+}
+.shimmer-gold::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(255, 255, 255, 0.08) 50%,
+    transparent 100%
+  );
+  background-size: 200% 100%;
+  animation: shimmer 3s linear infinite;
+  pointer-events: none;
+}
+
+/* Text color helpers */
+.text-gold { color: #c9a84c; }
+.text-gold-light { color: #f0d78c; }
+.text-gold-dark { color: #a8893a; }
+.text-parchment { color: #e8dcc8; }
+.text-faded { color: #6b6252; }
+.text-secondary-gold { color: #a09880; }
+
+/* Shadow helpers */
+.shadow-gold-sm { box-shadow: 0 1px 8px rgba(201, 168, 76, 0.1); }
+.shadow-gold-md { box-shadow: 0 4px 20px rgba(201, 168, 76, 0.15); }
+.shadow-gold-lg { box-shadow: 0 8px 40px rgba(201, 168, 76, 0.2); }
+.shadow-deep { box-shadow: 0 4px 30px rgba(0, 0, 0, 0.4); }
 
 /* ── Archive Typography ── */
 .archive-content h2 {
@@ -173,9 +311,9 @@ html { scrollbar-width: none; }
   font-weight: 700;
   margin-top: 2rem;
   margin-bottom: 1rem;
-  color: var(--tg-text);
+  color: #c9a84c;
   padding-bottom: 0.5rem;
-  border-bottom: 1px solid rgba(255,255,255,0.06);
+  border-bottom: 1px solid rgba(201, 168, 76, 0.2);
 }
 
 .archive-content p {
@@ -186,7 +324,7 @@ html { scrollbar-width: none; }
 }
 
 .archive-content blockquote {
-  border-right: 3px solid var(--tg-button);
+  border-right: 3px solid #c9a84c;
   padding-right: 1rem;
   margin: 1.5rem 0;
   color: var(--tg-hint);
@@ -205,13 +343,13 @@ html { scrollbar-width: none; }
 }
 
 .archive-content a {
-  color: var(--tg-link);
+  color: #d4b45c;
   text-decoration: underline;
 }
 
 .archive-content code {
-  background: var(--tg-bg);
-  color: var(--tg-button);
+  background: #1a1528;
+  color: #c9a84c;
   padding: 2px 6px;
   border-radius: 4px;
   font-size: 0.8rem;
@@ -219,7 +357,7 @@ html { scrollbar-width: none; }
 
 .archive-content hr {
   border: none;
-  border-top: 1px solid rgba(255,255,255,0.06);
+  border-top: 1px solid rgba(201, 168, 76, 0.15);
   margin: 2rem 0;
 }
 
@@ -234,13 +372,13 @@ html { scrollbar-width: none; }
   text-align: right;
   padding: 0.5rem 0.75rem;
   font-weight: 700;
-  background: var(--tg-bg-secondary);
-  color: var(--tg-text);
+  background: #1a1528;
+  color: #c9a84c;
 }
 
 .archive-content td {
   text-align: right;
   padding: 0.5rem 0.75rem;
-  border-top: 1px solid rgba(255,255,255,0.06);
+  border-top: 1px solid rgba(201, 168, 76, 0.1);
   color: var(--tg-text);
 }
