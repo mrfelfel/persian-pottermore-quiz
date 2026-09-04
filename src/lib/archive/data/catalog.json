@@ -400,7 +400,7 @@
         "title": "پایگاه داده شخصیت‌ها — جامعه جادوگری فارسی",
         "epigraph": "این فایل یک مرجع جامع از تمام شخصیت‌های شناخته‌شده جامعه جادوگری فارسی در اینترنت است.\nهر پرونده شامل اطلاعات ساختاریافته و روایت شخصی است.\nنوشته شده توسط کسی که آنجا بود.",
         "file": "06-volume-6-characters/WIKI-DATABASE.md",
-        "size": 35827
+        "size": 35831
       },
       {
         "slug": "vol-06-characters---ashkan",
@@ -449,7 +449,7 @@
         "title": "مرضیه",
         "epigraph": "",
         "file": "06-volume-6-characters/marzieh.md",
-        "size": 9885
+        "size": 9897
       },
       {
         "slug": "vol-06-characters---mohammad-javad",
@@ -495,10 +495,10 @@
       },
       {
         "slug": "vol-06-characters---zahra",
-        "title": "زهرا",
-        "epigraph": "زهرا همسر محمدجواد است.\nو نقش مهمی در دوره سازمان تخیل ایران داشت.\nبدون کمک زهرا، شاید جنگ هواداری ساخته نمی‌شد.",
+        "title": "زهرا / ایلومنت",
+        "epigraph": "",
         "file": "06-volume-6-characters/zahra.md",
-        "size": 4907
+        "size": 5819
       }
     ]
   },
