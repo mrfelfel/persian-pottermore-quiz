@@ -1,10 +1,14 @@
 'use client';
 
 import { useEffect, useState } from 'react';
+
 import Link from 'next/link';
 import NavBar from '@/components/NavBar';
 import { hapticFeedback, showBackButton, hideBackButton } from '@/lib/twa';
 import { ready, timeline } from '@/lib/archive/catalog';
+import { Card, CardContent } from '@/components/ui/card';
+import { Badge } from '@/components/ui/badge';
+import { Button } from '@/components/ui/button';
 
 export default function TimelinePage() {
   const [loaded, setLoaded] = useState(timeline.length > 0);
@@ -47,15 +51,19 @@ export default function TimelinePage() {
     <div className="min-h-[100dvh] pb-20" style={{ background: 'var(--tg-bg)' }}>
       <main className="px-6 pt-8 max-w-lg mx-auto">
         {/* Back button */}
-        <Link
-          href="/library"
+        <Button
+          variant="ghost"
+          size="sm"
+          asChild
           onClick={() => hapticFeedback('light')}
-          className="inline-flex items-center gap-1 text-sm mb-5"
+          className="mb-5 gap-1 text-sm px-0"
           style={{ color: 'var(--tg-button)' }}
         >
-          <span>›</span>
-          <span>بازگشت</span>
-        </Link>
+          <Link href="/library">
+            <span>›</span>
+            <span>بازگشت</span>
+          </Link>
+        </Button>
 
         {/* Title */}
         <h1
@@ -100,51 +108,53 @@ export default function TimelinePage() {
                     </div>
                   </div>
 
-                  {/* Year card */}
-                  <div
-                    className="flex-1 rounded-2xl p-4 mb-0"
+                  {/* Year Card */}
+                  <Card
+                    className="flex-1 rounded-2xl border-0 shadow-none py-0 mb-0"
                     style={{ background: 'var(--tg-bg-secondary)' }}
                   >
-                    <div className="flex items-baseline gap-2 mb-2">
-                      <span
-                        className="text-sm font-bold"
-                        style={{ color: 'var(--tg-text)' }}
-                      >
-                        {entry.year}
-                      </span>
-                      <span
-                        className="text-[10px]"
-                        style={{ color: 'var(--tg-hint)' }}
-                      >
-                        {entry.yearGregorian}
-                      </span>
-                    </div>
+                    <CardContent className="p-4">
+                      <div className="flex items-center gap-2 mb-2">
+                        <Badge variant="secondary" className="text-xs font-bold px-2 py-0.5" style={{
+                          background: hasEvents ? 'var(--tg-button)' : 'transparent',
+                          color: hasEvents ? 'var(--tg-button-text)' : 'var(--tg-hint)',
+                        }}>
+                          {entry.year}
+                        </Badge>
+                        <span
+                          className="text-[10px]"
+                          style={{ color: 'var(--tg-hint)' }}
+                        >
+                          {entry.yearGregorian}
+                        </span>
+                      </div>
 
-                    {hasEvents ? (
-                      <ul className="space-y-1.5">
-                        {entry.events.map((event, i) => (
-                          <li
-                            key={i}
-                            className="text-[12px] leading-relaxed flex items-start gap-2"
-                            style={{ color: 'var(--tg-text)' }}
-                          >
-                            <span
-                              className="shrink-0 mt-1.5 w-1.5 h-1.5 rounded-full"
-                              style={{ background: 'var(--tg-button)' }}
-                            />
-                            {event}
-                          </li>
-                        ))}
-                      </ul>
-                    ) : (
-                      <p
-                        className="text-[11px] italic"
-                        style={{ color: 'var(--tg-hint)' }}
-                      >
-                        رویداد ثبت‌شده‌ای وجود ندارد
-                      </p>
-                    )}
-                  </div>
+                      {hasEvents ? (
+                        <ul className="space-y-1.5">
+                          {entry.events.map((event, i) => (
+                            <li
+                              key={i}
+                              className="text-[12px] leading-relaxed flex items-start gap-2"
+                              style={{ color: 'var(--tg-text)' }}
+                            >
+                              <span
+                                className="shrink-0 mt-1.5 w-1.5 h-1.5 rounded-full"
+                                style={{ background: 'var(--tg-button)' }}
+                              />
+                              {event}
+                            </li>
+                          ))}
+                        </ul>
+                      ) : (
+                        <p
+                          className="text-[11px] italic"
+                          style={{ color: 'var(--tg-hint)' }}
+                        >
+                          رویداد ثبت‌شده‌ای وجود ندارد
+                        </p>
+                      )}
+                    </CardContent>
+                  </Card>
                 </div>
               );
             })}

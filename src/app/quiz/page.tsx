@@ -1,8 +1,9 @@
 'use client';
 
 import { useState, useEffect, useCallback } from 'react';
+
 import { useRouter } from 'next/navigation';
-import { useTWA } from '@/components/TelegramProvider';
+import { useTWA } from '@/components/TWAInit';
 import {
   hapticFeedback,
   showMainButton,

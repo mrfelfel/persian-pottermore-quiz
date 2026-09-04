@@ -1,11 +1,9 @@
 import type { Metadata, Viewport } from "next";
 import "./globals.css";
-import { TelegramProvider } from "@/components/TelegramProvider";
+import { TWAInit } from "@/components/TWAInit";
+import { baseMetadata, websiteJsonLd } from "@/lib/seo";
 
-export const metadata: Metadata = {
-  title: "وزارت سحر و جادو",
-  description: "جامعه جادوگری فارسی — وزارت سحر و جادوی ایران",
-};
+export const metadata: Metadata = baseMetadata();
 
 export const viewport: Viewport = {
   width: "device-width",
@@ -17,13 +15,18 @@ export const viewport: Viewport = {
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
+  const jsonLd = websiteJsonLd();
   return (
-    <html lang="fa" dir="rtl">
+    <html lang="fa" dir="rtl" suppressHydrationWarning>
       <head>
         <script src="https://telegram.org/js/telegram-web-app.js" />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        />
       </head>
-      <body>
-        <TelegramProvider>{children}</TelegramProvider>
+      <body className="min-h-dvh bg-background text-foreground antialiased">
+        <TWAInit>{children}</TWAInit>
       </body>
     </html>
   );

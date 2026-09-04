@@ -6,6 +6,9 @@ import { useParams } from 'next/navigation';
 import NavBar from '@/components/NavBar';
 import { hapticFeedback, showBackButton, hideBackButton } from '@/lib/twa';
 import { ready, getVolume } from '@/lib/archive/catalog';
+import { Card, CardContent } from '@/components/ui/card';
+import { Badge } from '@/components/ui/badge';
+import { Button } from '@/components/ui/button';
 
 export default function VolumePage() {
   const { slug } = useParams<{ slug: string }>();
@@ -56,15 +59,19 @@ export default function VolumePage() {
     <div className="min-h-[100dvh] pb-20" style={{ background: 'var(--tg-bg)' }}>
       <main className="px-6 pt-8 max-w-lg mx-auto">
         {/* Back button */}
-        <Link
-          href="/library"
+        <Button
+          variant="ghost"
+          size="sm"
+          asChild
           onClick={() => hapticFeedback('light')}
-          className="inline-flex items-center gap-1 text-sm mb-5"
+          className="mb-5 gap-1 text-sm px-0"
           style={{ color: 'var(--tg-button)' }}
         >
-          <span>›</span>
-          <span>بازگشت</span>
-        </Link>
+          <Link href="/library">
+            <span>›</span>
+            <span>بازگشت</span>
+          </Link>
+        </Button>
 
         {/* Volume header */}
         <div className="flex items-center gap-3 mb-6">
@@ -76,9 +83,14 @@ export default function VolumePage() {
             >
               {volume.title}
             </h1>
-            <p className="text-[11px]" style={{ color: 'var(--tg-hint)' }}>
-              {volume.chapters.length} فصل
-            </p>
+            <div className="flex items-center gap-2 mt-1">
+              <Badge variant="secondary" className="text-[10px] px-1.5 py-0" style={{
+                background: 'var(--tg-bg-secondary)',
+                color: 'var(--tg-hint)',
+              }}>
+                {volume.chapters.length} فصل
+              </Badge>
+            </div>
           </div>
         </div>
 
@@ -89,42 +101,44 @@ export default function VolumePage() {
               key={chapter.slug}
               href={`/archive/chapter/${chapter.slug}`}
               onClick={() => hapticFeedback('light')}
-              className="block rounded-2xl p-4 transition-transform active:scale-[0.98]"
-              style={{ background: 'var(--tg-bg-secondary)' }}
             >
-              <div className="flex items-start gap-3">
-                <span
-                  className="text-[10px] font-bold shrink-0 w-6 h-6 rounded-full flex items-center justify-center mt-0.5"
-                  style={{
-                    background: 'var(--tg-bg)',
-                    color: 'var(--tg-hint)',
-                  }}
-                >
-                  {index + 1}
-                </span>
-                <div className="flex-1 min-w-0">
-                  <h2
-                    className="text-sm font-medium mb-1"
-                    style={{ color: 'var(--tg-text)' }}
-                  >
-                    {chapter.title}
-                  </h2>
-                  {chapter.epigraph && (
-                    <p
-                      className="text-[11px] leading-relaxed line-clamp-2"
+              <Card
+                className="rounded-2xl border-0 shadow-none py-0 transition-transform active:scale-[0.98]"
+                style={{ background: 'var(--tg-bg-secondary)' }}
+              >
+                <CardContent className="p-4">
+                  <div className="flex items-start gap-3">
+                    <Badge variant="secondary" className="text-[10px] font-bold shrink-0 w-6 h-6 rounded-full items-center justify-center mt-0.5 px-0" style={{
+                      background: 'var(--tg-bg)',
+                      color: 'var(--tg-hint)',
+                    }}>
+                      {index + 1}
+                    </Badge>
+                    <div className="flex-1 min-w-0">
+                      <h2
+                        className="text-sm font-medium mb-1"
+                        style={{ color: 'var(--tg-text)' }}
+                      >
+                        {chapter.title}
+                      </h2>
+                      {chapter.epigraph && (
+                        <p
+                          className="text-[11px] leading-relaxed line-clamp-2"
+                          style={{ color: 'var(--tg-hint)' }}
+                        >
+                          {chapter.epigraph}
+                        </p>
+                      )}
+                    </div>
+                    <span
+                      className="text-xs shrink-0 mt-1"
                       style={{ color: 'var(--tg-hint)' }}
                     >
-                      {chapter.epigraph}
-                    </p>
-                  )}
-                </div>
-                <span
-                  className="text-xs shrink-0 mt-1"
-                  style={{ color: 'var(--tg-hint)' }}
-                >
-                  ‹
-                </span>
-              </div>
+                      ‹
+                    </span>
+                  </div>
+                </CardContent>
+              </Card>
             </Link>
           ))}
         </div>

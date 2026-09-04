@@ -1,9 +1,14 @@
 'use client';
 
 import { useState } from 'react';
+
 import { BLOG_POSTS, ERAS } from '@/lib/ministry/content';
 import NavBar from '@/components/NavBar';
 import { hapticFeedback } from '@/lib/twa';
+import { Button } from '@/components/ui/button';
+import { Card, CardHeader, CardTitle, CardDescription, CardContent, CardFooter } from '@/components/ui/card';
+import { Badge } from '@/components/ui/badge';
+import { cn } from 'cn';
 
 export default function BlogPage() {
   const [expanded, setExpanded] = useState<string | null>(null);
@@ -26,28 +31,27 @@ export default function BlogPage() {
         {/* Era filter pills */}
         <div className="flex gap-2 overflow-x-auto pb-4 mb-2 -mx-1 px-1"
           style={{ scrollbarWidth: 'none' }}>
-          <button
+          <Badge
+            variant={activeEra === null ? 'default' : 'secondary'}
+            className="shrink-0 cursor-pointer text-[11px]"
+            style={activeEra === null ? { background: 'var(--tg-button)' } : {}}
             onClick={() => setActiveEra(null)}
-            className="shrink-0 px-3 py-1.5 rounded-full text-[11px] font-medium"
-            style={{
-              background: activeEra === null ? 'var(--tg-button)' : 'var(--tg-bg-secondary)',
-              color: activeEra === null ? 'var(--tg-button-text)' : 'var(--tg-hint)',
-            }}>
+          >
             همه ({BLOG_POSTS.length})
-          </button>
+          </Badge>
           {Object.entries(ERAS).map(([key, era]) => {
             const count = BLOG_POSTS.filter((p) => p.era === key).length;
             if (count === 0) return null;
             return (
-              <button key={key}
+              <Badge
+                key={key}
+                variant={activeEra === key ? 'default' : 'secondary'}
+                className="shrink-0 cursor-pointer text-[11px]"
+                style={activeEra === key ? { background: 'var(--tg-button)' } : {}}
                 onClick={() => setActiveEra(activeEra === key ? null : key)}
-                className="shrink-0 px-3 py-1.5 rounded-full text-[11px] font-medium"
-                style={{
-                  background: activeEra === key ? 'var(--tg-button)' : 'var(--tg-bg-secondary)',
-                  color: activeEra === key ? 'var(--tg-button-text)' : 'var(--tg-hint)',
-                }}>
+              >
                 {era.label} ({count})
-              </button>
+              </Badge>
             );
           })}
         </div>
@@ -55,14 +59,17 @@ export default function BlogPage() {
         {/* Posts */}
         <div className="space-y-3">
           {[...filtered].reverse().map((post) => (
-            <div key={post.id}
-              className="rounded-2xl overflow-hidden"
-              style={{ background: 'var(--tg-bg-secondary)' }}>
+            <Card
+              key={post.id}
+              className="border-0 overflow-hidden"
+              style={{ background: 'var(--tg-bg-secondary)' }}
+            >
               <button
                 onClick={() => { hapticFeedback('light'); setExpanded(expanded === post.id ? null : post.id); }}
-                className="w-full text-right p-4">
+                className="w-full text-right p-4"
+              >
                 <div className="flex items-start gap-3">
-                  <span className={`text-base shrink-0 mt-0.5`}
+                  <span className="text-base shrink-0 mt-0.5"
                     style={{ color: 'var(--tg-button)' }}>
                     📰
                   </span>
@@ -90,7 +97,7 @@ export default function BlogPage() {
               </button>
 
               {expanded === post.id && (
-                <div className="px-4 pb-4 animate-fade-in">
+                <CardContent className="px-4 pb-4 pt-0 animate-fade-in">
                   <div className="rounded-xl p-4 mb-3"
                     style={{ background: 'var(--tg-bg)' }}>
                     <p className="text-[13px] leading-[1.8] whitespace-pre-line"
@@ -106,15 +113,14 @@ export default function BlogPage() {
 
                   <div className="flex flex-wrap gap-1.5 mt-2">
                     {post.tags.map((tag) => (
-                      <span key={tag} className="px-2 py-0.5 rounded-full text-[10px]"
-                        style={{ background: 'var(--tg-bg)', color: 'var(--tg-hint)' }}>
+                      <Badge key={tag} variant="outline" className="text-[10px]">
                         #{tag}
-                      </span>
+                      </Badge>
                     ))}
                   </div>
-                </div>
+                </CardContent>
               )}
-            </div>
+            </Card>
           ))}
         </div>
 

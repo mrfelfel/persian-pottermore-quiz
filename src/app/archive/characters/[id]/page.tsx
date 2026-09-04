@@ -7,9 +7,13 @@ import Markdown from 'react-markdown';
 import NavBar from '@/components/NavBar';
 import WikiEditor from '@/components/WikiEditor';
 import { useWikiEdit } from '@/lib/wiki/hooks';
-import { useTWA } from '@/components/TelegramProvider';
+import { useTWA } from '@/components/TWAInit';
 import { hapticFeedback, showBackButton, hideBackButton } from '@/lib/twa';
 import { ready, getCharacter } from '@/lib/archive/catalog';
+import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
+import { Badge } from '@/components/ui/badge';
+import { Button } from '@/components/ui/button';
+
 import type { Character } from '@/lib/archive/types';
 
 export default function CharacterPage() {
@@ -79,75 +83,90 @@ export default function CharacterPage() {
     <div className="min-h-[100dvh] pb-20" style={{ background: 'var(--tg-bg)' }}>
       <main className="px-6 pt-8 max-w-lg mx-auto">
         {/* Back button */}
-        <Link
-          href="/archive/characters"
+        <Button
+          variant="ghost"
+          size="sm"
+          asChild
           onClick={() => hapticFeedback('light')}
-          className="inline-flex items-center gap-1 text-sm mb-5"
+          className="mb-5 gap-1 text-sm px-0"
           style={{ color: 'var(--tg-button)' }}
         >
-          <span>›</span>
-          <span>شخصیت‌ها</span>
-        </Link>
+          <Link href="/archive/characters">
+            <span>›</span>
+            <span>شخصیت‌ها</span>
+          </Link>
+        </Button>
 
-        {/* Character header */}
-        <div className="mb-4">
-          <h1
-            className="text-xl font-bold mb-1"
-            style={{ color: 'var(--tg-text)' }}
-          >
-            {character.name}
-          </h1>
-          {character.aliases.length > 0 && (
-            <p className="text-sm mb-2" style={{ color: 'var(--tg-hint)' }}>
-              {character.aliases.join(' · ')}
-            </p>
-          )}
-          {character.epigraph && (
-            <blockquote
-              className="mt-3 px-4 py-3 rounded-xl text-[12px] leading-relaxed italic"
-              style={{
-                background: 'var(--tg-bg-secondary)',
-                borderRight: '3px solid var(--tg-button)',
-                color: 'var(--tg-hint)',
-              }}
-            >
-              {character.epigraph}
-            </blockquote>
-          )}
-        </div>
-
-        {/* Infobox */}
-        <div
-          className="rounded-2xl overflow-hidden mb-4"
+        {/* Character header Card */}
+        <Card
+          className="rounded-2xl border-0 shadow-none mb-4"
           style={{ background: 'var(--tg-bg-secondary)' }}
         >
-          <div className="divide-y" style={{ borderColor: 'rgba(255,255,255,0.05)' }}>
+          <CardHeader className="pb-2">
+            <CardTitle className="text-xl" style={{ color: 'var(--tg-text)' }}>
+              {character.name}
+            </CardTitle>
+            {character.aliases.length > 0 && (
+              <p className="text-sm" style={{ color: 'var(--tg-hint)' }}>
+                {character.aliases.join(' · ')}
+              </p>
+            )}
             {character.role && (
-              <div className="flex justify-between items-center px-4 py-3">
-                <span className="text-[11px] font-medium" style={{ color: 'var(--tg-hint)' }}>نقش</span>
-                <span className="text-[12px] font-medium" style={{ color: 'var(--tg-text)' }}>{character.role}</span>
+              <div className="flex items-center gap-2 mt-1">
+                <Badge variant="secondary" className="text-[10px] px-1.5 py-0" style={{
+                  background: 'var(--tg-button)',
+                  color: 'var(--tg-button-text)',
+                }}>
+                  {character.role}
+                </Badge>
+                {character.school && (
+                  <Badge variant="outline" className="text-[10px] px-1.5 py-0" style={{
+                    borderColor: 'rgba(255,255,255,0.1)',
+                    color: 'var(--tg-hint)',
+                  }}>
+                    {character.school}
+                  </Badge>
+                )}
               </div>
             )}
-            {character.school && (
-              <div className="flex justify-between items-center px-4 py-3">
-                <span className="text-[11px] font-medium" style={{ color: 'var(--tg-hint)' }}>مدرسه / سازمان</span>
-                <span className="text-[12px]" style={{ color: 'var(--tg-text)' }}>{character.school}</span>
-              </div>
-            )}
-            {character.period && (
-              <div className="flex justify-between items-center px-4 py-3">
-                <span className="text-[11px] font-medium" style={{ color: 'var(--tg-hint)' }}>دوره فعالیت</span>
-                <span className="text-[12px]" style={{ color: 'var(--tg-text)' }}>{character.period}</span>
-              </div>
-            )}
-            {metaEntries.map(([key, value]) => (
-              <div key={key} className="flex justify-between items-center px-4 py-3">
-                <span className="text-[11px] font-medium" style={{ color: 'var(--tg-hint)' }}>{key}</span>
-                <span className="text-[12px]" style={{ color: 'var(--tg-text)' }}>{value}</span>
-              </div>
-            ))}
-          </div>
-        </div>
+          </CardHeader>
+          {character.epigraph && (
+            <CardContent className="pt-0">
+              <blockquote
+                className="px-4 py-3 rounded-xl text-[12px] leading-relaxed italic"
+                style={{
+                  borderRight: '3px solid var(--tg-button)',
+                  color: 'var(--tg-hint)',
+                }}
+              >
+                {character.epigraph}
+              </blockquote>
+            </CardContent>
+          )}
+        </Card>
+
+        {/* Infobox Card */}
+        {(character.period || metaEntries.length > 0) && (
+          <Card
+            className="rounded-2xl border-0 shadow-none mb-4 py-0"
+            style={{ background: 'var(--tg-bg-secondary)' }}
+          >
+            <CardContent className="divide-y p-0" style={{ borderColor: 'rgba(255,255,255,0.05)' }}>
+              {character.period && (
+                <div className="flex justify-between items-center px-4 py-3">
+                  <span className="text-[11px] font-medium" style={{ color: 'var(--tg-hint)' }}>دوره فعالیت</span>
+                  <span className="text-[12px]" style={{ color: 'var(--tg-text)' }}>{character.period}</span>
+                </div>
+              )}
+              {metaEntries.map(([key, value]) => (
+                <div key={key} className="flex justify-between items-center px-4 py-3">
+                  <span className="text-[11px] font-medium" style={{ color: 'var(--tg-hint)' }}>{key}</span>
+                  <span className="text-[12px]" style={{ color: 'var(--tg-text)' }}>{value}</span>
+                </div>
+              ))}
+            </CardContent>
+          </Card>
+        )}
 
         {/* Wiki Editor Controls */}
         <WikiEditor
@@ -220,12 +239,17 @@ export default function CharacterPage() {
             </Markdown>
           </article>
         ) : (
-          <div className="text-center py-8 rounded-2xl" style={{ background: 'var(--tg-bg-secondary)' }}>
-            <div className="text-2xl mb-2">📝</div>
-            <p className="text-sm" style={{ color: 'var(--tg-hint)' }}>
-              محتوای تکمیلی موجود نیست
-            </p>
-          </div>
+          <Card
+            className="rounded-2xl border-0 shadow-none text-center"
+            style={{ background: 'var(--tg-bg-secondary)' }}
+          >
+            <CardContent className="py-8">
+              <div className="text-2xl mb-2">📝</div>
+              <p className="text-sm" style={{ color: 'var(--tg-hint)' }}>
+                محتوای تکمیلی موجود نیست
+              </p>
+            </CardContent>
+          </Card>
         )}
       </main>
       <NavBar />

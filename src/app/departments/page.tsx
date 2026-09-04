@@ -1,12 +1,17 @@
 'use client';
 
 import { useState, useEffect } from 'react';
+
 import { useRouter } from 'next/navigation';
-import { useTWA } from '@/components/TelegramProvider';
+import { useTWA } from '@/components/TWAInit';
 import { hapticFeedback, TG_EMOJI } from '@/lib/twa';
 import { DEPARTMENTS, DeptId } from '@/lib/ministry/types';
 import { getProfile, setDepartment, addXp } from '@/lib/ministry/store';
 import NavBar from '@/components/NavBar';
+import { Button } from '@/components/ui/button';
+import { Card, CardHeader, CardTitle, CardDescription, CardContent, CardFooter } from '@/components/ui/card';
+import { Badge } from '@/components/ui/badge';
+import { cn } from 'cn';
 
 export default function DepartmentsPage() {
   const { user } = useTWA();
@@ -51,24 +56,43 @@ export default function DepartmentsPage() {
         )}
 
         <div className="space-y-2">
-          {Object.values(DEPARTMENTS).map((dept) => (
-            <button key={dept.id}
-              onClick={() => handleSelect(dept.id)}
-              className="w-full flex items-center gap-3 p-3.5 rounded-xl text-right"
-              style={{
-                background: selected === dept.id ? 'var(--tg-button)' : 'var(--tg-bg-secondary)',
-                color: selected === dept.id ? 'var(--tg-button-text)' : 'var(--tg-text)',
-              }}>
-              <span className="text-xl shrink-0">{dept.emoji}</span>
-              <div className="flex-1 min-w-0">
-                <div className="text-[13px] font-medium truncate">{dept.name}</div>
-                <div className="text-[11px] opacity-60">{dept.nameEn}</div>
-              </div>
-              {selected === dept.id && (
-                <span className="text-xs shrink-0">✓</span>
-              )}
-            </button>
-          ))}
+          {Object.values(DEPARTMENTS).map((dept) => {
+            const isSelected = selected === dept.id;
+            return (
+              <Card
+                key={dept.id}
+                className={cn(
+                  'border-0 py-3 cursor-pointer transition-all',
+                  isSelected && 'ring-2 ring-primary'
+                )}
+                style={{
+                  background: isSelected ? 'var(--tg-button)' : 'var(--tg-bg-secondary)',
+                }}
+                onClick={() => handleSelect(dept.id)}
+              >
+                <CardContent className="pt-0 px-4">
+                  <div className="flex items-center gap-3">
+                    <span className="text-xl shrink-0">{dept.emoji}</span>
+                    <div className="flex-1 min-w-0">
+                      <div className="text-[13px] font-medium truncate"
+                        style={{ color: isSelected ? 'var(--tg-button-text)' : 'var(--tg-text)' }}>
+                        {dept.name}
+                      </div>
+                      <div className="text-[11px]"
+                        style={{ color: isSelected ? 'rgba(255,255,255,0.7)' : 'var(--tg-hint)' }}>
+                        {dept.nameEn}
+                      </div>
+                    </div>
+                    {isSelected && (
+                      <Badge variant="secondary" className="shrink-0 bg-white/20 text-white border-0">
+                        عضو ✓
+                      </Badge>
+                    )}
+                  </div>
+                </CardContent>
+              </Card>
+            );
+          })}
         </div>
       </main>
       <NavBar />

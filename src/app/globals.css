@@ -1,4 +1,7 @@
 @import "tailwindcss";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
 
 /* ── Vazirmatn (local) ── */
 @font-face {
@@ -51,10 +54,53 @@
   --tg-destructive: #e53935;
   --safe-top: env(safe-area-inset-top, 0px);
   --safe-bottom: env(safe-area-inset-bottom, 0px);
+
+  /* ── shadcn/ui CSS variables ── */
+  --radius: 0.75rem;
+  --background: oklch(0.175 0.015 250);
+  --foreground: oklch(0.95 0.005 250);
+  --card: oklch(0.2 0.015 250);
+  --card-foreground: oklch(0.95 0.005 250);
+  --popover: oklch(0.2 0.015 250);
+  --popover-foreground: oklch(0.95 0.005 250);
+  --primary: oklch(0.55 0.12 240);
+  --primary-foreground: oklch(1 0 0);
+  --secondary: oklch(0.22 0.02 250);
+  --secondary-foreground: oklch(0.85 0.01 250);
+  --muted: oklch(0.22 0.02 250);
+  --muted-foreground: oklch(0.55 0.02 250);
+  --accent: oklch(0.22 0.02 250);
+  --accent-foreground: oklch(0.85 0.01 250);
+  --destructive: oklch(0.55 0.2 25);
+  --destructive-foreground: oklch(1 0 0);
+  --border: oklch(0.28 0.015 250);
+  --input: oklch(0.28 0.015 250);
+  --ring: oklch(0.55 0.12 240);
+  --chart-1: oklch(0.55 0.12 240);
+  --chart-2: oklch(0.6 0.15 160);
+  --chart-3: oklch(0.65 0.18 50);
+  --chart-4: oklch(0.6 0.15 300);
+  --chart-5: oklch(0.55 0.12 20);
+  --sidebar: oklch(0.15 0.015 250);
+  --sidebar-foreground: oklch(0.85 0.01 250);
+  --sidebar-primary: oklch(0.55 0.12 240);
+  --sidebar-primary-foreground: oklch(1 0 0);
+  --sidebar-accent: oklch(0.22 0.02 250);
+  --sidebar-accent-foreground: oklch(0.85 0.01 250);
+  --sidebar-border: oklch(0.28 0.015 250);
+  --sidebar-ring: oklch(0.55 0.12 240);
 }
 
 /* ── Base ── */
 @layer base {
+  *,
+  ::after,
+  ::before,
+  ::backdrop,
+  ::file-selector-button {
+    border-color: var(--border);
+  }
+
   html {
     font-family: 'Vazirmatn', -apple-system, BlinkMacSystemFont, sans-serif;
     background: var(--tg-bg);
@@ -73,6 +119,7 @@
     overflow-x: hidden;
     overflow-y: auto;
     -webkit-overflow-scrolling: touch;
+    font-feature-settings: "rlig" 1, "calt" 1;
   }
 
   /* Fix Telegram WebApp scroll */

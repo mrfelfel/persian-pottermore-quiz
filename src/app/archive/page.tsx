@@ -1,11 +1,15 @@
 'use client';
 
 import { useEffect, useState } from 'react';
+
 import Link from 'next/link';
 import NavBar from '@/components/NavBar';
 import { hapticFeedback } from '@/lib/twa';
 import { ready, volumes, characters, timeline } from '@/lib/archive/catalog';
-import type { Volume, Character, TimelineEntry } from '@/lib/archive/types';
+import { Button } from '@/components/ui/button';
+import { Card, CardContent } from '@/components/ui/card';
+import { Badge } from '@/components/ui/badge';
+import { cn } from 'cn';
 
 type Tab = 'volumes' | 'characters' | 'timeline';
 
@@ -39,10 +43,7 @@ export default function ArchivePage() {
         )}
 
         {/* Header */}
-        <h1
-          className="text-lg font-bold mb-1"
-          style={{ color: 'var(--tg-text)' }}
-        >
+        <h1 className="text-lg font-bold mb-1" style={{ color: 'var(--tg-text)' }}>
           <span className="icon-book">📚</span> آرشیو تاریخی جامعه جادوگری فارسی
         </h1>
         <p className="text-xs mb-5" style={{ color: 'var(--tg-hint)' }}>
@@ -55,26 +56,22 @@ export default function ArchivePage() {
           style={{ scrollbarWidth: 'none' }}
         >
           {TABS.map((tab) => (
-            <button
+            <Button
               key={tab.key}
+              variant="ghost"
+              size="sm"
               onClick={() => {
                 hapticFeedback('light');
                 setActiveTab(tab.key);
               }}
-              className="shrink-0 px-4 py-2 rounded-full text-[12px] font-medium transition-colors"
+              className="shrink-0 rounded-full px-4 h-8 text-[12px] font-medium"
               style={{
-                background:
-                  activeTab === tab.key
-                    ? 'var(--tg-button)'
-                    : 'var(--tg-bg-secondary)',
-                color:
-                  activeTab === tab.key
-                    ? 'var(--tg-button-text)'
-                    : 'var(--tg-hint)',
+                background: activeTab === tab.key ? 'var(--tg-button)' : 'var(--tg-bg-secondary)',
+                color: activeTab === tab.key ? 'var(--tg-button-text)' : 'var(--tg-hint)',
               }}
             >
               {tab.label}
-            </button>
+            </Button>
           ))}
         </div>
 
@@ -86,19 +83,27 @@ export default function ArchivePage() {
                 key={vol.slug}
                 href={`/archive/volume/${vol.slug}`}
                 onClick={() => hapticFeedback('light')}
-                className="rounded-2xl p-4 flex flex-col items-center gap-2 text-center transition-transform active:scale-[0.97]"
-                style={{ background: 'var(--tg-bg-secondary)' }}
               >
-                <span className="text-2xl">{vol.icon}</span>
-                <span
-                  className="text-sm font-medium leading-snug"
-                  style={{ color: 'var(--tg-text)' }}
+                <Card
+                  className="rounded-2xl border-0 shadow-none py-0 transition-transform active:scale-[0.97]"
+                  style={{ background: 'var(--tg-bg-secondary)' }}
                 >
-                  {vol.title}
-                </span>
-                <span className="text-[10px]" style={{ color: 'var(--tg-hint)' }}>
-                  {vol.chapters.length} فصل
-                </span>
+                  <CardContent className="flex flex-col items-center gap-2 p-4 text-center">
+                    <span className="text-2xl">{vol.icon}</span>
+                    <span
+                      className="text-sm font-medium leading-snug"
+                      style={{ color: 'var(--tg-text)' }}
+                    >
+                      {vol.title}
+                    </span>
+                    <Badge variant="secondary" className="text-[10px] px-1.5 py-0" style={{
+                      background: 'var(--tg-bg)',
+                      color: 'var(--tg-hint)',
+                    }}>
+                      {vol.chapters.length} فصل
+                    </Badge>
+                  </CardContent>
+                </Card>
               </Link>
             ))}
             {volumes.length === 0 && (
@@ -121,26 +126,34 @@ export default function ArchivePage() {
                 key={ch.id}
                 href={`/archive/characters/${ch.id}`}
                 onClick={() => hapticFeedback('light')}
-                className="rounded-2xl p-4 text-right transition-transform active:scale-[0.97]"
-                style={{ background: 'var(--tg-bg-secondary)' }}
               >
-                <div
-                  className="text-sm font-medium mb-1"
-                  style={{ color: 'var(--tg-text)' }}
+                <Card
+                  className="rounded-2xl border-0 shadow-none py-0 text-right transition-transform active:scale-[0.97]"
+                  style={{ background: 'var(--tg-bg-secondary)' }}
                 >
-                  {ch.name}
-                </div>
-                <div className="text-[10px] mb-1" style={{ color: 'var(--tg-hint)' }}>
-                  {ch.role}
-                </div>
-                {ch.period && (
-                  <div
-                    className="text-[10px]"
-                    style={{ color: 'var(--tg-hint)' }}
-                  >
-                    {ch.period}
-                  </div>
-                )}
+                  <CardContent className="p-4">
+                    <div
+                      className="text-sm font-medium mb-1"
+                      style={{ color: 'var(--tg-text)' }}
+                    >
+                      {ch.name}
+                    </div>
+                    <Badge variant="secondary" className="text-[9px] px-1.5 py-0" style={{
+                      background: 'var(--tg-button)',
+                      color: 'var(--tg-button-text)',
+                    }}>
+                      {ch.role}
+                    </Badge>
+                    {ch.period && (
+                      <div
+                        className="text-[10px] mt-1"
+                        style={{ color: 'var(--tg-hint)' }}
+                      >
+                        {ch.period}
+                      </div>
+                    )}
+                  </CardContent>
+                </Card>
               </Link>
             ))}
             {characters.length === 0 && (
@@ -165,41 +178,41 @@ export default function ArchivePage() {
                   key={year}
                   href="/archive/timeline"
                   onClick={() => hapticFeedback('light')}
-                  className="flex items-center justify-between rounded-2xl p-4 transition-transform active:scale-[0.98]"
-                  style={{ background: 'var(--tg-bg-secondary)' }}
                 >
-                  <div>
-                    <span
-                      className="text-sm font-medium"
-                      style={{ color: 'var(--tg-text)' }}
-                    >
-                      {year}
-                    </span>
-                    {entry?.yearGregorian && (
-                      <span
-                        className="text-[10px] mr-2"
-                        style={{ color: 'var(--tg-hint)' }}
-                      >
-                        ({entry.yearGregorian})
-                      </span>
-                    )}
-                  </div>
-                  <div className="flex items-center gap-2">
-                    {entry && (
-                      <span
-                        className="text-[10px] px-2 py-0.5 rounded-full"
-                        style={{
-                          background: 'var(--tg-bg)',
-                          color: 'var(--tg-hint)',
-                        }}
-                      >
-                        {entry.events.length} رویداد
-                      </span>
-                    )}
-                    <span style={{ color: 'var(--tg-hint)' }} className="text-xs">
-                      ‹
-                    </span>
-                  </div>
+                  <Card
+                    className="rounded-2xl border-0 shadow-none py-0 transition-transform active:scale-[0.98]"
+                    style={{ background: 'var(--tg-bg-secondary)' }}
+                  >
+                    <CardContent className="flex items-center justify-between px-4 py-4">
+                      <div>
+                        <span
+                          className="text-sm font-medium"
+                          style={{ color: 'var(--tg-text)' }}
+                        >
+                          {year}
+                        </span>
+                        {entry?.yearGregorian && (
+                          <span
+                            className="text-[10px] mr-2"
+                            style={{ color: 'var(--tg-hint)' }}
+                          >
+                            ({entry.yearGregorian})
+                          </span>
+                        )}
+                      </div>
+                      <div className="flex items-center gap-2">
+                        {entry && (
+                          <Badge variant="secondary" className="text-[10px] px-1.5 py-0" style={{
+                            background: 'var(--tg-bg)',
+                            color: 'var(--tg-hint)',
+                          }}>
+                            {entry.events.length} رویداد
+                          </Badge>
+                        )}
+                        <span style={{ color: 'var(--tg-hint)' }} className="text-xs">‹</span>
+                      </div>
+                    </CardContent>
+                  </Card>
                 </Link>
               );
             })}

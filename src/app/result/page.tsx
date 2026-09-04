@@ -1,8 +1,9 @@
 'use client';
 
 import { useState, useEffect } from 'react';
+
 import { useRouter } from 'next/navigation';
-import { useTWA } from '@/components/TelegramProvider';
+import { useTWA } from '@/components/TWAInit';
 import { hapticFeedback, showBackButton, hideBackButton, TG_EMOJI } from '@/lib/twa';
 import { getHouse } from '@/lib/houses';
 import { HouseResult } from '@/lib/quiz';
@@ -10,6 +11,10 @@ import { setHouse, addXp, addBadge, getProfile, createProfile } from '@/lib/mini
 import { HouseId } from '@/lib/ministry/types';
 import TGButton from '@/components/TGButton';
 import Link from 'next/link';
+import { Button } from '@/components/ui/button';
+import { Card, CardHeader, CardTitle, CardDescription, CardContent, CardFooter } from '@/components/ui/card';
+import { Badge } from '@/components/ui/badge';
+import { cn } from 'cn';
 
 export default function ResultPage() {
   const { user, isInTelegram } = useTWA();
@@ -61,10 +66,14 @@ export default function ResultPage() {
           {/* House reveal */}
           <div className={`text-center ${show ? 'animate-scale-in' : 'opacity-0'}`}>
             <div className="text-5xl sm:text-6xl mb-3 select-none">{top.emoji}</div>
-            <div className="text-xl sm:text-[26px] font-bold" style={{ color: top.colorBg }}>
+            <Badge
+              variant="default"
+              className="text-lg sm:text-[22px] font-bold px-5 py-1.5 h-auto"
+              style={{ background: top.colorBg }}
+            >
               {top.name}
-            </div>
-            <div className="text-sm mt-1" style={{ color: 'var(--tg-hint)' }}>
+            </Badge>
+            <div className="text-sm mt-2" style={{ color: 'var(--tg-hint)' }}>
               {top.trait}
             </div>
             <div className="text-xs sm:text-[13px] mt-1" style={{ color: 'var(--tg-hint)' }}>
@@ -94,12 +103,16 @@ export default function ResultPage() {
           </div>
 
           {/* Description card */}
-          <div className={`rounded-2xl p-5 sm:p-6 mb-6 ${show ? 'animate-slide-up' : 'opacity-0'}`}
-            style={{ background: 'var(--tg-bg-secondary)', animationDelay: '0.3s' }}>
-            <p className="text-[13px] sm:text-sm leading-[1.8]" style={{ color: 'var(--tg-text)' }}>
-              {top.description}
-            </p>
-          </div>
+          <Card
+            className={`mb-6 border-0 ${show ? 'animate-slide-up' : 'opacity-0'}`}
+            style={{ background: 'var(--tg-bg-secondary)', animationDelay: '0.3s' }}
+          >
+            <CardContent className="pt-6">
+              <p className="text-[13px] sm:text-sm leading-[1.8]" style={{ color: 'var(--tg-text)' }}>
+                {top.description}
+              </p>
+            </CardContent>
+          </Card>
 
           {/* All houses breakdown */}
           <div className={`space-y-3 ${show ? 'animate-slide-up' : 'opacity-0'}`}
@@ -111,31 +124,39 @@ export default function ResultPage() {
             {results.map((r, i) => {
               const house = getHouse(r.house);
               return (
-                <div key={r.house} className="rounded-xl p-3.5 sm:p-4"
-                  style={{ background: 'var(--tg-bg-secondary)' }}>
-                  <div className="flex items-center justify-between mb-2">
-                    <div className="flex items-center gap-2">
-                      <span className="text-base sm:text-lg">{house.emoji}</span>
-                      <span className="text-xs sm:text-[13px] font-medium"
-                        style={{ color: 'var(--tg-text)' }}>
-                        {house.name}
-                      </span>
+                <Card
+                  key={r.house}
+                  className="border-0 py-3"
+                  style={{ background: 'var(--tg-bg-secondary)' }}
+                >
+                  <CardContent className="pt-0 px-4">
+                    <div className="flex items-center justify-between mb-2">
+                      <div className="flex items-center gap-2">
+                        <span className="text-base sm:text-lg">{house.emoji}</span>
+                        <span className="text-xs sm:text-[13px] font-medium"
+                          style={{ color: 'var(--tg-text)' }}>
+                          {house.name}
+                        </span>
+                      </div>
+                      <Badge
+                        variant="default"
+                        className="text-xs sm:text-[13px] font-bold"
+                        style={{ background: house.colorBg }}
+                      >
+                        %{r.percentage}
+                      </Badge>
                     </div>
-                    <span className="text-xs sm:text-[13px] font-bold"
-                      style={{ color: house.colorBg }}>
-                      %{r.percentage}
-                    </span>
-                  </div>
-                  <div className="h-1.5 rounded-full overflow-hidden"
-                    style={{ background: 'var(--tg-bg)' }}>
-                    <div className="h-full rounded-full"
-                      style={{
-                        width: show ? `${r.percentage}%` : '0%',
-                        backgroundColor: house.colorBg,
-                        transition: `width 0.8s ease-out ${0.5 + i * 0.12}s`,
-                      }} />
-                  </div>
-                </div>
+                    <div className="h-1.5 rounded-full overflow-hidden"
+                      style={{ background: 'var(--tg-bg)' }}>
+                      <div className="h-full rounded-full"
+                        style={{
+                          width: show ? `${r.percentage}%` : '0%',
+                          backgroundColor: house.colorBg,
+                          transition: `width 0.8s ease-out ${0.5 + i * 0.12}s`,
+                        }} />
+                    </div>
+                  </CardContent>
+                </Card>
               );
             })}
           </div>

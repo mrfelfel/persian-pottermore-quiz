@@ -8,8 +8,12 @@ import NavBar from '@/components/NavBar';
 import { hapticFeedback, showBackButton, hideBackButton } from '@/lib/twa';
 import { ready, volumes } from '@/lib/archive/catalog';
 import { useWikiEdit } from '@/lib/wiki/hooks';
-import { useTWA } from '@/components/TelegramProvider';
+import { useTWA } from '@/components/TWAInit';
 import WikiEditor from '@/components/WikiEditor';
+import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
+import { Badge } from '@/components/ui/badge';
+import { Button } from '@/components/ui/button';
+
 import type { Chapter } from '@/lib/archive/types';
 
 export default function ChapterPage() {
@@ -126,42 +130,54 @@ export default function ChapterPage() {
     <div className="min-h-[100dvh] pb-20" style={{ background: 'var(--tg-bg)' }}>
       <main className="px-6 pt-8 max-w-lg mx-auto">
         {/* Back button */}
-        <Link
-          href={volume ? `/archive/volume/${volume.slug}` : '/archive'}
+        <Button
+          variant="ghost"
+          size="sm"
+          asChild
           onClick={() => hapticFeedback('light')}
-          className="inline-flex items-center gap-1 text-sm mb-5"
+          className="mb-5 gap-1 text-sm px-0"
           style={{ color: 'var(--tg-button)' }}
         >
-          <span>›</span>
-          <span>{volume ? volume.title : 'بازگشت'}</span>
-        </Link>
+          <Link href={volume ? `/archive/volume/${volume.slug}` : '/archive'}>
+            <span>›</span>
+            <span>{volume ? volume.title : 'بازگشت'}</span>
+          </Link>
+        </Button>
 
-        {/* Chapter header */}
-        <h1
-          className="text-lg font-bold mb-2"
-          style={{ color: 'var(--tg-text)' }}
+        {/* Chapter header Card */}
+        <Card
+          className="rounded-2xl border-0 shadow-none mb-5"
+          style={{ background: 'var(--tg-bg-secondary)' }}
         >
-          {display.title}
-        </h1>
-        {volume && (
-          <p className="text-[11px] mb-4" style={{ color: 'var(--tg-hint)' }}>
-            {volume.title}
-          </p>
-        )}
-
-        {/* Epigraph */}
-        {display.epigraph && (
-          <blockquote
-            className="mb-6 px-4 py-3 rounded-xl text-[12px] leading-relaxed italic"
-            style={{
-              background: 'var(--tg-bg-secondary)',
-              borderRight: '3px solid var(--tg-button)',
-              color: 'var(--tg-hint)',
-            }}
-          >
-            {display.epigraph}
-          </blockquote>
-        )}
+          <CardHeader className="pb-3">
+            <CardTitle className="text-lg" style={{ color: 'var(--tg-text)' }}>
+              {display.title}
+            </CardTitle>
+            {volume && (
+              <div className="flex items-center gap-2 mt-1">
+                <Badge variant="secondary" className="text-[10px] px-1.5 py-0" style={{
+                  background: 'var(--tg-bg)',
+                  color: 'var(--tg-hint)',
+                }}>
+                  {volume.title}
+                </Badge>
+              </div>
+            )}
+          </CardHeader>
+          {display.epigraph && (
+            <CardContent className="pt-0">
+              <blockquote
+                className="px-4 py-3 rounded-xl text-[12px] leading-relaxed italic"
+                style={{
+                  borderRight: '3px solid var(--tg-button)',
+                  color: 'var(--tg-hint)',
+                }}
+              >
+                {display.epigraph}
+              </blockquote>
+            </CardContent>
+          )}
+        </Card>
 
         {/* Wiki Editor Controls */}
         <WikiEditor
@@ -256,15 +272,17 @@ export default function ChapterPage() {
             </Markdown>
           </article>
         ) : (
-          <div
-            className="text-center py-10 rounded-2xl"
+          <Card
+            className="rounded-2xl border-0 shadow-none text-center"
             style={{ background: 'var(--tg-bg-secondary)' }}
           >
-            <div className="text-2xl mb-2">🚧</div>
-            <p className="text-sm" style={{ color: 'var(--tg-hint)' }}>
-              محتوای این فصل هنوز تولید نشده است
-            </p>
-          </div>
+            <CardContent className="py-10">
+              <div className="text-2xl mb-2">🚧</div>
+              <p className="text-sm" style={{ color: 'var(--tg-hint)' }}>
+                محتوای این فصل هنوز تولید نشده است
+              </p>
+            </CardContent>
+          </Card>
         )}
       </main>
       <NavBar />
