@@ -48,9 +48,23 @@ export function TelegramProvider({ children }: { children: ReactNode }) {
       document.documentElement.style.setProperty('--tg-button-text', t.buttonTextColor);
       document.documentElement.style.setProperty('--tg-bg-secondary', t.secondaryBgColor);
 
-      // Get user
+      // Get user and authenticate with backend
       const u = getTWAUser();
-      if (u) setUser(u);
+      if (u) {
+        setUser(u);
+        // Register/login user in backend database
+        fetch('/api/auth/telegram', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            telegramId: u.id,
+            firstName: u.first_name,
+            lastName: u.last_name,
+            username: u.username,
+            photoUrl: u.photo_url,
+          }),
+        }).catch(() => {});
+      }
     } else {
       // Outside Telegram — check localStorage
       const saved = localStorage.getItem('hp_tg_user');

@@ -6,9 +6,10 @@ import { hapticFeedback } from '@/lib/twa';
 
 const TABS = [
   { href: '/', icon: 'home', label: 'خانه' },
+  { href: '/archive', icon: 'menu_book', label: 'آرشیو' },
+  { href: '/archive/characters', icon: 'groups', label: 'شخصیت‌ها' },
   { href: '/quiz', icon: 'quiz', label: 'کوییز' },
   { href: '/profile', icon: 'badge', label: 'شناسنامه' },
-  { href: '/blog', icon: 'newspaper', label: 'آرشیو' },
   { href: '/leaderboard', icon: 'leaderboard', label: 'رتبه' },
 ];
 

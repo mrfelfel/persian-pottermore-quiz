@@ -1,0 +1,1280 @@
+[
+  {
+    "id": "01-volume-1-pre-ministry",
+    "title": "جلد اول — پیش از وزارت",
+    "slug": "vol-01-pre-ministry",
+    "icon": "🌍",
+    "chapters": [
+      {
+        "slug": "vol-01-pre-ministry---ch01-internet-1390-1391",
+        "title": "فصل ۱ — اینترنت سال‌های ۱۳۹۰ و ۱۳۹۱",
+        "epigraph": "",
+        "file": "01-volume-1-pre-ministry/ch01-internet-1390-1391.md",
+        "size": 24422
+      },
+      {
+        "slug": "vol-01-pre-ministry---ch02-my-entry",
+        "title": "فصل ۲ — من و ورود به دنیای هری پاتر",
+        "epigraph": "",
+        "file": "01-volume-1-pre-ministry/ch02-my-entry.md",
+        "size": 19586
+      },
+      {
+        "slug": "vol-01-pre-ministry---ch03-first-blogs-forums",
+        "title": "فصل ۳ — اولین وبلاگ‌ها و انجمن‌ها",
+        "epigraph": "",
+        "file": "01-volume-1-pre-ministry/ch03-first-blogs-forums.md",
+        "size": 18305
+      },
+      {
+        "slug": "vol-01-pre-ministry---ch04-community-formation",
+        "title": "فصل ۴ — شکل‌گیری جامعه",
+        "epigraph": "",
+        "file": "01-volume-1-pre-ministry/ch04-community-formation.md",
+        "size": 18382
+      },
+      {
+        "slug": "vol-01-pre-ministry---ch05-hogwarts-initial",
+        "title": "فصل ۵ — هاگوارتز اولیه",
+        "epigraph": "",
+        "file": "01-volume-1-pre-ministry/ch05-hogwarts-initial.md",
+        "size": 17894
+      }
+    ]
+  },
+  {
+    "id": "02-volume-2-birth-of-ministry",
+    "title": "جلد دوم — تولد وزارت",
+    "slug": "vol-02-birth-of-ministry",
+    "icon": "🏛️",
+    "chapters": [
+      {
+        "slug": "vol-02-birth-of-ministry---ch06-why-ministry",
+        "title": "فصل ۶ — چرا وزارت شکل گرفت؟",
+        "epigraph": "قبل از اینکه بگویم وزارت چطور شروع شد، باید بگویم چرا اصلاً چنین چیزی لازم بود.",
+        "file": "02-volume-2-birth-of-ministry/ch06-why-ministry.md",
+        "size": 11115
+      },
+      {
+        "slug": "vol-02-birth-of-ministry---ch07-founding-1391",
+        "title": "فصل ۷ — تأسیس وزارت در ۱۳۹۱",
+        "epigraph": "آرشیو وبلاگ وزارت از اسفند ۱۳۹۱ شروع می‌شود. یعنی دقیقاً همان موقع که من تصمیم گرفتم این ایده را عملی کنم.",
+        "file": "02-volume-2-birth-of-ministry/ch07-founding-1391.md",
+        "size": 9425
+      },
+      {
+        "slug": "vol-02-birth-of-ministry---ch08-auditorre",
+        "title": "فصل ۸ — آودیتوره",
+        "epigraph": "اگر قرار باشد فقط یک اسم از آن دوره برای خودم انتخاب کنم، آن اسم **آودیتوره** است.",
+        "file": "02-volume-2-birth-of-ministry/ch08-auditorre.md",
+        "size": 9088
+      },
+      {
+        "slug": "vol-02-birth-of-ministry---ch09-first-structure",
+        "title": "فصل ۹ — اولین ساختار وزارت",
+        "epigraph": "وقتی وزارت شروع شد، یک وبلاگ ساده بود. ولی خیلی زود تبدیل شد به چیزی که برای خودش ساختار داشت.",
+        "file": "02-volume-2-birth-of-ministry/ch09-first-structure.md",
+        "size": 8799
+      },
+      {
+        "slug": "vol-02-birth-of-ministry---ch10-law-permits",
+        "title": "فصل ۱۰ — قانون و مجوز",
+        "epigraph": "ما تو این جامعه قانون داشتیم. نه قانون واقعی. ولی قانونی که برای ما مهم بود.",
+        "file": "02-volume-2-birth-of-ministry/ch10-law-permits.md",
+        "size": 7377
+      },
+      {
+        "slug": "vol-02-birth-of-ministry---ch11-gringotts",
+        "title": "فصل ۱۱ — گرینگوتس",
+        "epigraph": "",
+        "file": "02-volume-2-birth-of-ministry/ch11-gringotts.md",
+        "size": 4252
+      },
+      {
+        "slug": "vol-02-birth-of-ministry---ch12-diagon-alley",
+        "title": "فصل ۱۲ — کوچه دیاگون",
+        "epigraph": "",
+        "file": "02-volume-2-birth-of-ministry/ch12-diagon-alley.md",
+        "size": 3351
+      },
+      {
+        "slug": "vol-02-birth-of-ministry---ch13-three-wizards",
+        "title": "فصل ۱۳ — مسابقات سه جادوگر",
+        "epigraph": "",
+        "file": "02-volume-2-birth-of-ministry/ch13-three-wizards.md",
+        "size": 2571
+      },
+      {
+        "slug": "vol-02-birth-of-ministry---ch14-law-enforcement",
+        "title": "فصل ۱۴ — اداره اجرای قوانین",
+        "epigraph": "",
+        "file": "02-volume-2-birth-of-ministry/ch14-law-enforcement.md",
+        "size": 3324
+      },
+      {
+        "slug": "vol-02-birth-of-ministry---ch15-international",
+        "title": "فصل ۱۵ — اداره همکاری‌های بین‌المللی",
+        "epigraph": "",
+        "file": "02-volume-2-birth-of-ministry/ch15-international.md",
+        "size": 2746
+      },
+      {
+        "slug": "vol-02-birth-of-ministry---ch16-special-investigations",
+        "title": "فصل ۱۶ — اداره تحقیقات ویژه",
+        "epigraph": "",
+        "file": "02-volume-2-birth-of-ministry/ch16-special-investigations.md",
+        "size": 2610
+      }
+    ]
+  },
+  {
+    "id": "03-volume-3-magia",
+    "title": "جلد سوم — مجیا / مجیکا شیلد",
+    "slug": "vol-03-magia",
+    "icon": "🏫",
+    "chapters": [
+      {
+        "slug": "vol-03-magia---ch17-magia-origin",
+        "title": "فصل ۱۷ — پیدایش مجیا",
+        "epigraph": "",
+        "file": "03-volume-3-magia/ch17-magia-origin.md",
+        "size": 10953
+      },
+      {
+        "slug": "vol-03-magia---ch18-magica-shield",
+        "title": "فصل ۱۸ — مجیکا شیلد",
+        "epigraph": "",
+        "file": "03-volume-3-magia/ch18-magica-shield.md",
+        "size": 8593
+      },
+      {
+        "slug": "vol-03-magia---ch19-caroline",
+        "title": "فصل ۱۹ — کرولاین مایکلسون",
+        "epigraph": "",
+        "file": "03-volume-3-magia/ch19-caroline.md",
+        "size": 8204
+      },
+      {
+        "slug": "vol-03-magia---ch20-hiva",
+        "title": "فصل ۲۰ — هیوا",
+        "epigraph": "",
+        "file": "03-volume-3-magia/ch20-hiva.md",
+        "size": 7620
+      },
+      {
+        "slug": "vol-03-magia---ch21-sayeh-punk",
+        "title": "فصل ۲۱ — سایه / پانک",
+        "epigraph": "",
+        "file": "03-volume-3-magia/ch21-sayeh-punk.md",
+        "size": 7581
+      },
+      {
+        "slug": "vol-03-magia---ch22-school-structure",
+        "title": "فصل ۲۲ — ساختار مدرسه",
+        "epigraph": "",
+        "file": "03-volume-3-magia/ch22-school-structure.md",
+        "size": 9005
+      },
+      {
+        "slug": "vol-03-magia---ch23-four-houses",
+        "title": "فصل ۲۳ — چهار گروه",
+        "epigraph": "",
+        "file": "03-volume-3-magia/ch23-four-houses.md",
+        "size": 10173
+      },
+      {
+        "slug": "vol-03-magia---ch24-professors",
+        "title": "فصل ۲۴ — استادها",
+        "epigraph": "",
+        "file": "03-volume-3-magia/ch24-professors.md",
+        "size": 7999
+      },
+      {
+        "slug": "vol-03-magia---ch25-students",
+        "title": "فصل ۲۵ — دانش‌آموزها",
+        "epigraph": "",
+        "file": "03-volume-3-magia/ch25-students.md",
+        "size": 8552
+      },
+      {
+        "slug": "vol-03-magia---ch26-jobs",
+        "title": "فصل ۲۶ — مشاغل",
+        "epigraph": "",
+        "file": "03-volume-3-magia/ch26-jobs.md",
+        "size": 7404
+      },
+      {
+        "slug": "vol-03-magia---ch27-economy",
+        "title": "فصل ۲۷ — اقتصاد",
+        "epigraph": "",
+        "file": "03-volume-3-magia/ch27-economy.md",
+        "size": 7593
+      },
+      {
+        "slug": "vol-03-magia---ch28-bank",
+        "title": "فصل ۲۸ — بانک",
+        "epigraph": "",
+        "file": "03-volume-3-magia/ch28-bank.md",
+        "size": 8679
+      },
+      {
+        "slug": "vol-03-magia---ch29-fantasy-id",
+        "title": "فصل ۲۹ — شناسنامه فانتزی",
+        "epigraph": "",
+        "file": "03-volume-3-magia/ch29-fantasy-id.md",
+        "size": 7283
+      },
+      {
+        "slug": "vol-03-magia---ch30-market-hogsmeade",
+        "title": "فصل ۳۰ — بازار و هاگزمید",
+        "epigraph": "",
+        "file": "03-volume-3-magia/ch30-market-hogsmeade.md",
+        "size": 7733
+      },
+      {
+        "slug": "vol-03-magia---ch31-newspaper",
+        "title": "فصل ۳۱ — روزنامه و رسانه",
+        "epigraph": "",
+        "file": "03-volume-3-magia/ch31-newspaper.md",
+        "size": 14346
+      },
+      {
+        "slug": "vol-03-magia---ch32-magia-blog-network",
+        "title": "فصل ۳۲ — شبکه وبلاگ‌های مجیا",
+        "epigraph": "",
+        "file": "03-volume-3-magia/ch32-magia-blog-network.md",
+        "size": 7828
+      }
+    ]
+  },
+  {
+    "id": "04-volume-4-hogwarts",
+    "title": "جلد چهارم — هاگوارتز",
+    "slug": "vol-04-hogwarts",
+    "icon": "⚡",
+    "chapters": [
+      {
+        "slug": "vol-04-hogwarts---ch33-hogwarts-1391",
+        "title": "فصل ۳۳ — هاگوارتز در ۱۳۹۱",
+        "epigraph": "",
+        "file": "04-volume-4-hogwarts/ch33-hogwarts-1391.md",
+        "size": 9512
+      },
+      {
+        "slug": "vol-04-hogwarts---ch34-elnaz",
+        "title": "فصل ۳۴ — الناز",
+        "epigraph": "",
+        "file": "04-volume-4-hogwarts/ch34-elnaz.md",
+        "size": 8753
+      },
+      {
+        "slug": "vol-04-hogwarts---ch35-hogwartz-ir",
+        "title": "فصل ۳۵ — خرید Hogwartz.ir",
+        "epigraph": "",
+        "file": "04-volume-4-hogwarts/ch35-hogwartz-ir.md",
+        "size": 7266
+      },
+      {
+        "slug": "vol-04-hogwarts---ch36-forum",
+        "title": "فصل ۳۶ — فروم",
+        "epigraph": "",
+        "file": "04-volume-4-hogwarts/ch36-forum.md",
+        "size": 7250
+      },
+      {
+        "slug": "vol-04-hogwarts---ch37-site",
+        "title": "فصل ۳۷ — سایت",
+        "epigraph": "یک وبلاگ در Blogfa، یک دامنه مستقل، و یک پروژه‌ای که از یک صفحه ساده شروع شد و تبدیل به چیزی شد که هیچ‌کس فکرش را نمی‌کرد.",
+        "file": "04-volume-4-hogwarts/ch37-site.md",
+        "size": 4981
+      },
+      {
+        "slug": "vol-04-hogwarts---ch38-groups",
+        "title": "فصل ۳۸ — گروه‌ها",
+        "epigraph": "هر مدرسه هری پاتری بدون گروه‌ها فقط یک لیست اسم است. با گروه‌ها تبدیل به یک خانه می‌شود.",
+        "file": "04-volume-4-hogwarts/ch38-groups.md",
+        "size": 4285
+      },
+      {
+        "slug": "vol-04-hogwarts---ch39-quidditch",
+        "title": "فصل ۳۹ — کوییدیچ",
+        "epigraph": "کوییدیچ فقط یک بازی نبود. یک رویداد اجتماعی بود. یک رقابت بود. و یکی از مهم‌ترین دلایلی بود که بچه‌ها فعال می‌ماندند.",
+        "file": "04-volume-4-hogwarts/ch39-quidditch.md",
+        "size": 5423
+      },
+      {
+        "slug": "vol-04-hogwarts---ch40-scores",
+        "title": "فصل ۴۰ — امتیازات",
+        "epigraph": "بدون امتیازات، هاگوارتز فقط یک لیست اسم بود. با امتیازات، هاگوارتز یک رقابت زنده بود.",
+        "file": "04-volume-4-hogwarts/ch40-scores.md",
+        "size": 4668
+      },
+      {
+        "slug": "vol-04-hogwarts---ch41-professors",
+        "title": "فصل ۴۱ — استادها",
+        "epigraph": "بدون استادها، هاگوارتز فقط یک وبلاگ بود. با استادها، هاگوارتز یک مدرسه شد.",
+        "file": "04-volume-4-hogwarts/ch41-professors.md",
+        "size": 5814
+      },
+      {
+        "slug": "vol-04-hogwarts---ch42-students",
+        "title": "فصل ۴۲ — دانش‌آموزها",
+        "epigraph": "من خودم یک دانش‌آموز بودم. یکی از بچه‌ها. و آن زمان، هاگوارتز برایم خیلی مهم بود.",
+        "file": "04-volume-4-hogwarts/ch42-students.md",
+        "size": 5393
+      },
+      {
+        "slug": "vol-04-hogwarts---ch43-competitions",
+        "title": "فصل ۴۳ — مسابقات",
+        "epigraph": "مسابقات قلب تپنده هاگوارتز بود. بدون مسابقات، هاگوارتز فقط یک وبلاگ بود. با مسابقات، هاگوارتز یک مدرسه زنده بود.",
+        "file": "04-volume-4-hogwarts/ch43-competitions.md",
+        "size": 5155
+      },
+      {
+        "slug": "vol-04-hogwarts---ch44-cooperation-conflict",
+        "title": "فصل ۴۴ — همکاری و اختلاف",
+        "epigraph": "جامعه بدون همکاری نمی‌تواند زنده بماند. ولی جامعه بدون اختلاف هم واقعی نیست.",
+        "file": "04-volume-4-hogwarts/ch44-cooperation-conflict.md",
+        "size": 5678
+      }
+    ]
+  },
+  {
+    "id": "05-volume-5-other-schools",
+    "title": "جلد پنجم — سایر مدارس",
+    "slug": "vol-05-other-schools",
+    "icon": "🏰",
+    "chapters": [
+      {
+        "slug": "vol-05-other-schools---camelot",
+        "title": "Camelot",
+        "epigraph": "سامی یک مدرسه دیگر ساخت. و بعد دوباره از نو. و بعدش هم Hogwarts Train.",
+        "file": "05-volume-5-other-schools/camelot.md",
+        "size": 4762
+      },
+      {
+        "slug": "vol-05-other-schools---dementor",
+        "title": "دمنتور",
+        "epigraph": "",
+        "file": "05-volume-5-other-schools/dementor.md",
+        "size": 9228
+      },
+      {
+        "slug": "vol-05-other-schools---ihog",
+        "title": "آی‌هاگ (iHog)",
+        "epigraph": "یک مدرسه که کاملاً در تلگرام شکل گرفت. و شایان کسی بود که اداره‌اش کرد.",
+        "file": "05-volume-5-other-schools/ihog.md",
+        "size": 11792
+      },
+      {
+        "slug": "vol-05-other-schools---jadoogaran",
+        "title": "جادوگران",
+        "epigraph": "",
+        "file": "05-volume-5-other-schools/jadoogaran.md",
+        "size": 7863
+      },
+      {
+        "slug": "vol-05-other-schools---suncastle",
+        "title": "سان‌کستل (SunCastle)",
+        "epigraph": "سامی مدرسه‌ی خودش رو ساخت. و بعد یه روز با وزارت دعوایش شد. و بعدش... تحریم.",
+        "file": "05-volume-5-other-schools/suncastle.md",
+        "size": 10448
+      },
+      {
+        "slug": "vol-05-other-schools---telgwarts",
+        "title": "Telgwarts",
+        "epigraph": "",
+        "file": "05-volume-5-other-schools/telgwarts.md",
+        "size": 14623
+      }
+    ]
+  },
+  {
+    "id": "06-volume-6-characters",
+    "title": "جلد ششم — شخصیت‌ها",
+    "slug": "vol-06-characters",
+    "icon": "👤",
+    "chapters": [
+      {
+        "slug": "vol-06-characters---WIKI-DATABASE",
+        "title": "پایگاه داده شخصیت‌ها — جامعه جادوگری فارسی",
+        "epigraph": "این فایل یک مرجع جامع از تمام شخصیت‌های شناخته‌شده جامعه جادوگری فارسی در اینترنت است.\nهر پرونده شامل اطلاعات ساختاریافته و روایت شخصی است.\nنوشته شده توسط کسی که آنجا بود.",
+        "file": "06-volume-6-characters/WIKI-DATABASE.md",
+        "size": 34731
+      },
+      {
+        "slug": "vol-06-characters---ashkan",
+        "title": "اشکان",
+        "epigraph": "اشکان دبیر بود.\nدر هر سازمانی — حتی یک سازمان مجازی کوچک — دبیر کسی است که همه‌چیز را سر جایش نگه می‌دارد.\nو اشکان این کار را کرد.",
+        "file": "06-volume-6-characters/ashkan.md",
+        "size": 5033
+      },
+      {
+        "slug": "vol-06-characters---elnaz",
+        "title": "الناز",
+        "epigraph": "الناز یکی از آدم‌هایی است که بدون او، هاگوارتز فارسی شکل دیگری می‌داشت.\nشاید اصلاً وجود نمی‌داشت.",
+        "file": "06-volume-6-characters/elnaz.md",
+        "size": 9261
+      },
+      {
+        "slug": "vol-06-characters---hiva",
+        "title": "هیوا / Caroline Michaelson",
+        "epigraph": "هیوا یکی از پنهان‌ترین ولی تأثیرگذارترین چهره‌های جامعه جادوگری فارسی بود.\nپشت یک اسم انگلیسی، یک دختر ایرانی بود که یکی از بزرگ‌ترین مجموعه‌های این فضا را ساخت.",
+        "file": "06-volume-6-characters/hiva.md",
+        "size": 6424
+      },
+      {
+        "slug": "vol-06-characters---hossein",
+        "title": "حسین",
+        "epigraph": "حسین یکی از آدم‌هایی است که داستانش با اختلاف گره خورده.\nاز هاگوارتز کنار گذاشته شد.\nو خودم هم در آن اتفاق نقش داشتم.",
+        "file": "06-volume-6-characters/hossein.md",
+        "size": 4784
+      },
+      {
+        "slug": "vol-06-characters---kimia",
+        "title": "کیمیا روانگر / Mia Plays",
+        "epigraph": "",
+        "file": "06-volume-6-characters/kimia.md",
+        "size": 9166
+      },
+      {
+        "slug": "vol-06-characters---kourosh",
+        "title": "کوروش زراندوز",
+        "epigraph": "",
+        "file": "06-volume-6-characters/kourosh.md",
+        "size": 9123
+      },
+      {
+        "slug": "vol-06-characters---marzieh",
+        "title": "مرضیه",
+        "epigraph": "",
+        "file": "06-volume-6-characters/marzieh.md",
+        "size": 9885
+      },
+      {
+        "slug": "vol-06-characters---mohammad-javad",
+        "title": "محمدجواد یاحقی — فلفل — دکتر فلفل — آودیتوره",
+        "epigraph": "این پرونده خودم است.\nنوشتن پرونده خودت یک جورهایی عجیب است.\nانگار داری از بیرون به زندگی خودت نگاه می‌کنی.\nولی لازم است.\nچون اگر من ننویسم، کس دیگری نمی‌تواند دقیق بنویسد.",
+        "file": "06-volume-6-characters/mohammad-javad.md",
+        "size": 17515
+      },
+      {
+        "slug": "vol-06-characters---reza",
+        "title": "رضا",
+        "epigraph": "",
+        "file": "06-volume-6-characters/reza.md",
+        "size": 10176
+      },
+      {
+        "slug": "vol-06-characters---saghi",
+        "title": "ساقی",
+        "epigraph": "",
+        "file": "06-volume-6-characters/saghi.md",
+        "size": 7717
+      },
+      {
+        "slug": "vol-06-characters---sami",
+        "title": "سامی",
+        "epigraph": "",
+        "file": "06-volume-6-characters/sami.md",
+        "size": 8271
+      },
+      {
+        "slug": "vol-06-characters---sayeh",
+        "title": "سایه / پانک",
+        "epigraph": "سایه و پانک دو هویت یک شخص واحد بودند.\nاین اتفاق در آن دوره عادی بود.\nآدم‌ها چند زندگی داشتند. یک جا یک اسم. یک جا یک اسم دیگر.",
+        "file": "06-volume-6-characters/sayeh.md",
+        "size": 5222
+      },
+      {
+        "slug": "vol-06-characters---shayan",
+        "title": "شایان / شایگان",
+        "epigraph": "شایان کسی بود که وزارت را در دوره جدید زنده کرد.\nوقتی آودیتوره دیگر وزیر نبود، شایان این نقش را بر عهده گرفت.\nو این کار آسانی نبود.",
+        "file": "06-volume-6-characters/shayan.md",
+        "size": 6902
+      },
+      {
+        "slug": "vol-06-characters---zahra",
+        "title": "زهرا",
+        "epigraph": "زهرا همسر محمدجواد است.\nو نقش مهمی در دوره سازمان تخیل ایران داشت.\nبدون کمک زهرا، شاید جنگ هواداری ساخته نمی‌شد.",
+        "file": "06-volume-6-characters/zahra.md",
+        "size": 4907
+      }
+    ]
+  },
+  {
+    "id": "07-volume-7-identities",
+    "title": "جلد هفتم — هویت‌ها",
+    "slug": "vol-07-identities",
+    "icon": "🎭",
+    "chapters": [
+      {
+        "slug": "vol-07-identities---auditorre",
+        "title": "آودیتوره / اتزیو آودیتوره",
+        "epigraph": "",
+        "file": "07-volume-7-identities/auditorre.md",
+        "size": 6605
+      },
+      {
+        "slug": "vol-07-identities---caroline-michaelson",
+        "title": "کرولاین مایکلسون",
+        "epigraph": "",
+        "file": "07-volume-7-identities/caroline-michaelson.md",
+        "size": 4783
+      },
+      {
+        "slug": "vol-07-identities---felfel",
+        "title": "فلفل / دکتر فلفل / drfelfel",
+        "epigraph": "",
+        "file": "07-volume-7-identities/felfel.md",
+        "size": 7023
+      },
+      {
+        "slug": "vol-07-identities---minister",
+        "title": "وزیر",
+        "epigraph": "",
+        "file": "07-volume-7-identities/minister.md",
+        "size": 4027
+      },
+      {
+        "slug": "vol-07-identities---other-aliases",
+        "title": "سایر مستعارها",
+        "epigraph": "",
+        "file": "07-volume-7-identities/other-aliases.md",
+        "size": 4266
+      },
+      {
+        "slug": "vol-07-identities---punk-sayeh",
+        "title": "پانک / سایه",
+        "epigraph": "",
+        "file": "07-volume-7-identities/punk-sayeh.md",
+        "size": 3584
+      },
+      {
+        "slug": "vol-07-identities---slytherim-man",
+        "title": "slytherim_man",
+        "epigraph": "",
+        "file": "07-volume-7-identities/slytherim-man.md",
+        "size": 6291
+      }
+    ]
+  },
+  {
+    "id": "08-volume-8-economy",
+    "title": "جلد هشتم — اقتصاد",
+    "slug": "vol-08-economy",
+    "icon": "💰",
+    "chapters": [
+      {
+        "slug": "vol-08-economy---bank-account",
+        "title": "حساب بانکی",
+        "epigraph": "حساب بانکی در گرینگوتس مثل یک شناسنامه مالی بود. هر کسی یک حساب داشت و هر حسابی یک داستان.",
+        "file": "08-volume-8-economy/bank-account.md",
+        "size": 3487
+      },
+      {
+        "slug": "vol-08-economy---bank-card",
+        "title": "کارت بانکی",
+        "epigraph": "کارت بانکی گرینگوتس یکی از نمادهای آن دوره بود. کارتی که با آن خرید می‌کردیم و حس می‌کردیم واقعاً پول داریم.",
+        "file": "08-volume-8-economy/bank-card.md",
+        "size": 2657
+      },
+      {
+        "slug": "vol-08-economy---currency",
+        "title": "ارز — گالیون، سیکل، دراخما",
+        "epigraph": "پول ما از دنیای هری پاتر آمده بود. گالیون طلا. سیکل نقره. دراخما برنز. و همین پول، اقتصاد ما را زنده نگه می‌داشت.",
+        "file": "08-volume-8-economy/currency.md",
+        "size": 2726
+      },
+      {
+        "slug": "vol-08-economy---fantasy-id",
+        "title": "شناسنامه فانتزی — جزئیات اقتصادی",
+        "epigraph": "شناسنامه فانتزی فقط یک کارت هویتی نبود. یک گذرنامه اقتصادی بود. با این کارت وارد اقتصاد جامعه می‌شدی.",
+        "file": "08-volume-8-economy/fantasy-id.md",
+        "size": 2168
+      },
+      {
+        "slug": "vol-08-economy---gringotts",
+        "title": "گرینگوتس — جزئیات",
+        "epigraph": "گرینگوتس فقط یک وبلاگ نبود. یک سیستم مالی کامل بود. با حساب و کارت و پرداخت و قوانین.",
+        "file": "08-volume-8-economy/gringotts.md",
+        "size": 3326
+      },
+      {
+        "slug": "vol-08-economy---mariam-alley",
+        "title": "کوچه مارین",
+        "epigraph": "کوچه مارین بازار اصلی مجیا بود. جایی که دانش‌آموزان وسایلشان را می‌خریدند.",
+        "file": "08-volume-8-economy/mariam-alley.md",
+        "size": 2678
+      },
+      {
+        "slug": "vol-08-economy---ministry-economy",
+        "title": "اقتصاد وزارت",
+        "epigraph": "اقتصاد وزارت اقتصاد کل جامعه بود. جایی که همه مدارس به یک سیستم مالی مشترک وصل بودند.",
+        "file": "08-volume-8-economy/ministry-economy.md",
+        "size": 2263
+      },
+      {
+        "slug": "vol-08-economy---salary-jobs",
+        "title": "حقوق و مشاغل",
+        "epigraph": "حقوق ماهانه و مشاغل مختلف، اقتصاد جامعه ما را زنده نگه می‌داشت. هر کسی شغلی داشت و درآمدی.",
+        "file": "08-volume-8-economy/salary-jobs.md",
+        "size": 3166
+      },
+      {
+        "slug": "vol-08-economy---school-economy",
+        "title": "اقتصاد مدرسه",
+        "epigraph": "هر مدرسه اقتصاد خودش را داشت. ولی همه مدارس به یک اقتصاد مشترک وصل بودند.",
+        "file": "08-volume-8-economy/school-economy.md",
+        "size": 2516
+      },
+      {
+        "slug": "vol-08-economy---shopping-market",
+        "title": "خرید و بازار",
+        "epigraph": "بازار جادویی جایی بود که پول تبدیل به کالا می‌شد. و این تبدیل، اقتصاد ما را زنده نگه می‌داشت.",
+        "file": "08-volume-8-economy/shopping-market.md",
+        "size": 2985
+      }
+    ]
+  },
+  {
+    "id": "09-volume-9-social-structure",
+    "title": "جلد نهم — ساختار اجتماعی",
+    "slug": "vol-09-social-structure",
+    "icon": "🕸️",
+    "chapters": [
+      {
+        "slug": "vol-09-social-structure---bank",
+        "title": "بانک",
+        "epigraph": "یادمه وقتی برای اولین بار حساب بانکیم را در گرینگوتس باز کردم، حس کردم واقعاً یک جادوگر شده‌ام.",
+        "file": "09-volume-9-social-structure/bank.md",
+        "size": 5430
+      },
+      {
+        "slug": "vol-09-social-structure---contests-rules",
+        "title": "مسابقات و قوانین",
+        "epigraph": "بازی بدون قانون، بازی نیست. و قانون بدون بازی، بی‌معنی است. مسابقات و قوانین دو روی یک سکه بودند.",
+        "file": "09-volume-9-social-structure/contests-rules.md",
+        "size": 4935
+      },
+      {
+        "slug": "vol-09-social-structure---federal-social",
+        "title": "فدرال اجتماعی",
+        "epigraph": "",
+        "file": "09-volume-9-social-structure/federal-social.md",
+        "size": 11374
+      },
+      {
+        "slug": "vol-09-social-structure---houses",
+        "title": "خانه‌ها",
+        "epigraph": "یادمه وقتی گروه‌بندی شدم، انگار یک خانواده پیدا کرده باشم. یک اسم. یک رنگ. یک هویت.",
+        "file": "09-volume-9-social-structure/houses.md",
+        "size": 5054
+      },
+      {
+        "slug": "vol-09-social-structure---ministry",
+        "title": "وزارت",
+        "epigraph": "",
+        "file": "09-volume-9-social-structure/ministry.md",
+        "size": 10080
+      },
+      {
+        "slug": "vol-09-social-structure---people-roles",
+        "title": "آدم‌ها و نقش‌ها",
+        "epigraph": "هر جامعه‌ای با آدم‌هایش ساخته می‌شود. جامعه ما هم همینطور. بذارید بعضی‌هایشان را معرفی کنم.",
+        "file": "09-volume-9-social-structure/people-roles.md",
+        "size": 5274
+      },
+      {
+        "slug": "vol-09-social-structure---permits-ids",
+        "title": "مجوزها و شناسنامه‌ها",
+        "epigraph": "بدون هویت، آدم‌ها فقط اسم‌های پراکنده‌اند. با هویت، آدم‌ها شهروند می‌شوند. و شهروند بودن یعنی تعلق داشتن.",
+        "file": "09-volume-9-social-structure/permits-ids.md",
+        "size": 4730
+      },
+      {
+        "slug": "vol-09-social-structure---reporters",
+        "title": "خبرنگارها",
+        "epigraph": "بدون خبرنگار، هر مدرسه یک جزیره تنها بود. اطلاعات فقط درون همان مدرسه می‌ماند. و جامعه پراکنده می‌ماند.",
+        "file": "09-volume-9-social-structure/reporters.md",
+        "size": 4933
+      },
+      {
+        "slug": "vol-09-social-structure---schools",
+        "title": "مدرسه‌ها",
+        "epigraph": "",
+        "file": "09-volume-9-social-structure/schools.md",
+        "size": 8698
+      }
+    ]
+  },
+  {
+    "id": "10-volume-10-media",
+    "title": "جلد دهم — رسانه",
+    "slug": "vol-10-media",
+    "icon": "📰",
+    "chapters": [
+      {
+        "slug": "vol-10-media---contests-managers",
+        "title": "مسابقات و مدیران",
+        "epigraph": "کسانی که مسابقات را زنده نگه می‌داشتند",
+        "file": "10-volume-10-media/contests-managers.md",
+        "size": 3291
+      },
+      {
+        "slug": "vol-10-media---ihog-hogwarts-media",
+        "title": "رسانه iHog و هاگوارتز",
+        "epigraph": "هر مدرسه صدای خودش را داشت",
+        "file": "10-volume-10-media/ihog-hogwarts-media.md",
+        "size": 3214
+      },
+      {
+        "slug": "vol-10-media---ministry-media",
+        "title": "رسانه وزارت",
+        "epigraph": "وزارت نه فقط حکومت می‌کرد. اطلاع‌رسانی هم می‌کرد.",
+        "file": "10-volume-10-media/ministry-media.md",
+        "size": 3492
+      },
+      {
+        "slug": "vol-10-media---news-stories",
+        "title": "اخبار و داستان‌ها",
+        "epigraph": "دو بال روزنامه: اطلاع‌رسانی و سرگرمی",
+        "file": "10-volume-10-media/news-stories.md",
+        "size": 3527
+      },
+      {
+        "slug": "vol-10-media---newspaper-web",
+        "title": "روزنامه وب",
+        "epigraph": "روزنامه‌ای که روی بلاگفا زنده بود و صدای جامعه شد",
+        "file": "10-volume-10-media/newspaper-web.md",
+        "size": 3814
+      },
+      {
+        "slug": "vol-10-media---oldfantasy-telegram",
+        "title": "روزنامه فانتزی در تلگرام",
+        "epigraph": "وقتی تلگرام آمد و وبلاگ یک کانال شد",
+        "file": "10-volume-10-media/oldfantasy-telegram.md",
+        "size": 3884
+      },
+      {
+        "slug": "vol-10-media---tech-projects",
+        "title": "پروژه‌های فنی",
+        "epigraph": "وقتی کدنویسی وارد جامعه فانتزی شد",
+        "file": "10-volume-10-media/tech-projects.md",
+        "size": 3405
+      }
+    ]
+  },
+  {
+    "id": "11-volume-11-technology",
+    "title": "جلد یازدهم — تکنولوژی",
+    "slug": "vol-11-technology",
+    "icon": "💻",
+    "chapters": [
+      {
+        "slug": "vol-11-technology---3d-virtual-tour",
+        "title": "سایت‌های سه‌بعدی و تور مجازی — هاگوارتز زنده شد",
+        "epigraph": "",
+        "file": "11-volume-11-technology/3d-virtual-tour.md",
+        "size": 4808
+      },
+      {
+        "slug": "vol-11-technology---blogfa",
+        "title": "Blogfa — خانه اول همه ما",
+        "epigraph": "",
+        "file": "11-volume-11-technology/blogfa.md",
+        "size": 8344
+      },
+      {
+        "slug": "vol-11-technology---bots",
+        "title": "بات‌ها — وقتی ربات‌ها زنده شدند",
+        "epigraph": "",
+        "file": "11-volume-11-technology/bots.md",
+        "size": 5252
+      },
+      {
+        "slug": "vol-11-technology---forum",
+        "title": "فروم — از وبلاگ تا انجمن",
+        "epigraph": "",
+        "file": "11-volume-11-technology/forum.md",
+        "size": 7279
+      },
+      {
+        "slug": "vol-11-technology---programming-security",
+        "title": "برنامه‌نویسی و امنیت",
+        "epigraph": "",
+        "file": "11-volume-11-technology/programming-security.md",
+        "size": 7219
+      },
+      {
+        "slug": "vol-11-technology---pwa",
+        "title": "PWA — اتصال گذشته به آینده",
+        "epigraph": "",
+        "file": "11-volume-11-technology/pwa.md",
+        "size": 5252
+      },
+      {
+        "slug": "vol-11-technology---telegram",
+        "title": "تلگرام — وقتی همه‌چیز عوض شد",
+        "epigraph": "",
+        "file": "11-volume-11-technology/telegram.md",
+        "size": 7006
+      },
+      {
+        "slug": "vol-11-technology---threejs-games",
+        "title": "Three.js و بازی‌ها — وقتی جادو سه‌بعدی شد",
+        "epigraph": "",
+        "file": "11-volume-11-technology/threejs-games.md",
+        "size": 5949
+      },
+      {
+        "slug": "vol-11-technology---website",
+        "title": "وب‌سایت‌های سفارشی — hogwartz.ir، dementor.ir و دنیای هاست و دامنه",
+        "epigraph": "",
+        "file": "11-volume-11-technology/website.md",
+        "size": 6298
+      }
+    ]
+  },
+  {
+    "id": "12-volume-12-conflicts",
+    "title": "جلد دوازدهم — اختلافات",
+    "slug": "vol-12-conflicts",
+    "icon": "⚔️",
+    "chapters": [
+      {
+        "slug": "vol-12-conflicts---collapse",
+        "title": "تغییر مدیران و فروپاشی",
+        "epigraph": "",
+        "file": "12-volume-12-conflicts/collapse.md",
+        "size": 4000
+      },
+      {
+        "slug": "vol-12-conflicts---dementor-conflicts",
+        "title": "اختلاف‌های دمنتور",
+        "epigraph": "",
+        "file": "12-volume-12-conflicts/dementor-conflicts.md",
+        "size": 3425
+      },
+      {
+        "slug": "vol-12-conflicts---expulsions-espionage",
+        "title": "اخراج‌ها و اتهام جاسوسی",
+        "epigraph": "",
+        "file": "12-volume-12-conflicts/expulsions-espionage.md",
+        "size": 4672
+      },
+      {
+        "slug": "vol-12-conflicts---hossein-incident",
+        "title": "ماجرای حسین",
+        "epigraph": "",
+        "file": "12-volume-12-conflicts/hossein-incident.md",
+        "size": 3238
+      },
+      {
+        "slug": "vol-12-conflicts---manager-conflicts",
+        "title": "اختلاف مدیرها",
+        "epigraph": "",
+        "file": "12-volume-12-conflicts/manager-conflicts.md",
+        "size": 4972
+      },
+      {
+        "slug": "vol-12-conflicts---ministry-internal",
+        "title": "اختلاف‌های داخلی وزارت",
+        "epigraph": "",
+        "file": "12-volume-12-conflicts/ministry-internal.md",
+        "size": 4426
+      },
+      {
+        "slug": "vol-12-conflicts---sanctions",
+        "title": "تحریم‌ها",
+        "epigraph": "",
+        "file": "12-volume-12-conflicts/sanctions.md",
+        "size": 4021
+      },
+      {
+        "slug": "vol-12-conflicts---school-conflicts",
+        "title": "اختلاف مدارس",
+        "epigraph": "",
+        "file": "12-volume-12-conflicts/school-conflicts.md",
+        "size": 5093
+      },
+      {
+        "slug": "vol-12-conflicts---suncastle-ministry",
+        "title": "اختلاف SunCastle و وزارت",
+        "epigraph": "",
+        "file": "12-volume-12-conflicts/suncastle-ministry.md",
+        "size": 4231
+      }
+    ]
+  },
+  {
+    "id": "13-volume-13-ministry-1396",
+    "title": "جلد سیزدهم — وزارت ۱۳۹۶",
+    "slug": "vol-13-ministry-1396",
+    "icon": "🔄",
+    "chapters": [
+      {
+        "slug": "vol-13-ministry-1396---bot-game-magazine",
+        "title": "بات، بازی و مجله",
+        "epigraph": "وزارت ۱۳۹۶ فقط قانون و ساختار نبود. یک بخش فنی و خلاقانه هم داشت. و شاید جذاب‌ترین پروژه‌ها همین بودند.",
+        "file": "13-volume-13-ministry-1396/bot-game-magazine.md",
+        "size": 3822
+      },
+      {
+        "slug": "vol-13-ministry-1396---cabinet",
+        "title": "کابینه",
+        "epigraph": "",
+        "file": "13-volume-13-ministry-1396/cabinet.md",
+        "size": 8324
+      },
+      {
+        "slug": "vol-13-ministry-1396---channel",
+        "title": "کانال @vezaratjadoo",
+        "epigraph": "",
+        "file": "13-volume-13-ministry-1396/channel.md",
+        "size": 9379
+      },
+      {
+        "slug": "vol-13-ministry-1396---goodbyes",
+        "title": "خداحافظی‌ها",
+        "epigraph": "هر دوره‌ای یک پایانی دارد. و وزارت ۱۳۹۶ هم پایانی داشت. شاید نه رسمی. ولی واقعی.",
+        "file": "13-volume-13-ministry-1396/goodbyes.md",
+        "size": 3186
+      },
+      {
+        "slug": "vol-13-ministry-1396---gringotts-records",
+        "title": "سوابق گرینگوتس",
+        "epigraph": "گرینگوتس فقط یک بانک نبود. ستون اقتصاد جامعه ما بود. بدون آن، وزارت فقط یک لیست اسم بود.",
+        "file": "13-volume-13-ministry-1396/gringotts-records.md",
+        "size": 3825
+      },
+      {
+        "slug": "vol-13-ministry-1396---id-26-departments",
+        "title": "شناسنامه و ۲۶ سازمان",
+        "epigraph": "شناسنامه جادویی و ساختار ۲۶ بخشی دو چیزی بودند که جاه‌طلبی وزارت ۱۳۹۶ را نشان می‌دادند.",
+        "file": "13-volume-13-ministry-1396/id-26-departments.md",
+        "size": 4023
+      },
+      {
+        "slug": "vol-13-ministry-1396---international-law",
+        "title": "قوانین بین‌المللی",
+        "epigraph": "شاید فکر کنید دارم درباره سازمان ملل حرف می‌زنم. نه. دارم درباره قوانین بین‌الملل وزارت سحر و جادوی فانتزی ایرانیان حرف می‌زنم.",
+        "file": "13-volume-13-ministry-1396/international-law.md",
+        "size": 4162
+      },
+      {
+        "slug": "vol-13-ministry-1396---marzieh",
+        "title": "مرضیه",
+        "epigraph": "مرضیه از آن آدم‌هایی بود که وزارت بدون او نمی‌شد. چند نقش، یک نفر، و یک اراده.",
+        "file": "13-volume-13-ministry-1396/marzieh.md",
+        "size": 3699
+      },
+      {
+        "slug": "vol-13-ministry-1396---saghi-ashkan",
+        "title": "ساقی و اشکان",
+        "epigraph": "ساقی و اشکان شاید از بیرون خیلی به چشم نیایند. ولی از درون وزارت، هر کدام ستونی بودند.",
+        "file": "13-volume-13-ministry-1396/saghi-ashkan.md",
+        "size": 3797
+      },
+      {
+        "slug": "vol-13-ministry-1396---shayan",
+        "title": "شایان",
+        "epigraph": "شایان کسی بود که وزارت ۱۳۹۶ را زنده کرد. من ایده را داشتم، ولی شایان آن را ساخت.",
+        "file": "13-volume-13-ministry-1396/shayan.md",
+        "size": 3920
+      }
+    ]
+  },
+  {
+    "id": "14-volume-14-end-of-generation",
+    "title": "جلد چهاردهم — پایان یک نسل",
+    "slug": "vol-14-end-of-generation",
+    "icon": "🌅",
+    "chapters": [
+      {
+        "slug": "vol-14-end-of-generation---evolution",
+        "title": "تکامل",
+        "epigraph": "جامعه ما در طول سال‌ها تکامل پیدا کرد. از وبلاگ ساده تا سایت. از سایت تا تلگرام. و هر بار شکل جدیدی به خودش گرفت.",
+        "file": "14-volume-14-end-of-generation/evolution.md",
+        "size": 2430
+      },
+      {
+        "slug": "vol-14-end-of-generation---filtering-money",
+        "title": "فیلترینگ و پول",
+        "epigraph": "فیلترینگ و مشکلات مالی دو تا از دلایل اصلی پایان آن دوره بودند. نه جنگ بزرگ. نه فاجعه. فقط فیلترینگ و پول.",
+        "file": "14-volume-14-end-of-generation/filtering-money.md",
+        "size": 2698
+      },
+      {
+        "slug": "vol-14-end-of-generation---gradual-fade",
+        "title": "محو شدن تدریجی",
+        "epigraph": "هیچ‌کس یک روز صبح اعلام نکرد که جامعه تمام شد. همه‌چیز آرام‌آرام محو شد.",
+        "file": "14-volume-14-end-of-generation/gradual-fade.md",
+        "size": 2747
+      },
+      {
+        "slug": "vol-14-end-of-generation---real-life",
+        "title": "زندگی واقعی",
+        "epigraph": "یک روز زندگی واقعی آمد و همه‌چیز را عوض کرد. نه با یک انفجار. بلکه آرام‌آرام.",
+        "file": "14-volume-14-end-of-generation/real-life.md",
+        "size": 2224
+      },
+      {
+        "slug": "vol-14-end-of-generation---tech-change",
+        "title": "تغییر تکنولوژی",
+        "epigraph": "تکنولوژی عوض شد. از وبلاگ به فروم. از فروم به سایت. از سایت به تلگرام. و هر بار، شکل جامعه هم عوض شد.",
+        "file": "14-volume-14-end-of-generation/tech-change.md",
+        "size": 2866
+      }
+    ]
+  },
+  {
+    "id": "15-volume-15-fantasy-organization",
+    "title": "جلد پانزدهم — سازمان تخیل",
+    "slug": "vol-15-fantasy-organization",
+    "icon": "✨",
+    "chapters": [
+      {
+        "slug": "vol-15-fantasy-organization---chat-telegram",
+        "title": "چت و تلگرام",
+        "epigraph": "تلگرام جای وبلاگ و فروم را گرفت. و با آن، شکل جامعه هم عوض شد.",
+        "file": "15-volume-15-fantasy-organization/chat-telegram.md",
+        "size": 2020
+      },
+      {
+        "slug": "vol-15-fantasy-organization---diff-old-ministry",
+        "title": "تفاوت با وزارت قدیم",
+        "epigraph": "وزارت قدیم و سازمان تخیل دو چیز متفاوت بودند. ولی هر دو یک هدف داشتند: جامعه‌سازی.",
+        "file": "15-volume-15-fantasy-organization/diff-old-ministry.md",
+        "size": 2017
+      },
+      {
+        "slug": "vol-15-fantasy-organization---new-community",
+        "title": "جامعه جدید",
+        "epigraph": "جامعه جدید شاید شبیه جامعه قبلی نبود. ولی ریشه‌هایش همان بودند.",
+        "file": "15-volume-15-fantasy-organization/new-community.md",
+        "size": 2233
+      },
+      {
+        "slug": "vol-15-fantasy-organization---organization",
+        "title": "سازمان تخیل ایران",
+        "epigraph": "سازمان تخیل ایران تلاش من برای بازسازی دوباره جامعه بود. نه وزارت قبلی. بلکه چیزی جدید با ابزارهای جدید.",
+        "file": "15-volume-15-fantasy-organization/organization.md",
+        "size": 2508
+      },
+      {
+        "slug": "vol-15-fantasy-organization---roleplay-war",
+        "title": "جنگ رول‌پلی",
+        "epigraph": "جنگ رول‌پلی یکی از هیجان‌انگیزترین بخش‌های سازمان تخیل بود. جایی که آدم‌ها نقش‌هایشان را بازی می‌کردند و با هم می‌جنگیدند.",
+        "file": "15-volume-15-fantasy-organization/roleplay-war.md",
+        "size": 2173
+      },
+      {
+        "slug": "vol-15-fantasy-organization---zahra-collab",
+        "title": "همکاری با زهرا",
+        "epigraph": "زهرا یکی از آدم‌هایی بود که در سازمان تخیل با من همکاری کرد. و با کمک او، اولین بازی ساخته شد.",
+        "file": "15-volume-15-fantasy-organization/zahra-collab.md",
+        "size": 1827
+      }
+    ]
+  },
+  {
+    "id": "16-volume-16-return-1405",
+    "title": "جلد شانزدهم — بازگشت ۱۴۰۵",
+    "slug": "vol-16-return-1405",
+    "icon": "🔙",
+    "chapters": [
+      {
+        "slug": "vol-16-return-1405---dr-felfel-returns",
+        "title": "دکتر فلفل برمی‌گردد",
+        "epigraph": "دکتر فلفل اسمی بود که سال‌ها با من بود. و در ۱۴۰۵، دوباره آن اسم را استفاده کردم.",
+        "file": "16-volume-16-return-1405/dr-felfel-returns.md",
+        "size": 1461
+      },
+      {
+        "slug": "vol-16-return-1405---hello-1405",
+        "title": "سلام از ۱۴۰۵",
+        "epigraph": "سال ۱۴۰۵ بود که دوباره برگشتم. به همان وبلاگ قدیمی. به همان صفحه‌ای که سال‌ها قبل بخشی از زندگیم بود.",
+        "file": "16-volume-16-return-1405/hello-1405.md",
+        "size": 2021
+      },
+      {
+        "slug": "vol-16-return-1405---temporary-end",
+        "title": "پایان موقت",
+        "epigraph": "این پایان قطعی نیست. فقط یک توقف است. شاید روزی دوباره برگردم. شاید هم نه.",
+        "file": "16-volume-16-return-1405/temporary-end.md",
+        "size": 1743
+      }
+    ]
+  },
+  {
+    "id": "17-special-files",
+    "title": "پرونده‌های ویژه",
+    "slug": "vol-17-special-files",
+    "icon": "📁",
+    "chapters": [
+      {
+        "slug": "vol-17-special-files---auditorre",
+        "title": "آودیتوره",
+        "epigraph": "اگر قرار باشد فقط یک اسم را از آن دوره برای خودم انتخاب کنم، آن اسم آودیتوره است.\nآودیتوره مهم‌ترین لقب من در دوره وزارت بود.\nو شاید هنوز هم، وقتی به آن دوره فکر می‌کنم، اولین اسمی که به ذهنم می‌رسد همین است.",
+        "file": "17-special-files/auditorre.md",
+        "size": 5092
+      },
+      {
+        "slug": "vol-17-special-files---collapse",
+        "title": "فروپاشی",
+        "epigraph": "فروپاشی یه اتفاق ناگهانی نبود.\nآروم‌آروم شروع شد.\nآروم‌آروم ادامه پیدا کرد.\nو آروم‌آروم تموم شد.\nو من فقط نگاه می‌کردم.\nنه می‌تونستم جلوش رو بگیرم، نه می‌خواستم.",
+        "file": "17-special-files/collapse.md",
+        "size": 4133
+      },
+      {
+        "slug": "vol-17-special-files---fantasy-id",
+        "title": "پرونده شناسنامه فانتزی",
+        "epigraph": "شناسنامه فانتزی یکی از ایده‌هایی بود که شاید از بیرون خیلی ساده به نظر برسد.\nولی برای ما، داشتن یک هویت مشخص در یک جامعه آنلاین، تفاوت بین «یک نفر در کامنت» و «یک عضو واقعی جامعه» بود.",
+        "file": "17-special-files/fantasy-id.md",
+        "size": 10773
+      },
+      {
+        "slug": "vol-17-special-files---fantasy-org",
+        "title": "سازمان تخیل ایران",
+        "epigraph": "سازمان تخیل ایران یکی از پروژه‌هایی بود که شاید خیلی‌ها ازش خبر نداشته باشن.\nولی وجودش مهم بود.\nچون نشون‌دهنده عمق و پیچیدگی جامعه جادوگری فارسی بود.\nو یه تلاش دیگه بود برای زنده نگه داشتن اون ایده.",
+        "file": "17-special-files/fantasy-org.md",
+        "size": 4333
+      },
+      {
+        "slug": "vol-17-special-files---filtering",
+        "title": "فیلترینگ",
+        "epigraph": "فیلترینگ یکی از واقعیت‌های تلخ اینترنت ایران بود.\nو ما هم ازش در امان نبودیم.\nفیلترینگ تأثیر مستقیمی بر جامعه ما داشت.\nنه با خشونت.\nنه با تهدید.\nفقط با مسدود کردن.",
+        "file": "17-special-files/filtering.md",
+        "size": 4457
+      },
+      {
+        "slug": "vol-17-special-files---forum-hogwartz",
+        "title": "فروم Hogwartz",
+        "epigraph": "فروم هاگوارتز یکی از آن پروژه‌هایی بود که وقتی راه انداختیمش، حس کردم دیگر داریم یک چیز واقعی می‌سازیم.\nنه یک وبلاگ.\nنه یک صفحه ساده.\nیک فضای واقعی برای حرف زدن آدم‌ها با هم.\nو آن لحظه، برای من یکی از مهم‌ترین لحظه‌های آن دوره بود.",
+        "file": "17-special-files/forum-hogwartz.md",
+        "size": 5954
+      },
+      {
+        "slug": "vol-17-special-files---gringotts",
+        "title": "گرینگوتس",
+        "epigraph": "گرینگوتس برای من همیشه یکی از جذاب‌ترین بخش‌های این داستان بود.\nیک بانک مجازی.\nبا حساب واقعی.\nبا پول واقعی.\nو با آدم‌هایی که واقعاً بهش اهمیت می‌دادند.",
+        "file": "17-special-files/gringotts.md",
+        "size": 6706
+      },
+      {
+        "slug": "vol-17-special-files---hidden-identities",
+        "title": "هویت‌های مخفی",
+        "epigraph": "هویت‌های مخفی یکی از جذاب‌ترین و در عین حال پیچیده‌ترین بخش‌های آن دوره بود.\nآدم‌ها چند اسم داشتن.\nچند زندگی.\nو بعضی وقت‌ها حتی خودشون هم نمی‌دونستن پشت یه حساب چه کسی نشسته.\nو شاید همین بود که آن دوره رو خاص می‌کرد.",
+        "file": "17-special-files/hidden-identities.md",
+        "size": 4448
+      },
+      {
+        "slug": "vol-17-special-files---hogwarts-ir",
+        "title": "هاگوارتز و Hogwartz.ir",
+        "epigraph": "خرید دامنه Hogwartz.ir یکی از آن اتفاقاتی بود که نشان داد این جامعه داشت از وبلاگ ساده عبور می‌کرد.\nو پشت این اتفاق، یک نفر بود: الناز.",
+        "file": "17-special-files/hogwarts-ir.md",
+        "size": 3933
+      },
+      {
+        "slug": "vol-17-special-files---magica-shield",
+        "title": "مجیکا شیلد",
+        "epigraph": "مجیکا شیلد یکی از بزرگ‌ترین پروژه‌های جامعه هری پاتر فارسی بود.\nیک مدرسه نبود.\nیک شبکه بود.\nیک دنیای کامل بود.\nو پشت آن، یک نفر بود: هیوا.",
+        "file": "17-special-files/magica-shield.md",
+        "size": 4674
+      },
+      {
+        "slug": "vol-17-special-files---ministry",
+        "title": "وزارت",
+        "epigraph": "وزارت سحر و جادو برای من فقط یک پروژه نبود.\nیک دوره از زندگی من بود.\nیک هویت. یک مسئولیت.\nو شاید مهم‌ترین چیزی که از آن دوره باقی مانده.",
+        "file": "17-special-files/ministry.md",
+        "size": 5553
+      },
+      {
+        "slug": "vol-17-special-files---newspaper",
+        "title": "روزنامه",
+        "epigraph": "روزنامه فانتزی ایران یکی از جالب‌ترین پروژه‌های آن دوره بود.\nیک رسانه.\nبرای یک جامعه مجازی.\nبا خبرنگار.\nبا مقاله.\nو با یک آرشیو که هنوز در تلگرام باقی مانده.",
+        "file": "17-special-files/newspaper.md",
+        "size": 4404
+      },
+      {
+        "slug": "vol-17-special-files---oldfantasy",
+        "title": "روزنامه فانتزی ایران",
+        "epigraph": "روزنامه فانتزی ایران یکی از مهم‌ترین بخش‌های جامعه ما بود.\nنه فقط به خاطر اخبارش.\nبلکه به خاطر اینکه یه حافظه جمعی ساخت.\nیه جایی که اتفاقات جامعه ثبت می‌شد.\nو اگه اون روزنامه نبود، خیلی چیزها از یاد می‌رفت.",
+        "file": "17-special-files/oldfantasy.md",
+        "size": 3994
+      },
+      {
+        "slug": "vol-17-special-files---permits",
+        "title": "مجوزها",
+        "epigraph": "مجوز یکی از آن ایده‌هایی بود که شاید از بیرون خیلی سنگین به نظر برسد.\nولی برای ما، مجوز یعنی کیفیت.\nیعنی هر وبلاگی نمی‌تواند خودش را مدرسه اعلام کند.\nیعنی یک ساختار مرکزی وجود دارد که نظارت می‌کند.",
+        "file": "17-special-files/permits.md",
+        "size": 5225
+      },
+      {
+        "slug": "vol-17-special-files---pwa",
+        "title": "PWA",
+        "epigraph": "وقتی برگشتم و داشتم به گذشته نگاه می‌کردم، فهمیدم یه چیزی لازم دارم.\nیه ابزار که هم گذشته رو نگه داره، هم آینده باشه.\nو اون ابزار شد PWA.\nProgressive Web App.\nساده به نظر می‌رسه، ولی برام خیلی مهم بود.",
+        "file": "17-special-files/pwa.md",
+        "size": 3959
+      },
+      {
+        "slug": "vol-17-special-files---quidditch",
+        "title": "کوییدیچ",
+        "epigraph": "کوییدیچ همیشه یکی از جذاب‌ترین بخش‌های هری پاتر بود.\nو وقتی ما داشتیم دنیای خودمان را می‌ساختیم، کوییدیچ جایش خالی نبود.\nالبته نه به شکل واقعی.\nبه شکل آنلاین.",
+        "file": "17-special-files/quidditch.md",
+        "size": 4123
+      },
+      {
+        "slug": "vol-17-special-files---three-wizards",
+        "title": "مسابقات سه جادوگر",
+        "epigraph": "مسابقات سه جادوگر یکی از آن چیزهایی بود که جامعه را زنده نگه می‌داشت.\nرقابت. هیجان. جایزه.\nو مهم‌تر از همه، اجبار به همکاری بین مدرسه‌ها.",
+        "file": "17-special-files/three-wizards.md",
+        "size": 4839
+      },
+      {
+        "slug": "vol-17-special-files---threejs",
+        "title": "Three.js و هاگوارتز سه‌بعدی",
+        "epigraph": "یکی از جذاب‌ترین پروژه‌های آن دوره، ساخت هاگوارتز سه‌بعدی با Three.js بود.\nیه مدل سه‌بعدی از مدرسه.\nتور مجازی.\nو اینکه ما اون موقع واقعاً دست به چنین کاری زدیم، هنوز برام عجیبه.\nو البته باعث افتخار.",
+        "file": "17-special-files/threejs.md",
+        "size": 4068
+      }
+    ]
+  },
+  {
+    "id": "18-appendix",
+    "title": "ضمیمه",
+    "slug": "vol-18-appendix",
+    "icon": "📊",
+    "chapters": [
+      {
+        "slug": "vol-18-appendix---relationships",
+        "title": "روابط و ارتباطات",
+        "epigraph": "این نمودار تلاشی است برای نشان دادن روابط بین آدم‌ها، مدارس و پروژه‌ها در جامعه جادوگری فارسی.\nروابط بر اساس حافظه نویسنده و آرشیوهای موجود ترسیم شده‌اند.\nهر خط و فلش یک ارتباط واقعی را نشان می‌دهد.",
+        "file": "18-appendix/relationships.md",
+        "size": 15433
+      },
+      {
+        "slug": "vol-18-appendix---sources",
+        "title": "منابع و اسناد",
+        "epigraph": "این آرشیو بر اساس سه نوع منبع نوشته شده:\n۱. آرشیوهای وب (مستند).\n۲. روایت شخصی نویسنده (حافظه).\n۳. ترکیب هر دو.",
+        "file": "18-appendix/sources.md",
+        "size": 15314
+      },
+      {
+        "slug": "vol-18-appendix---timeline",
+        "title": "خط زمانی جامع — ۱۳۹۰ تا ۱۴۰۵",
+        "epigraph": "این خط زمانی تلاشی است برای ثبت دقیق‌ترین تاریخ ممکن از جامعه جادوگری فارسی در اینترنت.\nبعضی تاریخ‌ها مستند هستند (از آرشیو وبلاگ‌ها و کانال‌ها).\nبعضی تاریخ‌ها از حافظه نویسنده هستند.\nو بعضی تاریخ‌ها تقریبی هستند.\nجایی که بین دو منبع تناقض باشد، ذکر شده.",
+        "file": "18-appendix/timeline.md",
+        "size": 28589
+      },
+      {
+        "slug": "vol-18-appendix---websites-map",
+        "title": "نقشه وب‌سایت‌ها و دامنه‌ها",
+        "epigraph": "فهرست کامل تمام دامنه‌ها، وبلاگ‌ها و پلتفرم‌هایی که در تاریخ جامعه جادوگری فارسی نقش داشته‌اند.\nوضعیت هر دامنه در زمان نگارش این آرشیو مشخص شده.\nتعداد کل دامنه‌ها و وبلاگ‌های مرتبط با این جامعه احتمالاً بیش از ۴۰ مورد بوده.\nبعضی وبلاگ‌های فرعی مجیا به تنهایی بیش از ۳۰ مورد بودند.",
+        "file": "18-appendix/websites-map.md",
+        "size": 17598
+      }
+    ]
+  }
+]

@@ -54,23 +54,30 @@
 }
 
 /* ── Base ── */
-html, body {
+html {
   font-family: 'Vazirmatn', -apple-system, BlinkMacSystemFont, sans-serif;
   background: var(--tg-bg);
   color: var(--tg-text);
   margin: 0;
   padding: 0;
   overflow-x: hidden;
+  overflow-y: auto;
   -webkit-overflow-scrolling: touch;
-  overscroll-behavior: none;
   -webkit-font-smoothing: antialiased;
 }
 
+body {
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
 /* Fix Telegram WebApp scroll */
-.TeleagramWebApp,
+.TelegramWebApp,
 .TelegramWebApp--nb {
   overflow-y: auto !important;
-  overscroll-behavior: none !important;
   -webkit-overflow-scrolling: touch !important;
 }
 
@@ -107,3 +114,81 @@ html { scrollbar-width: none; }
 .animate-slide-up { animation: slideUp 0.3s ease-out both; }
 .animate-fade-in { animation: fadeIn 0.35s ease-out both; }
 .animate-scale-in { animation: scaleIn 0.3s ease-out both; }
+
+/* ── Archive Typography ── */
+.archive-content h2 {
+  font-size: 1.1rem;
+  font-weight: 700;
+  margin-top: 2rem;
+  margin-bottom: 1rem;
+  color: var(--tg-text);
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid rgba(255,255,255,0.06);
+}
+
+.archive-content p {
+  font-size: 0.9rem;
+  line-height: 2;
+  margin-bottom: 1rem;
+  color: var(--tg-text);
+}
+
+.archive-content blockquote {
+  border-right: 3px solid var(--tg-button);
+  padding-right: 1rem;
+  margin: 1.5rem 0;
+  color: var(--tg-hint);
+  font-style: italic;
+}
+
+.archive-content ul, .archive-content ol {
+  padding-right: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+.archive-content li {
+  font-size: 0.875rem;
+  line-height: 2;
+  margin-bottom: 0.25rem;
+}
+
+.archive-content a {
+  color: var(--tg-link);
+  text-decoration: underline;
+}
+
+.archive-content code {
+  background: var(--tg-bg);
+  color: var(--tg-button);
+  padding: 2px 6px;
+  border-radius: 4px;
+  font-size: 0.8rem;
+}
+
+.archive-content hr {
+  border: none;
+  border-top: 1px solid rgba(255,255,255,0.06);
+  margin: 2rem 0;
+}
+
+.archive-content table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.8rem;
+  margin: 1rem 0;
+}
+
+.archive-content th {
+  text-align: right;
+  padding: 0.5rem 0.75rem;
+  font-weight: 700;
+  background: var(--tg-bg-secondary);
+  color: var(--tg-text);
+}
+
+.archive-content td {
+  text-align: right;
+  padding: 0.5rem 0.75rem;
+  border-top: 1px solid rgba(255,255,255,0.06);
+  color: var(--tg-text);
+}

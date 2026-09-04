@@ -80,12 +80,14 @@ export default function Home() {
             </Link>
 
             {/* Quick links */}
-            <div className="grid grid-cols-2 gap-2.5 mt-4">
+            <div className="grid grid-cols-3 gap-2 mt-4">
               {[
+                { href: '/archive', icon: 'menu_book', label: 'آرشیو تاریخی' },
+                { href: '/archive/characters', icon: 'groups', label: 'شخصیت‌ها' },
                 { href: '/bank', icon: 'account_balance', label: 'گرینگوتس' },
                 { href: '/classes', icon: 'science', label: 'کلاس‌ها' },
                 { href: '/departments', icon: 'corporate_fare', label: 'ادارات' },
-                { href: '/blog', icon: 'newspaper', label: 'آرشیو' },
+                { href: '/quiz', icon: 'quiz', label: 'کوییز' },
               ].map((link) => (
                 <Link key={link.href} href={link.href}
                   onClick={() => hapticFeedback('light')}
