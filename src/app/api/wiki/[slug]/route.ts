@@ -45,18 +45,13 @@ export async function PUT(req: NextRequest, context: { params: Promise<{ slug: s
     return NextResponse.json({ error: 'Missing required fields' }, { status: 400 });
   }
 
-  // Check lock
-  const [lock] = await db
+  // Check lock — allow save only if no lock or lock belongs to this user
+  const [existingLock] = await db
     .select()
     .from(editLocks)
-    .where(and(eq(editLocks.pageSlug, slug), eq(editLocks.userId, userId), gt(editLocks.expiresAt, new Date())));
+    .where(and(eq(editLocks.pageSlug, slug), gt(editLocks.expiresAt, new Date())));
 
-  const [otherLock] = await db
-    .select()
-    .from(editLocks)
-    .where(and(eq(editLocks.pageSlug, slug), eq(editLocks.userId, userId), gt(editLocks.expiresAt, new Date())));
-
-  if (otherLock && otherLock.userId !== userId) {
+  if (existingLock && existingLock.userId !== userId) {
     return NextResponse.json({ error: 'Page is locked by another user' }, { status: 409 });
   }
 
