@@ -1,0 +1,9 @@
+{
+  "mcpServers": {
+    "vezaratjadoo": {
+      "command": "npx",
+      "args": ["tsx", "mcp-server.ts"],
+      "cwd": "/Volumes/SADDISK/mjyb/persian-pottermore-quiz"
+    }
+  }
+}
