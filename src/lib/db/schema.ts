@@ -1,8 +1,8 @@
-import { pgTable, text, integer, timestamp, varchar, uniqueIndex } from 'drizzle-orm/pg-core';
+import { pgTable, text, integer, bigint, timestamp, varchar, uniqueIndex } from 'drizzle-orm/pg-core';
 
 export const users = pgTable('users', {
   id: integer('id').primaryKey().generatedAlwaysAsIdentity(),
-  telegramId: integer('telegram_id').unique().notNull(),
+  telegramId: bigint('telegram_id', { mode: 'number' }).unique().notNull(),
   firstName: text('first_name').notNull(),
   lastName: text('last_name'),
   username: text('username'),
@@ -26,7 +26,7 @@ export const wikiPages = pgTable('wiki_pages', {
 export const editHistory = pgTable('edit_history', {
   id: integer('id').primaryKey().generatedAlwaysAsIdentity(),
   pageSlug: text('page_slug').notNull().references(() => wikiPages.slug),
-  userId: integer('user_id').references(() => users.id),
+  userId: bigint('user_id', { mode: 'number' }).references(() => users.id),
   content: text('content').notNull(),
   summary: text('summary').default('').notNull(),
   createdAt: timestamp('created_at').defaultNow().notNull(),
@@ -34,7 +34,7 @@ export const editHistory = pgTable('edit_history', {
 
 export const editLocks = pgTable('edit_locks', {
   pageSlug: text('page_slug').primaryKey().references(() => wikiPages.slug),
-  userId: integer('user_id').references(() => users.id),
+  userId: bigint('user_id', { mode: 'number' }).references(() => users.id),
   lockedAt: timestamp('locked_at').defaultNow().notNull(),
   expiresAt: timestamp('expires_at').notNull(),
 });
