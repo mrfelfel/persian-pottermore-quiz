@@ -12,18 +12,18 @@ import Link from 'next/link';
 import NavBar from '@/components/NavBar';
 
 const HOUSES = [
-  { icon: 'shield', name: 'گریفیندور', color: '#ae0001' },
-  { icon: 'air', name: 'ریونکلاو', color: '#222f5b' },
-  { icon: 'fitness_center', name: 'هاگلپاف', color: '#ecb939' },
-  { icon: 'set_meal', name: 'اسلیترین', color: '#2a623d' },
+  { image: '/assets/house-gryffindor.svg', name: 'گریفیندور', color: '#ae0001' },
+  { image: '/assets/house-ravenclaw.svg', name: 'ریونکلاو', color: '#222f5b' },
+  { image: '/assets/house-hufflepuff.svg', name: 'هاگلپاف', color: '#ecb939' },
+  { image: '/assets/house-slytherin.svg', name: 'اسلیترین', color: '#2a623d' },
 ];
 
 const QUICK_LINKS = [
-  { href: '/library', icon: 'local_library', label: 'کتابخانه' },
-  { href: '/bank', icon: 'account_balance', label: 'گرینگوتس' },
-  { href: '/classes', icon: 'science', label: 'کلاس‌ها' },
-  { href: '/departments', icon: 'corporate_fare', label: 'ادارات' },
-  { href: '/quiz', icon: 'quiz', label: 'کوییز' },
+  { href: '/library', image: '/assets/pixel-scroll.svg', icon: 'local_library', label: 'کتابخانه' },
+  { href: '/bank', image: '/assets/pixel-coin.svg', icon: 'account_balance', label: 'گرینگوتس' },
+  { href: '/classes', image: '/assets/pixel-spell.svg', icon: 'science', label: 'کلاس‌ها' },
+  { href: '/departments', image: '/assets/pixel-shield.svg', icon: 'corporate_fare', label: 'ادارات' },
+  { href: '/quiz', image: '/assets/pixel-wizard.svg', icon: 'quiz', label: 'کوییز' },
 ];
 
 export default function Home() {
@@ -46,15 +46,14 @@ export default function Home() {
         <div className="animate-scale-in mb-6">
           <div className="relative">
             <div
-              className="absolute inset-0 rounded-full blur-xl opacity-30"
-              style={{ background: 'var(--tg-button)' }}
+              className="absolute inset-0 rounded-full blur-2xl opacity-40"
+              style={{ background: 'radial-gradient(circle, rgba(201,168,76,0.4) 0%, transparent 70%)' }}
             />
-            <span
-              className="material-symbols-outlined relative"
-              style={{ fontSize: '56px', color: 'var(--tg-button)' }}
-            >
-              magic_button
-            </span>
+            <img
+              src="/assets/logo-gold.png"
+              alt="وزارت سحر و جادو"
+              className="relative w-20 h-20 object-contain animate-float"
+            />
           </div>
         </div>
 
@@ -85,12 +84,10 @@ export default function Home() {
             >
               <CardContent className="flex items-center gap-3.5 px-4 py-4">
                 <div
-                  className="w-11 h-11 rounded-full flex items-center justify-center shrink-0"
-                  style={{ background: 'var(--tg-button)' }}
+                  className="w-11 h-11 rounded-full flex items-center justify-center shrink-0 overflow-hidden border-2"
+                  style={{ borderColor: 'rgba(201,168,76,0.3)', background: 'var(--tg-bg)' }}
                 >
-                  <span className="material-symbols-outlined text-white" style={{ fontSize: '22px' }}>
-                    person
-                  </span>
+                  <img src="/assets/pixel-wizard.svg" alt="" className="w-7 h-7" />
                 </div>
                 <div className="flex-1 min-w-0">
                   <div
@@ -108,12 +105,10 @@ export default function Home() {
                 </div>
                 <Badge
                   variant="secondary"
-                  className="shrink-0 border-0"
-                  style={{ background: 'var(--tg-button)', color: 'var(--tg-button-text)' }}
+                  className="shrink-0 border-0 text-gold-gradient font-bold"
+                  style={{ background: 'rgba(201,168,76,0.15)', color: '#c9a84c' }}
                 >
-                  <span className="material-symbols-outlined" style={{ fontSize: '14px' }}>
-                    bolt
-                  </span>
+                  <img src="/assets/pixel-crown.svg" alt="" className="w-3.5 h-3.5" style={{ filter: 'brightness(1.5)' }} />
                   فعال
                 </Badge>
               </CardContent>
@@ -122,10 +117,10 @@ export default function Home() {
             {/* Start button */}
             <Link href="/quiz" onClick={() => hapticFeedback('medium')} className="block">
               <Button
-                className="w-full h-auto py-4 text-[15px] font-semibold rounded-xl"
+                className="w-full h-auto py-4 text-[15px] font-semibold rounded-xl shimmer-gold"
                 size="lg"
               >
-                <span className="material-symbols-outlined">wand_stars</span>
+                <img src="/assets/pixel-wizard.svg" alt="" className="w-5 h-5" style={{ filter: 'invert(1)' }} />
                 گروه‌بندی هاگوارتز
               </Button>
             </Link>
@@ -139,16 +134,16 @@ export default function Home() {
                   onClick={() => hapticFeedback('light')}
                 >
                   <Card
-                    className="border-0 transition-all active:scale-[0.97] cursor-pointer h-full"
-                    style={{ background: 'var(--tg-bg-secondary)' }}
+                    className="border-ornate transition-all active:scale-[0.97] cursor-pointer h-full hover:border-[rgba(201,168,76,0.3)]"
+                    style={{ background: 'linear-gradient(145deg, #14121e, #1a1528)' }}
                   >
                     <CardContent className="flex flex-col items-center gap-1.5 px-2 py-3 text-center">
-                      <span
-                        className="material-symbols-outlined text-xl"
-                        style={{ color: 'var(--tg-button)' }}
-                      >
-                        {link.icon}
-                      </span>
+                      <img
+                        src={link.image}
+                        alt={link.label}
+                        className="w-7 h-7 object-contain"
+                        style={{ filter: 'brightness(1.2) saturate(1.2)' }}
+                      />
                       <span
                         className="text-[12px] font-medium leading-tight"
                         style={{ color: 'var(--tg-text)' }}
@@ -203,14 +198,14 @@ export default function Home() {
             </Card>
 
             <Button
-              className="w-full h-auto py-4 text-[15px] font-semibold rounded-xl"
+              className="w-full h-auto py-4 text-[15px] font-semibold rounded-xl shimmer-gold"
               size="lg"
               onClick={() => {
                 hapticFeedback('medium');
                 document.getElementById('tg-login')?.style.setProperty('display', 'block');
               }}
             >
-              <span className="material-symbols-outlined">login</span>
+              <img src="/assets/pixel-wizard.svg" alt="" className="w-5 h-5" style={{ filter: 'invert(1)' }} />
               ورود با تلگرام
             </Button>
 
@@ -240,16 +235,18 @@ export default function Home() {
           {HOUSES.map((h) => (
             <div
               key={h.name}
-              className="flex items-center gap-3 p-3.5 rounded-xl"
-              style={{ background: 'var(--tg-bg-secondary)' }}
+              className="flex items-center gap-3 p-3.5 rounded-xl border-ornate"
+              style={{ background: 'linear-gradient(145deg, #14121e, #1a1528)' }}
             >
-              <span className="material-symbols-outlined text-xl" style={{ color: h.color }}>
-                {h.icon}
-              </span>
+              <img
+                src={h.image}
+                alt={h.name}
+                className="w-10 h-10 object-contain"
+              />
               <Badge
                 variant="outline"
                 className="border-0 px-1.5 py-0.5 text-xs sm:text-sm font-medium"
-                style={{ color: h.color, background: `${h.color}15` }}
+                style={{ color: h.color, background: `${h.color}20` }}
               >
                 {h.name}
               </Badge>
