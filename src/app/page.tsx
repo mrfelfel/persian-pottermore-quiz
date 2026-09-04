@@ -82,8 +82,7 @@ export default function Home() {
             {/* Quick links */}
             <div className="grid grid-cols-3 gap-2 mt-4">
               {[
-                { href: '/archive', icon: 'menu_book', label: 'آرشیو تاریخی' },
-                { href: '/archive/characters', icon: 'groups', label: 'شخصیت‌ها' },
+                { href: '/library', icon: 'local_library', label: 'کتابخانه' },
                 { href: '/bank', icon: 'account_balance', label: 'گرینگوتس' },
                 { href: '/classes', icon: 'science', label: 'کلاس‌ها' },
                 { href: '/departments', icon: 'corporate_fare', label: 'ادارات' },
