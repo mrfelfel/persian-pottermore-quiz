@@ -2,41 +2,63 @@
 
 ## خلاصه پروژه
 
-این یک تلگرام مینی‌پ (PWA) هست که شامل:
+تلگرام مینی‌پ (PWA) شامل:
 - **کوییز** تعیین گروه هاگوارتز
 - **بانک گرینگوتس** با سیستم اقتصادی
 - **کلاس‌های جادویی** و **ادارات وزارت**
-- **آرشیو تاریخی** ویکی‌محور با ۱۶۳ فصل در ۱۶ جلد
+- **آرشیو تاریخی** ویکی‌محور با ۱۶۳ فصل در ۱۸ جلد
 - **بک‌اند** SQLite با API
 - **MCP Server** برای دسترسی AI
 
 ## اجرا
 
 ```bash
-npm run dev          # سرور توسعه
-npm run build        # بیلد + seed دیتابیس
-npm run db:seed      # فقط seed دیتابیس
-npm run archive:build # فقط بیلد آرشیو MD → JSON
+npm run dev          # سرور توسعه (localhost:3001)
+npm run build        # بیلد Next.js
+npm run db:seed      # بازسازی دیتابیس از فایل‌های MD
 ```
 
-سرور توسعه: http://localhost:3000
+## معماری داده
+
+**دیتابیس (SQLite) منبع حقیقت است.**
+
+```
+archive/*.md  ──→  db:seed  ──→  data/wiki.db  ──→  API routes  ──→  فرانت‌اند
+                                      ↑
+                              ویرایش ویکی (وب + MCP)
+```
+
+- `archive/` — فایل‌های MD اصلی (نسخه پشتیبان و منبع اولیه محتوا)
+- `data/wiki.db` — دیتابیس SQLite (منبع حقیقت اپلیکیشن)
+- `src/app/api/archive/` — API routes که مستقیماً از دیتابیس می‌خوانند
+- `src/lib/archive/db.ts` — لایه دسترسی به دیتابیس (پارس metadata از MD)
+- `mcp-server.ts` — سرور MCP برای دسترسی AI
 
 ## ساختار پروژه
 
 ```
 src/
-  app/           → صفحات Next.js (App Router)
-  components/    → کامپوننت‌ها (NavBar, WikiEditor, etc.)
+  app/
+    api/
+      archive/     → API routes (catalog, characters, timeline, chapter)
+      wiki/        → API ویکی (خواندن/ذخیره صفحات)
+    archive/       → صفحات آرشیو
+    bank/          → بانک گرینگوتس
+    classes/       → کلاس‌های جادویی
+    departments/   → ادارات وزارت
+    profile/       → شناسنامه
+    quiz/          → کوییز
+    result/        → نتیجه کوییز
+  components/      → کامپوننت‌ها (NavBar, WikiEditor, etc.)
   lib/
-    archive/     → داده آرشیو (catalog, types, data/*.json)
-    db/          → دیتابیس SQLite (schema, client)
-    wiki/        → سیستم ویکی (store, hooks)
-    ministry/    → سیستم وزارت (types, store, content)
-    twa.ts       → ابزارهای تلگرام
+    archive/       → داده آرشیو (db.ts, catalog.ts, types.ts)
+    db/            → دیتابیس SQLite (schema)
+    wiki/          → سیستم ویکی (store, hooks)
+    ministry/      → سیستم وزارت (types, store, content)
 
-archive/         → فایل‌های MD اصلی آرشیو (۱۶ جلد)
-scripts/         → اسکریپت‌ها (build-archive.mjs, seed-db.mjs)
-data/            → دیتابیس SQLite (gitignored)
+archive/         → فایل‌های MD اصلی آرشیو (۱۸ جلد)
+scripts/         → اسکریپت‌ها (seed-db.mjs)
+data/            → دیتابیس SQLite + بک‌آپ‌ها
 mcp-server.ts    → سرور MCP برای دسترسی AI
 ```
 
@@ -54,15 +76,18 @@ SQLite در `data/wiki.db` با ۴ جدول:
 
 | Route | Method | توضیح |
 |-------|--------|-------|
+| `/api/archive/catalog` | GET | فهرست جلدها و فصل‌ها |
+| `/api/archive/characters` | GET | لیست شخصیت‌ها |
+| `/api/archive/timeline` | GET | خط زمانی |
+| `/api/archive/chapter?slug=X` | GET | محتوای یک فصل |
 | `/api/auth/telegram` | POST | لاگین تلگرام |
-| `/api/wiki/[slug]` | GET/PUT | خواندن/ذخیره صفحه |
+| `/api/wiki/[slug]` | GET/PUT | خواندن/ذخیره صفحه ویکی |
 | `/api/wiki/lock` | POST/DELETE | قفل/آزادسازی |
 | `/api/wiki/history/[slug]` | GET | تاریخچه ادیت |
 
 ## MCP Server
 
-برای دسترسی AI به دیتابیس از `mcp-server.ts` استفاده کن.
-ابزارها: list_pages, get_page, save_page, search_pages, get_history, list_users, get_timeline, setup_admin
+`mcp-server.ts` — ابزارها: list_pages, get_page, save_page, search_pages, get_history, list_users, get_timeline, setup_admin
 
 برای فعال‌سازی در Claude Code:
 ```
@@ -74,7 +99,7 @@ claude config set mcpServers.vezaratjadoo.args '["tsx","mcp-server.ts"]'
 
 - GitHub: mrfelfel/persian-pottermore-quiz
 - Vercel: vezaratjadoo.vercel.app
-- Build command: `npm run build` (شامل archive build + seed + next build)
+- Build command: `npm run build`
 
 ## قوانین محتوا
 
@@ -89,7 +114,7 @@ claude config set mcpServers.vezaratjadoo.args '["tsx","mcp-server.ts"]'
 
 ## محتوای آرشیو
 
-- ۱۶ جلد + پرونده‌های ویژه + ضمیمه
+- ۱۸ جلد + پرونده‌های ویژه + ضمیمه
 - ۱۶۳ فصل در `archive/` (فایل‌های MD)
 - ۱۴ شخصیت در `archive/06-volume-6-characters/`
 - فهرست: `archive/INDEX.md`

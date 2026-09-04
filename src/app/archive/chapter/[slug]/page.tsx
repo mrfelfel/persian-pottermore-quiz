@@ -18,7 +18,7 @@ export default function ChapterPage() {
   const [loaded, setLoaded] = useState(false);
   const [chaptersData, setChaptersData] = useState<Record<string, Chapter>>({});
 
-  // Find chapter by matching slug (catalog uses simple slugs, chapters.json uses prefixed slugs)
+  // Find chapter by matching slug (catalog uses simple slugs, DB uses prefixed slugs)
   const staticChapter = useMemo(() => {
     if (chaptersData[slug]) return chaptersData[slug] as Chapter;
     // Try to find by prefix match
@@ -59,10 +59,27 @@ export default function ChapterPage() {
   }, [display]);
 
   useEffect(() => {
-    // Load chapters data dynamically
-    import('@/lib/archive/data/chapters.json').then((mod) => {
-      setChaptersData((mod as any).default || mod);
-    }).catch(() => {});
+    // Load chapter content from API
+    fetch(`/api/archive/chapter?slug=${encodeURIComponent(slug)}`)
+      .then(r => r.ok ? r.json() : null)
+      .then(data => {
+        if (data) {
+          setChaptersData(prev => ({
+            ...prev,
+            [slug]: {
+              slug,
+              title: data.title,
+              volume: data.volume || display?.volume || '',
+              volumeTitle: '',
+              epigraph: data.epigraph,
+              content: data.content,
+              sections: [],
+              size: data.content?.length || 0,
+            },
+          }));
+        }
+      })
+      .catch(() => {});
 
     ready().then(() => setLoaded(true));
     showBackButton(() => {

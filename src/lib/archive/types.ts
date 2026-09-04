@@ -9,8 +9,7 @@ export interface Volume {
 export interface ChapterSummary {
   slug: string;
   title: string;
-  epigraph: string;
-  file: string;
+  epigraph?: string;
   size: number;
 }
 
@@ -19,7 +18,7 @@ export interface Chapter {
   title: string;
   volume: string;
   volumeTitle: string;
-  epigraph: string;
+  epigraph?: string;
   content: string;
   sections: string[];
   size: number;
@@ -33,7 +32,6 @@ export interface Character {
   school: string;
   period: string;
   epigraph: string;
-  file: string;
   content: string;
   metadata?: Record<string, string>;
 }

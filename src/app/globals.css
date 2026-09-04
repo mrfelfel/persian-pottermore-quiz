@@ -54,38 +54,40 @@
 }
 
 /* ── Base ── */
-html {
-  font-family: 'Vazirmatn', -apple-system, BlinkMacSystemFont, sans-serif;
-  background: var(--tg-bg);
-  color: var(--tg-text);
-  margin: 0;
-  padding: 0;
-  overflow-x: hidden;
-  overflow-y: auto;
-  -webkit-overflow-scrolling: touch;
-  -webkit-font-smoothing: antialiased;
-}
+@layer base {
+  html {
+    font-family: 'Vazirmatn', -apple-system, BlinkMacSystemFont, sans-serif;
+    background: var(--tg-bg);
+    color: var(--tg-text);
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+    -webkit-font-smoothing: antialiased;
+  }
 
-body {
-  margin: 0;
-  padding: 0;
-  overflow-x: hidden;
-  overflow-y: auto;
-  -webkit-overflow-scrolling: touch;
-}
+  body {
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+  }
 
-/* Fix Telegram WebApp scroll */
-.TelegramWebApp,
-.TelegramWebApp--nb {
-  overflow-y: auto !important;
-  -webkit-overflow-scrolling: touch !important;
-}
+  /* Fix Telegram WebApp scroll */
+  .TelegramWebApp,
+  .TelegramWebApp--nb {
+    overflow-y: auto !important;
+    -webkit-overflow-scrolling: touch !important;
+  }
 
-* {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-  -webkit-tap-highlight-color: transparent;
+  * {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    -webkit-tap-highlight-color: transparent;
+  }
 }
 
 /* Hide scrollbar */
