@@ -17,9 +17,9 @@ export const wikiPages = pgTable('wiki_pages', {
   title: text('title').notNull(),
   content: text('content').default('').notNull(),
   volume: text('volume'),
-  createdBy: integer('created_by').references(() => users.id),
+  createdBy: bigint('created_by', { mode: 'number' }).references(() => users.id),
   createdAt: timestamp('created_at').defaultNow().notNull(),
-  updatedBy: integer('updated_by').references(() => users.id),
+  updatedBy: bigint('updated_by', { mode: 'number' }).references(() => users.id),
   updatedAt: timestamp('updated_at').defaultNow().notNull(),
 });
 
